@@ -1,0 +1,40 @@
+-- This file contains various configuration variables for Lunar Helper
+-- I would not recommend touching these unless you have to, since they
+-- should already set up correctly for this repository
+--
+-- For user-configurable configuration variables, see `config_user.txt`
+-- and `config_patches.txt`
+
+dir = ../..
+
+-- rom paths
+clean = clean.smc
+temp = temp.smc
+
+-- initial patch path, this BPS patch will be patched to the clean ROM before anything
+-- else happens during Lunar Helper's build process, the included BPS patch contains 
+-- various essential Lunar Magic hijacks that other tools/patches requires, as well 
+-- as SA-1 pack
+initial_patch = Other/initial_patch.bps
+
+-- tools
+gps_path = Tools/GPS/gps.exe
+pixi_path = Tools/PIXI/pixi.exe
+addmusick_path = Tools/AddmusicK/AddMusicK.exe
+uberasm_path = Tools/UberASMTool/UberASMTool.exe
+asar_path = Tools/Asar/asar.exe
+lm_path = Tools/LunarMagic/Lunar Magic.exe
+flips_path = Tools/FLIPS/flips.exe
+human_readable_map16_cli_path = Tools/HumanReadableMap16/human-readable-map16-cli.exe
+human_readable_map16_directory_path = Other/all_map16
+
+-- content
+levels = Levels
+shared_palette = Other/shared.pal
+map16 = Other/all.map16
+
+-- global_data is a BPS patch file, to be created by Lunar Helper, 
+-- that will hold the overworld, ex global animations, credits and title screen.
+-- You will work on these things from the built output ROM in Lunar Magic, 
+-- then use the "S - Save" option in Lunar Helper to save your changes to this BPS file so that they appear in your next build.
+global_data = Other/global_data.bps

@@ -1,0 +1,50 @@
+# Hack specific ignores
+# Ignore ROMs and various ROM build results
+*.smc
+*.sfc
+*.smc~
+*.bak
+*.msc
+*.dsc
+
+# Ignore all.map16 file since we're using a text-based map16 format
+other/all.map16
+
+# Ignore .srm since there's no reason to version control these
+*.srm
+
+# Ignore .zst savestate files ...
+*.zst
+# ... except the title moves save state if we're using it
+!Other/smwtitledemo.zst
+
+# Ignore automatically generated flips config file that seems useless
+flipscfg.bin
+
+# Ignore .spc files
+*.spc
+
+# Various AddmusicK ignores
+Tools/AddmusicK/stats/*
+Tools/AddmusicK/bin/*
+Tools/AddmusicK/asm/SNES/bin/*
+Tools/AddmusicK/asm/SNES/SongSampleList.asm
+Tools/AddmusicK/temp.asm
+Tools/AddmusicK/temp.bin
+
+# Ignore Lunar Magic restore folder
+/sysLMRestore
+
+# Ignore work subdir of uberasm tool
+Tools/UberASMTool/asm/work/*
+
+# Ignore some pixi generated files
+*.extmod
+*.mw2
+*.mwt
+*.s16
+*.ssc
+
+# Ignore Lunar Monitor log file(s)
+lunar_monitor_log.txt
+other/lunar_monitor_log.txt

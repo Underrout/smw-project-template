@@ -1,0 +1,7 @@
+-- Insert paths to patches you would like Lunar Helper to insert in this list
+-- i.e. if you have a `retry.asm` patch in your `Patches` folder, add 
+-- `Patches/retry.asm` to this list (without the ``)
+
+patches
+[
+]

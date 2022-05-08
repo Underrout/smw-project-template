@@ -1,0 +1,23 @@
+-- Name of the ROM Lunar Helper outputs after using its `Build` option, feel free 
+-- to change this name if you'd like
+output = hack.smc
+
+-- Name of the BPS patch Lunar Helper outputs after using its `Package` option, 
+-- feel free to change this name if you'd like
+package = hack.bps
+
+-- Uncomment this variable and place the .zst file at this path if you ever end up 
+-- using a .zst file with custom titlescreen movement
+-- title_moves = Other/smwtitledemo.zst
+
+-- test_level is a 3-digit hex value specifying the level number of a level that will be copied to the 3-digit level number
+-- specified by test_level_dest *only* when Lunar Helper's "T - Test" option is run
+-- test_level = 0A7
+-- test_level_dest = 105
+
+-- emulator and testing
+-- uncomment these two variables and change them to your emulator path(s) if you want to use the `T` and/or `R`
+-- options in Lunar Helper, note that you can use other emulators than Retroarch, just use the `retroarch_path` 
+-- variable and point it to your emulator of choice
+-- retroarch_path = C:\Users\user\AppData\Roaming\RetroArch\retroarch.exe
+-- retroarch_core = C:\Users\user\AppData\Roaming\RetroArch\cores\snes9x_libretro.dll
