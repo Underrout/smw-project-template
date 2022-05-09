@@ -24,6 +24,9 @@ flipscfg.bin
 # Ignore .spc files
 *.spc
 
+# Ignore PIXI config file that is recreated on each run
+Tools/PIXI/asm/config.asm
+
 # Various AddmusicK ignores
 Tools/AddmusicK/stats/*
 Tools/AddmusicK/bin/*
