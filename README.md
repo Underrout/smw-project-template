@@ -103,7 +103,7 @@ if needed, as well as ensuring that your ROM is built exactly the same way every
 your work fully reproducible.
 
 `Q` aka Quick Build on the other hand will also build your ROM, but it will attempt to use a previously 
-built ROM for the built, if one is available. This can save a lot of time in the long run, because 
+built ROM for the build, if one is available. This can save a lot of time in the long run, because 
 instead of applying all tools and inserting all resources from scratch, Lunar Helper will calculate 
 which tools and/or resources will have to be reapplied in order to update the ROM. You should still 
 always get functionally the same output ROM as if you had done a full rebuild from a clean ROM if you 
