@@ -10,6 +10,12 @@ package = hack.bps
 -- using a .zst file with custom titlescreen movement
 -- title_moves = Other/smwtitledemo.zst
 
+-- Optional config variables if you want to pass command line options to tools
+-- pixi_options = -d
+-- gps_options = -d
+-- addmusick_options = -v
+-- lm_level_import_flags = 0
+
 -- test_level is a 3-digit hex value specifying the level number of a level that will be copied to the 3-digit level number
 -- specified by test_level_dest *only* when Lunar Helper's "T - Test" option is run
 -- test_level = 0A7

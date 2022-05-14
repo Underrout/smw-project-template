@@ -1,4 +1,7 @@
 # Hack specific ignores
+# Ignore Lunar Helper/Monitor genereated hidden folder
+.lunar_helper
+
 # Ignore ROMs and various ROM build results
 *.smc
 *.sfc
