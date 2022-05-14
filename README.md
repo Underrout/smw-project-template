@@ -12,8 +12,8 @@ It contains all tools commonly used in hacking projects, alongside some that ena
 - GPS 1.4.3
 - PIXI 1.32
 - UberASMTool 1.4
-- Lunar Helper 1.2.1
-- Lunar Monitor 1.0.0
+- Lunar Helper 1.3.0-LMC
+- Lunar Monitor 1.1.0
 - Human Readable Map16 0.1.0
 
 In addition, it comes pre-patched with SA-1 Pack v1.40 and includes a handy `.gitignore` file that 
@@ -90,7 +90,7 @@ cause any trouble if you leave them in place.
 `Tools/LunarHelper/LunarHelper.exe` either by double-clicking on the file or starting it via the 
 command line.
 
-![](https://i.imgur.com/CFVYN0h.png)
+![](https://i.imgur.com/cUumGxL.png)
 
 You will be greeted by a minimal user interface. Here, you can press `B` on your keyboard to build your 
 hack. Lunar Helper will then apply all tools, insert graphics, levels, the overworld, etc. starting from 
@@ -102,8 +102,22 @@ This is highly useful because you always have a guarantee that your project can 
 if needed, as well as ensuring that your ROM is built exactly the same way every single time, making 
 your work fully reproducible.
 
-In the same menu, you can also press `P` to "package" your hack. This will first build your hack as 
-described above and then create a BPS patch from the output ROM, which you can then share with people or 
+`Q` aka Quick Build on the other hand will also build your ROM, but it will attempt to use a previously 
+built ROM for the built, if one is available. This can save a lot of time in the long run, because 
+instead of applying all tools and inserting all resources from scratch, Lunar Helper will calculate 
+which tools and/or resources will have to be reapplied in order to update the ROM. You should still 
+always get functionally the same output ROM as if you had done a full rebuild from a clean ROM if you 
+use Quick Build as long as you follow these guidelines:
+
+- Don't `incsrc` or `incbin` resources outside the respective tool's folder unless you put the imported 
+resources in the `Shared` folder (i.e. doing `incsrc "../../SomeFolder/some.asm"` from inside the 
+`Tools/PIXI` folder is bad, but doing `incsrc "../../Shared/some.asm"` or `incbin "PixiData/data.bin"` 
+is fine, because the first imports from the `Shared` folder and the second doesn't leave the `Tools/PIXI`
+folder)
+- Don't apply tools manually, just use Lunar Helper's Build or Quick Build functions
+
+In the same menu, you can also press `P` to "package" your hack. This will first build your hack from scratch 
+as described above and then create a BPS patch from the output ROM, which you can then share with people or 
 submit to sites hosting ROM hacks.
 
 `E` will open your ROM in the included Lunar Magic executable and can be a handy alternative to opening the 
@@ -188,7 +202,7 @@ to use Lunar Helper's `Build` option to insert everything from scratch.
 
 For example, to insert a sprite, I would add it to the `Tools/PIXI/sprites` folder, write an entry for 
 it in `Tools/PIXI/list.txt` and then build my ROM by running `Tools/LunarHelper/LunarHelper.exe` and 
-using the `Build` option.
+using the `Quick Build` or `Build` option.
 
 Note that you can keep Lunar Helper open while you're working on stuff so you don't 
 have to reopen it whenever you want to build your ROM.
@@ -245,8 +259,16 @@ generate during their insertion process to the `.gitignore` file.
 ### How to restore the project
 
 After you check out a specific commit/branch, just run Lunar Helper's Build option to build a ROM from the 
-currently checked out project state. Note that you will have to reload the built ROM in Lunar Magic if you already 
-had it open to see the changes.
+currently checked out project state. ~~Note that you will have to reload the built ROM in Lunar Magic if you already 
+had it open to see the changes.~~ As of Lunar Helper v1.3.0-LMC and Lunar Monitor v1.1.0, you no longer have to 
+manually reload your ROM after Lunar Helper rebuilds the ROM you have open in Lunar Magic.
+
+### Quick Build or Build?
+
+I would generally recommend using Quick Build when you're working on a commit and doing a clean Build from scratch 
+right before you're ready to commit your changes. This way you get the benefits of quicker build times while you're 
+working on things but also can be sure that what you've worked on can be reproduced exactly as it was using the 
+Build option later if you ever have to return to this exact commit. 
 
 ### Avoiding merge conflicts
 
