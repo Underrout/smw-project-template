@@ -30,7 +30,7 @@ for %%a in (%ASAR_JUNK%) do (del %ASAR_DIR%%%a)
 for %%a in (%ASAR_JUNK_DIR%) do (rmdir /S /Q %ASAR_DIR%%%a)
 
 :: Flips
-set FLIPS_JUNK="license.txt" "boring.zip" "src.zip"
+set FLIPS_JUNK="COPYING" "COPYING.gpl3" "src.zip"
 set FLIPS_DIR=%WORKING_DIR%Tools\FLIPS\
 
 for %%a in (%FLIPS_JUNK%) do (del %FLIPS_DIR%%%a)
