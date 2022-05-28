@@ -61,16 +61,34 @@ button at the top of this repository's GitHub page.
 ![](https://i.imgur.com/szo4eUX.png)
 
 Afterwards, simply give your repository a name and, optionally, a description. You can choose to make 
-the repository public for everyone to see or keep it private so only you can see it.
+the repository public for everyone to see or keep it private so only you can see it. I would recommend 
+keeping it private since re-distributing essentially any hacking resource (sprites, patches, blocks, etc.) 
+without a license is technically illegal. There is nothing technically preventing you from hosting a public 
+repository, but you would be doing so at your own risk.
 
 Now you can simply clone the repository to your local machine using `git clone` like you would 
 with any other repository!
 
-Once you've cloned the project, make sure to run the `init.bat` script in the root directory and commit 
-the changes right away, the script will download all the aforementioned tools and delete itself afterwards.
+Once you've cloned the project, make sure to run the `init.bat` script in the root directory. The script 
+will download all the aforementioned tools and delete itself afterwards. 
 
-The only thing left to do at this point is to delete the `REPLACE WITH 'clean.smc'` file in the root of 
-the project directory and to replace it with a **clean** Super Mario World ROM named `clean.smc`.
+After the script has completed, delete the `REPLACE WITH 'clean.smc'` file in the root of the project 
+directory and replace it with a **clean** Super Mario World ROM named `clean.smc`.
+
+You can now commit these changes with
+```
+git add .
+git commit -m "Initialize project"
+```
+or, if you want to get rid of the first commit that contains the 
+state of the repository before the initialization script has been run, you can do
+```
+git checkout --orphan temp main
+git add .
+git commit -m "Initial commit"
+git branch -M temp main
+git push -f
+```
 
 This should be sufficient to get you going, but you can configure a few more things if you want to in 
 `Tools/LunarHelper/config_user.txt`, such as the output ROM's/patch's name, emulator paths and 
