@@ -27,29 +27,53 @@ flipscfg.bin
 # Ignore .spc files
 *.spc
 
-# Ignore PIXI config file that is recreated on each run
+# GPS ignores
+Tools/GPS/shared.asm
+Tools/GPS/block_boilerplate.asm
+Tools/GPS/__banks.bin
+Tools/GPS/__pointers_1.bin
+Tools/GPS/__acts_likes_1.bin
+Tools/GPS/__temp_settings.bin
+
+# PIXI ignores
 Tools/PIXI/asm/config.asm
+Tools/PIXI/asm/_versionflag.bin
+Tools/PIXI/asm/_DefaultTables.bin
+Tools/PIXI/asm/_CustomStatusPtr.bin
+Tools/PIXI/asm/_ClusterPtr.bin
+Tools/PIXI/asm/_ExtendedPtr.bin
+Tools/PIXI/asm/_ExtendedCapePtr.bin
+Tools/PIXI/asm/_CustomSize.bin
+shared.asm
+spr_temp.asm
+*.extmod
+*.mw2
+*.mwt
+*.s16
+*.ssc
 
 # Various AddmusicK ignores
 Tools/AddmusicK/stats/*
 Tools/AddmusicK/bin/*
 Tools/AddmusicK/asm/SNES/bin/*
 Tools/AddmusicK/asm/SNES/SongSampleList.asm
+Tools/AddmusicK/asm/SFX1DF9Table.bin
+Tools/AddmusicK/asm/SFX1DFCTable.bin
+Tools/AddmusicK/asm/SFXData.bin
+Tools/AddmusicK/asm/tempmain.asm
+Tools/Addmusick/asm/SNES/temppatch.asm
 Tools/AddmusicK/temp.asm
 Tools/AddmusicK/temp.bin
+Tools/AddmusicK/temp.txt
+Tools/AddmusicK/temp.log
+Tools/AddmusicK/asm/main.bin
+
+# UberASM ignores
+Tools/UberASMTool/asm/work/*
+Tools/UberASMTool/**/__temp.asm
 
 # Ignore Lunar Magic restore folder
 /sysLMRestore
-
-# Ignore work subdir of uberasm tool
-Tools/UberASMTool/asm/work/*
-
-# Ignore some pixi generated files
-*.extmod
-*.mw2
-*.mwt
-*.s16
-*.ssc
 
 # Ignore Lunar Monitor log file(s)
 lunar_monitor_log.txt
