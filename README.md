@@ -133,6 +133,7 @@ resources in the `Shared` folder (i.e. doing `incsrc "../../SomeFolder/some.asm"
 is fine, because the first imports from the `Shared` folder and the second doesn't leave the `Tools/PIXI`
 folder)
 - Don't apply tools manually, just use Lunar Helper's Build or Quick Build functions
+- All patches include only resources from the `Shared` folder or none at all
 
 In the same menu, you can also press `P` to "package" your hack. This will first build your hack from scratch 
 as described above and then create a BPS patch from the output ROM, which you can then share with people or 
