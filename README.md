@@ -12,9 +12,9 @@ It contains all tools commonly used in hacking projects, alongside some that ena
 - GPS 1.4.3
 - PIXI 1.32
 - UberASMTool 1.4
-- Lunar Helper 1.3.0-LMC
+- Lunar Helper 1.4.0-LMC
 - Lunar Monitor 1.2.2
-- Human Readable Map16 0.1.1
+- Human Readable Map16 0.2.0
 
 In addition, it comes pre-patched with SA-1 Pack v1.40 and includes a handy `.gitignore` file that 
 contains ignore rules for common build artifacts.
