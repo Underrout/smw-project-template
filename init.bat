@@ -1,3 +1,6 @@
+set WORKING_DIR=%~sdp0
+set WORKING_DIR=%WORKING_DIR:!=^^!%
+
 :: AddmusicK
 set AMK_DL="https://dl.smwcentral.net/24994/AddmusicK_1.0.8.zip"
 set AMK_ZIP="AddmusicK_1.0.8.zip"
