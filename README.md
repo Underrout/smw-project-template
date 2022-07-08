@@ -12,7 +12,7 @@ It contains all tools commonly used in hacking projects, alongside some that ena
 - GPS 1.4.3
 - PIXI 1.32
 - UberASMTool 1.4
-- Lunar Helper 1.4.0-LMC
+- Lunar Helper 1.5.0-LMC
 - Lunar Monitor 1.2.2
 - Human Readable Map16 0.2.0
 
