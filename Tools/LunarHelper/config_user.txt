@@ -10,8 +10,8 @@ package = hack.bps
 -- using a .zst file with custom titlescreen movement
 -- title_moves = Other/smwtitledemo.zst
 
--- Optional config variables if you want to pass command line options to tools
--- pixi_options = -d
+-- Config variables if you want to pass command line options to tools
+pixi_options = -l Tools/PIXI/list.txt
 -- gps_options = -d
 -- addmusick_options = -v
 -- uberasm_options = my_list.txt
@@ -22,9 +22,12 @@ package = hack.bps
 -- test_level = 0A7
 -- test_level_dest = 105
 
--- emulator and testing
--- uncomment these two variables and change them to your emulator path(s) if you want to use the `T` and/or `R`
--- options in Lunar Helper, note that you can use other emulators than Retroarch, just use the `retroarch_path` 
--- variable and point it to your emulator of choice
--- retroarch_path = C:\Users\user\AppData\Roaming\RetroArch\retroarch.exe
--- retroarch_core = C:\Users\user\AppData\Roaming\RetroArch\cores\snes9x_libretro.dll
+-- emulator settings
+-- you can set emulator_path to an emulator of your choosing that will be used
+-- to run your ROM if you use the Test or Run functions from Lunar Helper's menu
+emulator_path = C:\Users\user\AppData\Roaming\RetroArch\retroarch.exe
+
+-- you can uncomment emulator_options and pass command line arguments to your configured
+-- emulator, if you're using retroarch, you should change the path after the "-L" to 
+-- match your core of choice
+-- emulator_options = -L C:\Users\user\AppData\Roaming\RetroArch\cores\snes9x_libretro.dll

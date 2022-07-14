@@ -28,8 +28,6 @@ flips_path = Tools/FLIPS/flips.exe
 human_readable_map16_cli_path = Tools/HumanReadableMap16/human-readable-map16-cli.exe
 human_readable_map16_directory_path = Other/all_map16
 
-shared_folder = Shared
-
 -- content
 levels = Levels
 shared_palette = Other/shared.pal
