@@ -53,6 +53,10 @@ your title screen movement save state if you're using one.
 There are also `_gitkeep` files in a few directories that you can safely remove, 
 though they should not cause any trouble if they're kept in place. 
 
+If you want to get rid of the warnings about arbitrary dependencies when using Quick Build, 
+go into `Tools/UberASMTool/other/macro_library.asm` and remove the `prot_file` and `prot_source` macros
+(or comment them out).
+
 ## With GitHub and git
 
 To create a new repository from this template using GitHub and git, first click the `Use this template`
@@ -99,6 +103,10 @@ so that git tracks the directory they are contained in, since git will not track
 contain at least one file. If you want to, you can safely remove these files once doing so won't lead to 
 the containing directories being empty and thus no longer being tracked by git, though they shouldn't 
 cause any trouble if you leave them in place.
+
+If you want to get rid of the warnings about arbitrary dependencies when using Quick Build, 
+go into `Tools/UberASMTool/other/macro_library.asm` and remove the `prot_file` and `prot_source` macros
+(or comment them out).
 
 # Usage
 
