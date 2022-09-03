@@ -37,3 +37,10 @@ emulator_path = C:\Users\user\AppData\Roaming\RetroArch\retroarch.exe
 -- note that for this to work, you have to launch your emulator using Lunar Helper, it won't work
 -- if you're starting it from anywhere else
 -- reload_emulator_after_build = yes
+
+-- you can uncomment this config variable to stop Lunar Helper from warning you about arbitrary 
+-- dependencies after a build, arbitrary dependencies will result in your quick build taking 
+-- slightly longer than may be necessary, but should not cause any problems, so you can ignore
+-- them if you want, though in most cases they should be easy enough to convert to dependencies
+-- that Lunar Helper can understand
+-- suppress_arbitrary_dependency_warning = yes
