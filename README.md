@@ -12,7 +12,7 @@ It contains all tools commonly used in hacking projects, alongside some that ena
 - GPS 1.4.3
 - PIXI 1.32
 - UberASMTool 1.4
-- Lunar Helper 2.2.1
+- Lunar Helper 2.3.0
 - Lunar Monitor 1.2.3
 - Human Readable Map16 0.2.0
 
@@ -95,8 +95,12 @@ git push -f
 ```
 
 This should be sufficient to get you going, but you can configure a few more things if you want to in 
-`Tools/LunarHelper/config_user.txt`, such as the output ROM's/patch's name, emulator paths and 
-your title screen movement save state if you're using one.
+`Tools/LunarHelper/config_user.txt`, such as the output ROM's/patch's name and 
+your title screen movement save state if you're using one. Furthermore, you can configure different 
+emulators for your `Debug` and `Release` profiles in `Tools/LunarHelper/default_profile_Release/config_emulator.txt`
+and `Tools/LunarHelper/profile_Debug/config_debugger.txt` respectively, as well as insert additional 
+patches when you're in the `Debug` profile in `Tools/LunarHelper/profile_Debug/config_debug_patches.txt`, but 
+this is entirely optional.
 
 There are also `_gitkeep` files in a few directories. These are there 
 so that git tracks the directory they are contained in, since git will not track directories unless they 
@@ -116,7 +120,7 @@ go into `Tools/UberASMTool/other/macro_library.asm` and remove the `prot_file` a
 `Tools/LunarHelper/LunarHelper.exe` either by double-clicking on the file or starting it via the 
 command line.
 
-![](https://i.imgur.com/cUumGxL.png)
+![](https://i.imgur.com/hjU2A62.png)
 
 You will be greeted by a minimal user interface. Here, you can press `B` on your keyboard to build your 
 hack. Lunar Helper will then apply all tools, insert graphics, levels, the overworld, etc. starting from 
@@ -152,8 +156,14 @@ ROM in Lunar Magic manually.
 
 There is also an `H` option which shows a short explanation for each of the menu options. Options `R` and 
 `T` will not work right off the bat and require a little further configuration on your part. If you want 
-to use these two options, have a look at the bottom of `Tools/LunarHelper/config_user.txt` to configure an 
-emulator path.
+to use these two options, have a look at the bottom of `Tools/LunarHelper/default_profile_Release/config_emulator.txt`
+and `Tools/LunarHelper/profile_Debug/config_debugger.txt` to configure emulator paths.
+
+The `S` option lets you switch between different profiles. Right now, you just have a `Debug` and `Release`
+profile, you can see your current profile in Lunar Helper's menu. The only difference between them at the 
+moment is that you can configure each of them to launch a different emulator as well as insert additional 
+patches when building with the `Debug` profile (i.e. to insert debug cheats). You can edit, add or remove as well
+as rename profiles, but you may have to consult Lunar Helper's readme file (should be available on SMWC).
 
 ## Editing levels, overworld, etc.
 
