@@ -1,0 +1,7 @@
+-- Add patches to the list below if you want to insert additional
+-- patches when you're building in the Debug profile to help you
+-- find bugs or figure out what's wrong
+
+patches
+[
+]

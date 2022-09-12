@@ -1,0 +1,9 @@
+-- you can uncomment the emulator_path variable and set the path to 
+-- the path of your debugger, if you want to use a debugger instead of a
+-- traditional emulator in the debug profile
+-- emulator_path = C:\Users\Documents\Hacks\Emulators\Mesen-S.exe
+
+-- you can uncomment emulator_options and pass command line arguments to your configured
+-- emulator, if you're using retroarch, you should change the path after the "-L" to 
+-- match your core of choice
+-- emulator_options = -L C:\Users\user\AppData\Roaming\RetroArch\cores\snes9x_libretro.dll
