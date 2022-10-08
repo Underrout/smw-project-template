@@ -135,24 +135,18 @@ your work fully reproducible.
 `Q` aka Quick Build on the other hand will also build your ROM, but it will attempt to use a previously 
 built ROM for the build, if one is available. This can save a lot of time in the long run, because 
 instead of applying all tools and inserting all resources from scratch, Lunar Helper will calculate 
-which tools and/or resources will have to be reapplied in order to update the ROM. You should still 
-always get functionally the same output ROM as if you had done a full rebuild from a clean ROM if you 
-use Quick Build as long as you follow these guidelines:
-
-- Don't `incsrc` or `incbin` resources outside the respective tool's folder unless you put the imported 
-resources in the `Shared` folder (i.e. doing `incsrc "../../SomeFolder/some.asm"` from inside the 
-`Tools/PIXI` folder is bad, but doing `incsrc "../../Shared/some.asm"` or `incbin "PixiData/data.bin"` 
-is fine, because the first imports from the `Shared` folder and the second doesn't leave the `Tools/PIXI`
-folder)
-- Don't apply tools manually, just use Lunar Helper's Build or Quick Build functions
-- All patches include only resources from the `Shared` folder or none at all
+which tools and/or resources will have to be reapplied in order to update the ROM. You should normally
+get functionally the same output ROM as if you had done a full rebuild from a clean ROM, but if it seems
+like something in your hack isn't working right after doing a Quick Build, I would recommend doing a full
+rebuild using the `B` option, as it's not completely impossible that the problem could be caused by Quick Build.
 
 In the same menu, you can also press `P` to "package" your hack. This will first build your hack from scratch 
 as described above and then create a BPS patch from the output ROM, which you can then share with people or 
 submit to sites hosting ROM hacks.
 
 `E` will open your ROM in the included Lunar Magic executable and can be a handy alternative to opening the 
-ROM in Lunar Magic manually.
+ROM in Lunar Magic manually. It also ensures you actually use the correct Lunar Magic version that is injected
+with Lunar Monitor, which is somewhat important.
 
 There is also an `H` option which shows a short explanation for each of the menu options. Options `R` and 
 `T` will not work right off the bat and require a little further configuration on your part. If you want 
@@ -234,8 +228,8 @@ The relevant folders for music, sprites, blocks and UberASM respectively are:
 - `Tools/GPS`
 - `Tools/UberASMTool`
 
-You can use any of these tools on your built ROM directly if you want to, though it is generally cleaner 
-to use Lunar Helper's `Build` option to insert everything from scratch. 
+You can use any of these tools on your built ROM directly if you really want to, though it is not recommended, 
+since this will cause Lunar Helper's Quick Build function to not work reliably.
 
 For example, to insert a sprite, I would add it to the `Tools/PIXI/sprites` folder, write an entry for 
 it in `Tools/PIXI/list.txt` and then build my ROM by running `Tools/LunarHelper/LunarHelper.exe` and 
@@ -243,11 +237,6 @@ using the `Quick Build` or `Build` option.
 
 Note that you can keep Lunar Helper open while you're working on stuff so you don't 
 have to reopen it whenever you want to build your ROM.
-
-**Note that if UberASMTool runs into an error during Lunar Helper's Build process, Lunar Helper
-will currently not terminate the Build process and act like the Build succeeded erroneously.
-This is due to UberASMTool always indicating success upon exit, even if there were errors 
-during its insertion process. This may be remedied in a future version of UberASMTool.**
 
 ## Using git (optional)
 
@@ -296,9 +285,7 @@ generate during their insertion process to the `.gitignore` file.
 ### How to restore the project
 
 After you check out a specific commit/branch, just run Lunar Helper's Build option to build a ROM from the 
-currently checked out project state. ~~Note that you will have to reload the built ROM in Lunar Magic if you already 
-had it open to see the changes.~~ As of Lunar Helper v1.3.0-LMC and Lunar Monitor v1.1.0, you no longer have to 
-manually reload your ROM after Lunar Helper rebuilds the ROM you have open in Lunar Magic.
+currently checked out project state.
 
 ### Quick Build or Build?
 
