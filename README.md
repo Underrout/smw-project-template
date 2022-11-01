@@ -5,14 +5,14 @@ though it can also be used just fine without git.
 
 It contains all tools commonly used in hacking projects, alongside some that enable a more automated workflow, namely:
 
-- Lunar Magic 3.30
+- Lunar Magic 3.33
 - AddmusicK 1.0.8
 - Asar 1.81
 - FLIPS
 - GPS 1.4.3
 - PIXI 1.32
-- UberASMTool 1.4
-- Lunar Helper 2.5.0
+- UberASMTool 1.5
+- Lunar Helper 3.0.0
 - Lunar Monitor 1.4.0
 - Human Readable Map16 0.2.0
 
@@ -237,6 +237,10 @@ using the `Quick Build` or `Build` option.
 
 Note that you can keep Lunar Helper open while you're working on stuff so you don't 
 have to reopen it whenever you want to build your ROM.
+
+## Advanced Lunar Helper features
+
+For advanced Lunar Helper features, feel free to consult `Tools/LunarHelper/README.md`.
 
 ## Using git (optional)
 
