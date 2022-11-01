@@ -65,8 +65,8 @@ for %%a in (%PIXI_JUNK%) do (del %PIXI_DIR%%%a)
 copy /y NUL %PIXI_DIR%list.txt
 
 :: UberASM Tool
-set UBER_DL="https://dl.smwcentral.net/19982/UberASMTool14.zip"
-set UBER_ZIP="UberASMTool14.zip"
+set UBER_DL="https://dl.smwcentral.net/28974/UberASMTool15.zip"
+set UBER_ZIP="UberASMTool15.zip"
 set UBER_JUNK="readme.txt" "readme - library.txt"
 set UBER_DIR=%WORKING_DIR%Tools\UberASMTool\
 
@@ -75,6 +75,9 @@ powershell Expand-Archive %UBER_ZIP% -DestinationPath %UBER_DIR% >NUL
 :: Delete junk files
 del %WORKING_DIR%%UBER_ZIP%
 for %%a in (%UBER_JUNK%) do (del %UBER_DIR%%%a)
+
+del %WORKING_DIR%Tools\UberASMTool\list.txt
+ren %WORKING_DIR%Tools\UberASMTool\fixed_list.txt list.txt
 
 del %WORKING_DIR%Tools\HumanReadableMap16\LICENSE
 del %WORKING_DIR%Tools\LunarHelper\LICENSE
