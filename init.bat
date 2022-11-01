@@ -39,8 +39,8 @@ for %%a in (%GPS_JUNK%) do (del %GPS_DIR%%%a)
 copy /y NUL %GPS_DIR%list.txt
 
 :: Lunar Magic
-set LM_DL="https://dl.smwcentral.net/26916/lm330.zip"
-set LM_ZIP="lm330.zip"
+set LM_DL="https://dl.smwcentral.net/32211/lm333.zip"
+set LM_ZIP="lm333.zip"
 set LM_JUNK="readme.txt" "Lunar Magic.chm"
 set LM_DIR=%WORKING_DIR%Tools\LunarMagic\
 
