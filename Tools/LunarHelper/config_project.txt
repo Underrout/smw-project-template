@@ -1,0 +1,18 @@
+-- Uncomment this variable and place the .zst file at this path if you ever end up 
+-- using a .zst file with custom titlescreen movement
+-- title_moves = Other/smwtitledemo.zst
+
+-- Config variables if you want to pass command line options to tools
+pixi_options = -l Tools/PIXI/list.txt
+-- gps_options = -d
+-- addmusick_options = -v
+-- uberasm_options = my_list.txt
+-- lm_level_import_flags = 0
+
+-- test_level is a 3-digit hex value specifying the level number of a level that will be copied to the 3-digit level number
+-- specified by test_level_dest *only* when Lunar Helper's "T - Test" option is run
+-- test_level = 0A7
+-- test_level_dest = 105
+
+-- Uncomment this if you want to use globules, see the readme for details on what those are
+-- globules_path = Globules

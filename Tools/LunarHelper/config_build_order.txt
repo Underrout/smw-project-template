@@ -12,6 +12,10 @@
 -- this patch will then be inserted at that step instead of being
 -- applied at the same time as the other Patches
 
+-- This default build order is completely vanilla, to insert
+-- any of the included tools, just uncomment the tool's entry
+-- in the build order
+
 build_order
 [
     Graphics                -- Insert standard GFX
@@ -23,17 +27,18 @@ build_order
     SharedPalettes          -- Insert Shared Palettes 
     GlobalData              -- Insert Overworld, Title Screen and Credits 
 
-    Patches                 -- Insert all remaining patches from the patches list that 
+--  Patches                 -- Insert all remaining patches from the patches list that 
                             -- are not explicitly mentioned in this build order
 
-    PIXI                    -- Insert custom sprites
+--  PIXI                    -- Insert custom sprites
     Levels                  -- Insert all levels
 
---  PIXI                    -- Uncomment this if you're using Lunar Magic 3.31 or higher
+--  PIXI                    -- Uncomment this if you're using Lunar Magic 3.31 or higher 
+                            -- (the init script downloads Lunar Magic 3.33 by default)
 
-    AddMusicK               -- Insert custom music
-    GPS                     -- Insert custom blocks
-    UberASM                 -- Insert UberASM code
+--  AddMusicK               -- Insert custom music
+--  GPS                     -- Insert custom blocks
+--  UberASM                 -- Insert UberASM code
 
 --  Patches/some_patch.asm  -- Example of inserting a specific patch at a different time
 ]
