@@ -18,20 +18,6 @@ del %WORKING_DIR%%AMK_ZIP%
 for %%a in (%AMK_JUNK%) do (del %AMK_DIR%%%a)
 for %%a in (%AMK_JUNK_DIR%) do (rmdir /S /Q %AMK_DIR%%%a)
 
-:: Asar
-set ASAR_DL="https://dl.smwcentral.net/25953/asar181.zip"
-set ASAR_ZIP="asar181.zip"
-set ASAR_JUNK="LICENSE" "license-lgpl.txt" "license-gpl.txt" "license-wtfpl.txt" "README.txt"
-set ASAR_JUNK_DIR="ext" "dll" "docs"
-set ASAR_DIR=%WORKING_DIR%Tools\Asar\
-
-powershell Invoke-WebRequest %ASAR_DL% -OutFile %ASAR_ZIP% >NUL
-powershell Expand-Archive %ASAR_ZIP% -DestinationPath %ASAR_DIR% >NUL
-:: Delete junk files
-del %WORKING_DIR%%ASAR_ZIP%
-for %%a in (%ASAR_JUNK%) do (del %ASAR_DIR%%%a)
-for %%a in (%ASAR_JUNK_DIR%) do (rmdir /S /Q %ASAR_DIR%%%a)
-
 :: Flips
 set FLIPS_JUNK="COPYING" "COPYING.gpl3" "src.zip"
 set FLIPS_DIR=%WORKING_DIR%Tools\FLIPS\
@@ -92,6 +78,7 @@ for %%a in (%UBER_JUNK%) do (del %UBER_DIR%%%a)
 
 del %WORKING_DIR%Tools\HumanReadableMap16\LICENSE
 del %WORKING_DIR%Tools\LunarHelper\LICENSE
+del %WORKING_DIR%Tools\LunarHelper\ASAR_LICENSE
 del %WORKING_DIR%Tools\LunarMagic\LICENSE
 
 copy /y NUL %UBER_DIR%gamemode\_gitkeep
