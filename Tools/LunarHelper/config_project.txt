@@ -9,10 +9,5 @@ pixi_options = -l Tools/PIXI/list.txt
 -- uberasm_options = my_list.txt
 -- lm_level_import_flags = 0
 
--- test_level is a 3-digit hex value specifying the level number of a level that will be copied to the 3-digit level number
--- specified by test_level_dest *only* when Lunar Helper's "T - Test" option is run
--- test_level = 0A7
--- test_level_dest = 105
-
 -- Uncomment this if you want to use globules, see the readme for details on what those are
 -- globules_path = Globules
