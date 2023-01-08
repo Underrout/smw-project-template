@@ -157,7 +157,9 @@ The `S` option lets you switch between different profiles. Right now, you just h
 profile, you can see your current profile in Lunar Helper's menu. The only difference between them at the 
 moment is that you can configure each of them to launch a different emulator as well as insert additional 
 patches when building with the `Debug` profile (i.e. to insert debug cheats). You can edit, add or remove as well
-as rename profiles, but you may have to consult Lunar Helper's readme file (should be available on SMWC).
+as rename profiles.
+
+For details on anything related to Lunar Helper and Lunar Monitor, feel free to checkout the [extensive wiki](https://github.com/Underrout/LunarHelper/wiki).
 
 ## Editing levels, overworld, etc.
 
