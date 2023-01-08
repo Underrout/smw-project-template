@@ -1,7 +1,10 @@
 # Automated Super Mario World Project Template
 
-This repository is a template for Super Mario World hacking projects focused on automation and git compatibility, 
+This repository is a template or "baserom" for Super Mario World hacking projects focused on automation and git compatibility, 
 though it can also be used just fine without git.
+
+The template is completely style-agnostic, as it includes no resources, but only tools. The point is to provide a 
+convenient template that can be used for *any* hack.
 
 It contains all tools commonly used in hacking projects, alongside some that enable a more automated workflow, namely:
 
@@ -12,8 +15,7 @@ It contains all tools commonly used in hacking projects, alongside some that ena
 - GPS 1.4.3
 - PIXI 1.32
 - UberASMTool 1.5
-- Lunar Helper 3.0.0
-- Lunar Monitor 1.4.0
+- Lunar Helper & Lunar Monitor 4.0.0
 - Human Readable Map16 0.2.0
 
 In addition, it comes pre-patched with SA-1 Pack v1.40 and includes a handy `.gitignore` file that 
