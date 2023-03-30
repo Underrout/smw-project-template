@@ -65,8 +65,8 @@ for %%a in (%PIXI_JUNK%) do (del %PIXI_DIR%%%a)
 copy /y NUL %PIXI_DIR%list.txt
 
 :: UberASM Tool
-set UBER_DL="https://dl.smwcentral.net/28974/UberASMTool15.zip"
-set UBER_ZIP="UberASMTool15.zip"
+set UBER_DL="https://dl.smwcentral.net/19982/UberASMTool14.zip"
+set UBER_ZIP="UberASMTool14.zip"
 set UBER_JUNK="readme.txt" "readme - library.txt"
 set UBER_DIR=%WORKING_DIR%Tools\UberASMTool\
 
