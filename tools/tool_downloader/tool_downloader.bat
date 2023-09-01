@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 REM Set the script's directory as the base path
-set "basePath=%~dp0..\.."
+set "basePath=%~sdp0..\.."
 
 REM Parameters for ExtractAndProcess
 set "downloadURL=https://dl.smwcentral.net/31558/"
