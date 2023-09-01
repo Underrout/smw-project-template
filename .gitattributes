@@ -1,0 +1,4 @@
+# Set -text for cmd.exe scripts, as a global configuration of "* text=auto"
+#   can put a LF file into the git index
+*.bat -text
+*.cmd -text
