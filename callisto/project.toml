@@ -9,9 +9,6 @@
 # Path for the output ROM
 output_rom = "build/{project_name}.smc"
 
-# Path to temporary folder used during builds
-temporary_folder = "build/temp"
-
 # Path for BPS package output by the Package function
 bps_package = "build/package/{project_name}.bps"
 
