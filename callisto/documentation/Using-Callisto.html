@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="pandoc" name="generator"/>
+  <title>
+   Using Callisto
+  </title>
+  <!-- Bootstrap -->
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
+  <!-- Font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <!-- Styles -->
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="callisto1.ico" rel="shortcut icon" type="image/x-icon">
+  </link>
+ </head>
+ <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.4">
+    Callisto
+    <small>
+     v0.2.4
+    </small>
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="Home.html">
+       Home
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+       Sections
+      </a>
+      <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+       <a class="dropdown-item" href="Callisto-Setup-(new-project).html">
+        Callisto Setup (new project)
+       </a>
+       <a class="dropdown-item" href="Callisto-Setup-(preexisting-project).html">
+        Callisto Setup (preexisting project)
+       </a>
+       <a class="dropdown-item" href="Using-Callisto.html">
+        Using Callisto
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Advanced-Topics.html">
+        Advanced Topics
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Frequently-Asked-Questions.html">
+        FAQ
+       </a>
+      </div>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container">
+   <h1 class="display-4">
+    Using Callisto
+   </h1>
+   <div class="row">
+    <div class="col-xl-10">
+     <p>
+      Now that you have successfully set
+up Callisto, it is time to actually
+      <em>
+       use
+      </em>
+      it.
+     </p>
+     <p>
+      You have already seen Callisto’s main menu, which is where all
+functions it can perform are freely available from.
+     </p>
+     <p>
+      We will now briefly go through each of them.
+     </p>
+     <h1 id="rebuild">
+      <code>
+       Rebuild
+      </code>
+     </h1>
+     <p>
+      You have already used
+      <code>
+       Rebuild
+      </code>
+      , what it does is:
+     </p>
+     <ul>
+      <li>
+       ensure that there are no unsaved resources in your
+       <code>
+        output_rom
+       </code>
+       (otherwise, it prompts you to save first)
+      </li>
+      <li>
+       make a copy of your
+       <code>
+        clean_rom
+       </code>
+       in the
+       <code>
+        temporary_folder
+       </code>
+      </li>
+      <li>
+       apply all steps of the
+       <code>
+        build_order
+       </code>
+       to the temporary
+ROM
+      </li>
+      <li>
+       report any errors
+      </li>
+      <li>
+       if there are none, rename the temporary ROM to the
+       <code>
+        output_rom
+       </code>
+       , write a build report and report any detected
+conflicts between resources
+      </li>
+     </ul>
+     <p>
+      That’s all
+      <code>
+       Rebuild
+      </code>
+      does! You might already have noticed
+that it is pretty slow, but it is the most consistent way to build your
+hack, ensuring reproducible results.
+     </p>
+     <h1 id="update">
+      <code>
+       Update
+      </code>
+     </h1>
+     <p>
+      <code>
+       Update
+      </code>
+      is exactly what it sounds like,
+      <code>
+       Rebuild
+      </code>
+      for the impatient.
+     </p>
+     <p>
+      If you’re curious, this is what the customized asar version that
+comes with Callisto is actually necessary for.
+     </p>
+     <p>
+      <code>
+       Update
+      </code>
+      does the following:
+     </p>
+     <ul>
+      <li>
+       check if the
+       <code>
+        output_rom
+       </code>
+       exists (otherwise fall back to
+       <code>
+        Rebuild
+       </code>
+       )
+      </li>
+      <li>
+       check that a build report is available for the output ROM (otherwise
+fall back to
+       <code>
+        Rebuild
+       </code>
+       )
+      </li>
+      <li>
+       check that the build order has not changed compared to the last
+build (otherwise fall back to
+       <code>
+        Rebuild
+       </code>
+       )
+      </li>
+      <li>
+       ensure that there are no unsaved resources in your
+       <code>
+        output_rom
+       </code>
+       (otherwise, it prompts you to save first)’
+      </li>
+      <li>
+       make a copy of the
+       <code>
+        output_rom
+       </code>
+       in the
+       <code>
+        temporary_folder
+       </code>
+      </li>
+      <li>
+       for each part of the build order, check if the corresponding
+resource/tool or any files it depends on has changed since the last
+build, if so the resource/tool will be reinserted (for some changes,
+       <code>
+        Rebuild
+       </code>
+       will be called instead), otherwise, the step is
+skipped
+      </li>
+      <li>
+       report any errors
+      </li>
+      <li>
+       if there are none, rename the temporary ROM to the
+       <code>
+        output_rom
+       </code>
+       and write a build report
+      </li>
+     </ul>
+     <p>
+      <code>
+       Update
+      </code>
+      is essentially the equivalent of how hacking is
+“usually” done, applying tools to an already hacked ROM whenever any
+changes are made that require re-insertion. The advantage of
+      <code>
+       Update
+      </code>
+      over the manual process (and batch scripts) is that
+it can automatically figure out which parts of the project require
+re-insertion and even whether the changes require a full rebuild, which
+can sometimes be the case (i.e. a patch no longer hijacks a part of the
+ROM it used to hijack, levels were removed from the levels folder,
+etc.).
+     </p>
+     <p>
+      Compared to
+      <code>
+       Rebuild
+      </code>
+      ,
+      <code>
+       Update
+      </code>
+      is often faster
+by a ridiculous margin (for some projects as much as 1 second vs 40
+seconds), but it
+      <em>
+       can
+      </em>
+      be less accurate than a rebuild and also
+notably
+      <strong>
+       does not
+      </strong>
+      offer conflict detection. I would thus
+recommend using
+      <code>
+       Update
+      </code>
+      when things are going “right” and
+      <code>
+       Rebuild
+      </code>
+      when things are going “wrong”. The rationale being
+that if nothing is breaking with
+      <code>
+       Update
+      </code>
+      , it is unlikely
+that things would break with a
+      <code>
+       Rebuild
+      </code>
+      , but if things
+      <em>
+       are
+      </em>
+      breaking, there may be conflicts or other accumulated
+artifacts due to
+      <code>
+       Update
+      </code>
+      that a
+      <code>
+       Rebuild
+      </code>
+      can
+either report to you or get rid of.
+     </p>
+     <p>
+      If you are patient by nature, you may prefer to
+      <code>
+       Rebuild
+      </code>
+      every time, with one
+      <strong>
+       important exception
+      </strong>
+      :
+     </p>
+     <table>
+      <colgroup>
+       <col style="width: 100%"/>
+      </colgroup>
+      <thead>
+       <tr class="header">
+        <th>
+         ⚠️ If you change the number of extra bytes a custom sprite takes
+         <strong>
+          after you have already inserted it
+         </strong>
+         , you
+         <strong>
+          must
+         </strong>
+         use
+         <code>
+          Update
+         </code>
+         rather than
+         <code>
+          Rebuild
+         </code>
+         ⚠️
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+      </tbody>
+     </table>
+     <p>
+      This is because after you make a change like this, PIXI has to fix
+the level data to match the new extra byte count and there is simply no
+good way to accomplish this during a rebuild, since the levels must be
+in the ROM for PIXI to do this, but the levels also
+      <strong>
+       cannot
+      </strong>
+      be inserted into a clean ROM before PIXI has ran
+on it and
+      <strong>
+       also
+      </strong>
+      cannot be inserted into a clean ROM on
+which PIXI has been run, since the extra byte counts will mismatch
+between what Lunar Magic expects and what’s actually in the levels in
+both cases, which will result in it corrupting your level data before
+PIXI can fix it. Long story short: use
+      <code>
+       Update
+      </code>
+      if you change
+extra byte counts after you have already inserted the sprite. I do have
+a workaround for this in mind, but it is extremely gross and it will
+take a while for me to come to terms with it and implement (if I do so
+at all).
+     </p>
+     <h1 id="package">
+      <code>
+       Package
+      </code>
+     </h1>
+     <p>
+      This option will just take whatever ROM is at
+      <code>
+       output_rom
+      </code>
+      and pass it through FLIPS, outputting the resulting ROM at
+      <code>
+       bps_package
+      </code>
+      .
+     </p>
+     <p>
+      This is in contrast to Lunar Helper, which would
+      <code>
+       Rebuild
+      </code>
+      the
+      <code>
+       output_rom
+      </code>
+      first and only package it afterwards, which
+made it less predictable what your package would actually contain. This
+is now no longer the case, you will get exactly what is in your
+      <code>
+       output_rom
+      </code>
+      with Callisto.
+     </p>
+     <h1 id="save">
+      <code>
+       Save
+      </code>
+     </h1>
+     <p>
+      This option will export all resources from your
+      <code>
+       output_rom
+      </code>
+      to the relevant configured locations. The output
+is often interleaved since it will use multithreading to speed up the
+process, which can save multiple seconds. Note that
+      <code>
+       Save
+      </code>
+      should ensure that you don’t accidentally overwrite (Ex)Graphics which
+differ from the ones stored in your ROM, since it is usual to edit
+graphics externally. If you forget to import edited graphics into your
+ROM prior to a
+      <code>
+       Save
+      </code>
+      , you may get a prompt about it which
+can be easy to miss in all the output. If it seems like the
+      <code>
+       Save
+      </code>
+      might be stuck, scroll up a bit and look for prompts
+to respond to.
+     </p>
+     <h1 id="edit">
+      <code>
+       Edit
+      </code>
+     </h1>
+     <p>
+      This option will open your
+      <code>
+       output_rom
+      </code>
+      in Lunar Magic for
+you. If you press it multiple times without switching the ROM in Lunar
+Magic, it should keep bringing the same window you already had open to
+the front!
+     </p>
+     <p>
+      Note that by default, Callisto will also automatically reload Lunar
+Magic windows opened with the
+      <code>
+       Edit
+      </code>
+      function for you
+whenever a
+      <code>
+       Update
+      </code>
+      or
+      <code>
+       Rebuild
+      </code>
+      succeeds, which
+is useful since the ROM will immediately reflect any modifications. If
+you would like to disable this feature, add
+     </p>
+     <div class="sourceCode" id="cb1">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="dt">settings.enable_automatic_reloads</span> <span class="op">=</span> <span class="cn">false</span></span></code></pre>
+     </div>
+     <p>
+      to your
+      <code>
+       project.toml
+      </code>
+      file.
+     </p>
+     <p>
+      Furthermore,
+      <code>
+       Edit
+      </code>
+      can also be configured to enable
+automatic resource exports from Lunar Magic, which makes manual usage of
+      <code>
+       Save
+      </code>
+      unnecessary in most cases. For details on this feature
+which is not completely stable yet, please check out
+      <a href="Automatic-Resource-Exports.html">
+       Automatic Resource Exports
+      </a>
+      .
+     </p>
+     <p>
+      Note that Callisto can re-attach to Lunar Magic instances which were
+previously launched with
+      <code>
+       Edit
+      </code>
+      , even if you close and
+re-open Callisto, so there is no need to do anything special in this
+case.
+     </p>
+     <h1 id="reload-configuration">
+      <code>
+       Reload configuration
+      </code>
+     </h1>
+     <p>
+      This function just reloads Callisto’s configuration. This shouldn’t
+be too necessary to use usually, unless your configuration is broken and
+you’re trying to fix it. Configurations are also automatically re-parsed
+before you use functions like
+      <code>
+       Rebuild
+      </code>
+      ,
+      <code>
+       Update
+      </code>
+      or
+      <code>
+       Save
+      </code>
+      to ensure that the configuration is up to date.
+     </p>
+     <h1 id="reload-profiles">
+      <code>
+       Reload profiles
+      </code>
+     </h1>
+     <p>
+      This function concerns a feature which we have not actually covered
+yet, since it’s somewhat advanced. Please refer to
+      <a href="Using-Profiles.html">
+       Using Profiles
+      </a>
+      for details, if you’re
+interested and already comfortable with Callisto. Otherwise, don’t worry
+about it for now.
+     </p>
+     <h1 id="view-console-output">
+      <code>
+       View console output
+      </code>
+     </h1>
+     <p>
+      This just takes you back to the console output view which you switch
+to during builds and saves in case you want to check the last output
+again.
+     </p>
+     <h1 id="exit">
+      <code>
+       Exit
+      </code>
+     </h1>
+     <p>
+      This just closes Callisto. If you close it, you may have to open it
+again later if you need it again, so proceed with caution and weigh the
+pros and cons. Really take in the weight of this decision, consider the
+consequences of your actions, then act with confidence, whichever way
+you choose to go.
+     </p>
+     <h1 id="other-uses">
+      Other Uses
+     </h1>
+     <p>
+      That’s pretty much it for simple usage of Callisto. If you’re
+satisfied, you can just stop here. You know enough to work with Callisto
+effectively, but there are many more things it has to offer too. If
+you’re comfortable, feel free to have a look at the
+      <a href="Advanced-Topics.html">
+       Advanced Topics
+      </a>
+      .
+     </p>
+    </div>
+    <div class="d-none d-xl-block col-xl-2 bd-toc">
+     <ul class="section-nav">
+      <li class="toc-entry">
+       <ul>
+        <li>
+         <a href="#rebuild" id="toc-rebuild">
+          <code>
+           Rebuild
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#update" id="toc-update">
+          <code>
+           Update
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#package" id="toc-package">
+          <code>
+           Package
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#save" id="toc-save">
+          <code>
+           Save
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#edit" id="toc-edit">
+          <code>
+           Edit
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#reload-configuration" id="toc-reload-configuration">
+          <code>
+           Reload configuration
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#reload-profiles" id="toc-reload-profiles">
+          <code>
+           Reload profiles
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#view-console-output" id="toc-view-console-output">
+          <code>
+           View console output
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#exit" id="toc-exit">
+          <code>
+           Exit
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#other-uses" id="toc-other-uses">
+          Other Uses
+         </a>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div style="padding-top: 5rem">
+  </div>
+  <footer class="footer text-muted">
+   <div align="center">
+    <button class="btn btn-primary back-to-top">
+     Back to top
+    </button>
+    <br/>
+    <br/>
+    This documentation is available under
+    <a href="https://creativecommons.org/share-your-work/public-domain/cc0/" rel="noopener" target="_blank">
+     CC0
+    </a>
+    <br/>
+    Copyright (c) 2023, underway
+   </div>
+  </footer>
+  <!-- JS, Popper.js, and jQuery -->
+  <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+  </script>
+  <!-- Mathjax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+  </script>
+  <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script>
+   /* Bootstrap styles to tables */
+         function bootstrapStylePandocTables() {
+         $('tr.header').parent('thead').parent('table').addClass('table table-condensed'); }
+         $(document).ready(function () { bootstrapStylePandocTables(); });
+         /* Adjust the height when click the toc */
+         var shiftWindow = function() { scrollBy(0, -60) };
+         window.addEventListener("hashchange", shiftWindow);
+         function load() { if (window.location.hash) shiftWindow(); }
+
+         const goToTop = () => {
+            document.body.scrollIntoView({
+               behavior: "smooth",
+            });
+         };
+
+         const backToTopButton = document.querySelector(".back-to-top")
+         backToTopButton.addEventListener("click", goToTop)
+  </script>
+ </body>
+</html>

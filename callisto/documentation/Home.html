@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="pandoc" name="generator"/>
+  <title>
+   Home
+  </title>
+  <!-- Bootstrap -->
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
+  <!-- Font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <!-- Styles -->
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="callisto1.ico" rel="shortcut icon" type="image/x-icon">
+  </link>
+ </head>
+ <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.4">
+    Callisto
+    <small>
+     v0.2.4
+    </small>
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="Home.html">
+       Home
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+       Sections
+      </a>
+      <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+       <a class="dropdown-item" href="Callisto-Setup-(new-project).html">
+        Callisto Setup (new project)
+       </a>
+       <a class="dropdown-item" href="Callisto-Setup-(preexisting-project).html">
+        Callisto Setup (preexisting project)
+       </a>
+       <a class="dropdown-item" href="Using-Callisto.html">
+        Using Callisto
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Advanced-Topics.html">
+        Advanced Topics
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Frequently-Asked-Questions.html">
+        FAQ
+       </a>
+      </div>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container">
+   <h1 class="display-4">
+    Home
+   </h1>
+   <div class="row">
+    <div class="col-xl-10">
+     <h1 id="what-is-callisto">
+      What is
+Callisto?
+     </h1>
+     <p>
+      Super Mario World hacking has historically been quite a precarious
+activity with many projects dying at some point or another due to
+something breaking in an unexpected way. While keeping manual backups or
+using Lunar Magic’s restore system can help, there are many shortcomings
+with both. Additionally, there are many complex tools and resources
+involved in projects and managing them manually is annoying and
+error-prone.
+     </p>
+     <p>
+      The main aim behind Callisto is to address these problems by allowing
+you to rebuild your hack automatically from scratch in a reproducible
+way while also enabling compatibility with
+      <a href="https://git-scm.com/">
+       git
+      </a>
+      , which is a vastly superior
+alternative to both manual backups as well as Lunar Magic’s restore
+system.
+     </p>
+     <p>
+      The main observations behind Callisto and combining it with git
+are
+     </p>
+     <ol type="1">
+      <li>
+       Hacking should be
+       <strong>
+        safe
+       </strong>
+      </li>
+      <li>
+       Hacking should be
+       <strong>
+        simple
+       </strong>
+      </li>
+     </ol>
+     <p>
+      By “safe” I mean that you should never have to worry about losing,
+corrupting or otherwise destroying your work, even if your entire house
+including your computer burned down. By “simple” I mean that there
+should be no need to worry about how any particular tool is applied to
+your ROM more than once.
+     </p>
+     <p>
+      To accomplish this, Callisto lets you (quickly!) extract all relevant
+resources from inside your ROM (levels, map16, overworld, title screen,
+etc.) and later rebuild your ROM from these extracted resources, while
+also automatically applying all necessary tools and patches according to
+your particular needs. While some more experienced hackers may have used
+scripts or Makefiles in the past, Callisto offers additional benefits
+that more generic alternatives usually lack.
+     </p>
+     <p>
+      Callisto is very similar to
+      <a href="https://github.com/Underrout/LunarHelper">
+       Lunar Helper
+      </a>
+      , which
+is an earlier tool that performed very similar steps. Compared to Lunar
+Helper, Callisto comes with several new features as well as improvements
+to old features, while also being more future-proof.
+     </p>
+     <h1 id="what-does-this-wiki-contain">
+      What does this Wiki contain?
+     </h1>
+     <p>
+      This wiki contains
+     </p>
+     <ul>
+      <li>
+       setup instructions for Callisto
+      </li>
+      <li>
+       general usage instructions for Callisto
+      </li>
+      <li>
+       additional details for advanced Callisto features
+      </li>
+      <li>
+       a small introduction to hacking with Callisto + git and additional
+resources for learning git more in-depth
+      </li>
+     </ul>
+     <h1 id="what-should-i-know-before-reading-this">
+      What should I know
+before reading this?
+     </h1>
+     <p>
+      It depends on what type of hack you are working on and your own
+ambitions. Callisto can be used to build both completely vanilla as well
+as highly modified hacks.
+     </p>
+     <p>
+      What follows is a list of all major tools that Callisto currently
+supports, as well as links to tutorials for each of them that you can
+consult in order to learn about them. Note that some of the advice given
+in these tutorials does
+      <strong>
+       not
+      </strong>
+      apply when using Callisto
+and git, but they are still useful for learning how the tools work when
+you’re starting out.
+     </p>
+     <p>
+      Out of all of these, you only really
+      <strong>
+       have
+      </strong>
+      to be
+familiar with Lunar Magic and potentially FLIPS in order to get started
+using Callisto and git.
+     </p>
+     <ul>
+      <li>
+       <a href="https://smwc.me/s/32211">
+        Lunar Magic
+       </a>
+       -
+       <a href="https://www.youtube.com/watch?v=kbU33fXahH0&amp;list=PLc_6IrpTVYqHvGZoUWreWkXFcdh26Xufd">
+        Video
+series
+       </a>
+       (
+       <strong>
+        required
+       </strong>
+       )
+      </li>
+      <li>
+       <a href="https://smwc.me/s/11474">
+        FLIPS
+       </a>
+       -
+       <a href="https://smwc.me/1399053">
+        Tutorial
+       </a>
+       (
+       <strong>
+        somewhat
+required
+       </strong>
+       )
+      </li>
+      <li>
+       <a href="https://smwc.me/s/24994">
+        AddMusicK
+       </a>
+       -
+       <a href="https://smwc.me/1398329">
+        Tutorial
+       </a>
+       (optional, custom music
+insertion tool)
+      </li>
+      <li>
+       <a href="https://smwc.me/s/31515">
+        GPS
+       </a>
+       -
+       <a href="https://smwc.me/1404234">
+        Tutorial
+       </a>
+       (optional, custom block
+insertion tool)
+      </li>
+      <li>
+       <a href="https://smwc.me/s/26026">
+        PIXI
+       </a>
+       -
+       <a href="https://smwc.me/1444600">
+        Tutorial
+       </a>
+       (optional, custom sprite
+insertion tool)
+      </li>
+      <li>
+       <a href="https://smwc.me/s/28974">
+        UberASMTool
+       </a>
+       - No tutorial
+available at the moment (optional, custom per-level code insertion
+tool)
+      </li>
+      <li>
+       <a href="https://smwc.me/s/25953">
+        Asar
+       </a>
+       -
+       <a href="https://smwc.me/1408014">
+        Tutorial
+       </a>
+       (also covered in the video
+series linked above) (optional, generic code/data insertion tool)
+      </li>
+     </ul>
+     <h1 id="where-do-i-start">
+      Where do I start?
+     </h1>
+     <p>
+      Depending on whether you’re setting up an entirely new project or a
+preexisting project, you should go to:
+     </p>
+     <ul>
+      <li>
+       <a href="Callisto-Setup-(new-project).html">
+        Callisto Setup (new
+project)
+       </a>
+      </li>
+      <li>
+       <a href="Callisto-Setup-(preexisting-project).html">
+        Callisto Setup
+(preexisting project)
+       </a>
+      </li>
+     </ul>
+     <h1 id="where-can-i-get-help">
+      Where can I get help?
+     </h1>
+     <p>
+      I set up a sparsely populated
+      <a href="https://discord.gg/SbRM8mUjdE">
+       Discord server
+      </a>
+      for support,
+feel free to stop by if you need help or have any questions!
+     </p>
+     <hr/>
+     <p>
+      For used libraries and their licenses check
+      <a href="Miscellaneous-Licenses.html">
+       Miscellaneous Licenses
+      </a>
+      .
+     </p>
+    </div>
+    <div class="d-none d-xl-block col-xl-2 bd-toc">
+     <ul class="section-nav">
+      <li class="toc-entry">
+       <ul>
+        <li>
+         <a href="#what-is-callisto" id="toc-what-is-callisto">
+          What is
+Callisto?
+         </a>
+        </li>
+        <li>
+         <a href="#what-does-this-wiki-contain" id="toc-what-does-this-wiki-contain">
+          What does this Wiki
+contain?
+         </a>
+        </li>
+        <li>
+         <a href="#what-should-i-know-before-reading-this" id="toc-what-should-i-know-before-reading-this">
+          What should I know
+before reading this?
+         </a>
+        </li>
+        <li>
+         <a href="#where-do-i-start" id="toc-where-do-i-start">
+          Where do I
+start?
+         </a>
+        </li>
+        <li>
+         <a href="#where-can-i-get-help" id="toc-where-can-i-get-help">
+          Where
+can I get help?
+         </a>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div style="padding-top: 5rem">
+  </div>
+  <footer class="footer text-muted">
+   <div align="center">
+    <button class="btn btn-primary back-to-top">
+     Back to top
+    </button>
+    <br/>
+    <br/>
+    This documentation is available under
+    <a href="https://creativecommons.org/share-your-work/public-domain/cc0/" rel="noopener" target="_blank">
+     CC0
+    </a>
+    <br/>
+    Copyright (c) 2023, underway
+   </div>
+  </footer>
+  <!-- JS, Popper.js, and jQuery -->
+  <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+  </script>
+  <!-- Mathjax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+  </script>
+  <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script>
+   /* Bootstrap styles to tables */
+         function bootstrapStylePandocTables() {
+         $('tr.header').parent('thead').parent('table').addClass('table table-condensed'); }
+         $(document).ready(function () { bootstrapStylePandocTables(); });
+         /* Adjust the height when click the toc */
+         var shiftWindow = function() { scrollBy(0, -60) };
+         window.addEventListener("hashchange", shiftWindow);
+         function load() { if (window.location.hash) shiftWindow(); }
+
+         const goToTop = () => {
+            document.body.scrollIntoView({
+               behavior: "smooth",
+            });
+         };
+
+         const backToTopButton = document.querySelector(".back-to-top")
+         backToTopButton.addEventListener("click", goToTop)
+  </script>
+ </body>
+</html>

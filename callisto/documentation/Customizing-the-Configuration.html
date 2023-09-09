@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="pandoc" name="generator"/>
+  <title>
+   Customizing the Configuration
+  </title>
+  <!-- Bootstrap -->
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
+  <!-- Font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <!-- Styles -->
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="callisto1.ico" rel="shortcut icon" type="image/x-icon">
+  </link>
+ </head>
+ <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.4">
+    Callisto
+    <small>
+     v0.2.4
+    </small>
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="Home.html">
+       Home
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+       Sections
+      </a>
+      <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+       <a class="dropdown-item" href="Callisto-Setup-(new-project).html">
+        Callisto Setup (new project)
+       </a>
+       <a class="dropdown-item" href="Callisto-Setup-(preexisting-project).html">
+        Callisto Setup (preexisting project)
+       </a>
+       <a class="dropdown-item" href="Using-Callisto.html">
+        Using Callisto
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Advanced-Topics.html">
+        Advanced Topics
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Frequently-Asked-Questions.html">
+        FAQ
+       </a>
+      </div>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container">
+   <h1 class="display-4">
+    Customizing the Configuration
+   </h1>
+   <div class="row">
+    <div class="col-xl-10">
+     <p>
+      This chapter is not so much about
+how to configure Callisto and more about how you as a user can
+reorganize and modify the configuration files to better fit whatever
+structure you prefer to have.
+     </p>
+     <h1 id="reorganizing-configuration-files">
+      Reorganizing Configuration
+Files
+     </h1>
+     <p>
+      As it turns out, you can actually split your configuration into as
+many or as few files as you please. This goes for your user files in
+      <code>
+       %appdata%/callisto
+      </code>
+      , the config files in your project’s
+Callisto folder as well as the config files in any profile folders
+you’re using (see
+      <a href="Using-Profiles.html">
+       Using Profiles
+      </a>
+      for
+details on profiles).
+     </p>
+     <p>
+      All you have to do for this to still work correctly is ensure that
+you also move any headers along with the settings you’re moving. By that
+I mean that if you’re looking at, say,
+      <code>
+       resources.toml
+      </code>
+      , you
+will see
+      <code>
+       [resources]
+      </code>
+      somewhere in the file. This is a
+      <a href="https://toml.io/en/v1.0.0#table">
+       TOML header
+      </a>
+      which affects any
+assignments under it until the end of the file or the next such header.
+So, if you move, say
+      <code>
+       titlescreen = "resources/titlescreen.bps"
+      </code>
+      somewhere else
+from the
+      <code>
+       resources.toml
+      </code>
+      file, you will need to ensure that
+it still says
+      <code>
+       [resources]
+      </code>
+      somewhere above it or
+alternatively use
+      <code>
+       resources.titlescreen = "resources/titlescreen.bps"
+      </code>
+      , which
+should also be valid. Ideally, check the TOML syntax for details.
+     </p>
+     <h1 id="user-variables">
+      User Variables
+     </h1>
+     <p>
+      You can actually define your own variables in a config file, if you
+want. These serve to remove some of the redundancies you might run into
+during configuration. For example, you might have
+     </p>
+     <div class="sourceCode" id="cb1">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="kw">[output]</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="dt">output_rom</span> <span class="op">=</span> <span class="st">"build/my_hack.smc"</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="dt">bps_package</span> <span class="op">=</span> <span class="st">"build/package/my_hack.bps"</span></span></code></pre>
+     </div>
+     <p>
+      somewhere. It might be nice if instead you could write
+     </p>
+     <div class="sourceCode" id="cb2">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="kw">[output]</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="dt">output_rom</span> <span class="op">=</span> <span class="st">"build/{project_name}.smc"</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class="dt">bps_package</span> <span class="op">=</span> <span class="st">"build/package/{project_name}.bps"</span></span></code></pre>
+     </div>
+     <p>
+      and write
+     </p>
+     <div class="sourceCode" id="cb3">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a><span class="kw">[variables]</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="dt">project_name</span> <span class="op">=</span> <span class="st">"my_hack"</span></span></code></pre>
+     </div>
+     <p>
+      somewhere else, so that you can change both the name of the output
+ROM and the BPS patch in one location.
+     </p>
+     <p>
+      As it turns out, you can do it exactly like I just showed, with the
+special condition that all your variables for a specific level of
+configuration (user, project, profiles) must be in a file named
+      <code>
+       variables.toml
+      </code>
+      at the corresponding level, unless all your
+configuration for that level is in just one TOML file, then you can just
+put the
+      <code>
+       [variables]
+      </code>
+      table right in there as well if you
+want.
+     </p>
+     <p>
+      That means, if my project’s callisto folder is
+      <code>
+       my_hack/callisto
+      </code>
+      I would have to put
+     </p>
+     <div class="sourceCode" id="cb4">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a><span class="kw">[variables]</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a><span class="dt">project_name</span> <span class="op">=</span> <span class="st">"my_hack"</span></span></code></pre>
+     </div>
+     <p>
+      in a
+      <code>
+       my_hack/callisto/variables.toml
+      </code>
+      file, unless I only
+had one config file in that folder, say,
+      <code>
+       my_hack/callisto/config.toml
+      </code>
+      , then I could put the
+variables in there instead if I wanted to. The same would apply if I
+added any more variables. Note also that you do need the
+      <code>
+       [variables]
+      </code>
+      header in both cases.
+     </p>
+     <p>
+      As you might have guessed from the earlier example, to use your
+defined variable in a string, you just wrap it between
+      <code>
+       {
+      </code>
+      and
+      <code>
+       }
+      </code>
+      .
+     </p>
+     <p>
+      If you for some reason need to use literal
+      <code>
+       {
+      </code>
+      and
+      <code>
+       }
+      </code>
+      characters in a string, just double them, so
+      <code>
+       {
+      </code>
+      becomes
+      <code>
+       {{
+      </code>
+      and
+      <code>
+       }
+      </code>
+      becomes
+      <code>
+       }}
+      </code>
+      .
+     </p>
+     <p>
+      Profiles (see
+      <a href="Using-Profiles.html">
+       Using Profiles
+      </a>
+      ) inherit
+user variables from your project’s main Callisto folder, but can also
+add their own ones in their own
+      <code>
+       [variables]
+      </code>
+      table as well
+if needed.
+     </p>
+     <p>
+      For the curious, yes, it is valid to use variables inside other
+variables, like this for example:
+     </p>
+     <div class="sourceCode" id="cb5">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="kw">[variables]</span></span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a><span class="dt">hello</span> <span class="op">=</span> <span class="st">"hello"</span></span>
+<span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a><span class="dt">world</span> <span class="op">=</span> <span class="st">"world"</span></span>
+<span id="cb5-4"><a aria-hidden="true" href="#cb5-4" tabindex="-1"></a><span class="dt">hello_worlrd</span> <span class="op">=</span> <span class="st">"{hello} {world}"</span>  <span class="co"># expands to "hello world"</span></span></code></pre>
+     </div>
+     <p>
+      And that’s all there is to user variables.
+     </p>
+    </div>
+    <div class="d-none d-xl-block col-xl-2 bd-toc">
+     <ul class="section-nav">
+      <li class="toc-entry">
+       <ul>
+        <li>
+         <a href="#reorganizing-configuration-files" id="toc-reorganizing-configuration-files">
+          Reorganizing Configuration
+Files
+         </a>
+        </li>
+        <li>
+         <a href="#user-variables" id="toc-user-variables">
+          User
+Variables
+         </a>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div style="padding-top: 5rem">
+  </div>
+  <footer class="footer text-muted">
+   <div align="center">
+    <button class="btn btn-primary back-to-top">
+     Back to top
+    </button>
+    <br/>
+    <br/>
+    This documentation is available under
+    <a href="https://creativecommons.org/share-your-work/public-domain/cc0/" rel="noopener" target="_blank">
+     CC0
+    </a>
+    <br/>
+    Copyright (c) 2023, underway
+   </div>
+  </footer>
+  <!-- JS, Popper.js, and jQuery -->
+  <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+  </script>
+  <!-- Mathjax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+  </script>
+  <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script>
+   /* Bootstrap styles to tables */
+         function bootstrapStylePandocTables() {
+         $('tr.header').parent('thead').parent('table').addClass('table table-condensed'); }
+         $(document).ready(function () { bootstrapStylePandocTables(); });
+         /* Adjust the height when click the toc */
+         var shiftWindow = function() { scrollBy(0, -60) };
+         window.addEventListener("hashchange", shiftWindow);
+         function load() { if (window.location.hash) shiftWindow(); }
+
+         const goToTop = () => {
+            document.body.scrollIntoView({
+               behavior: "smooth",
+            });
+         };
+
+         const backToTopButton = document.querySelector(".back-to-top")
+         backToTopButton.addEventListener("click", goToTop)
+  </script>
+ </body>
+</html>

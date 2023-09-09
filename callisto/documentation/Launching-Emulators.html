@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="pandoc" name="generator"/>
+  <title>
+   Launching Emulators
+  </title>
+  <!-- Bootstrap -->
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
+  <!-- Font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <!-- Styles -->
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="callisto1.ico" rel="shortcut icon" type="image/x-icon">
+  </link>
+ </head>
+ <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.4">
+    Callisto
+    <small>
+     v0.2.4
+    </small>
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="Home.html">
+       Home
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+       Sections
+      </a>
+      <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+       <a class="dropdown-item" href="Callisto-Setup-(new-project).html">
+        Callisto Setup (new project)
+       </a>
+       <a class="dropdown-item" href="Callisto-Setup-(preexisting-project).html">
+        Callisto Setup (preexisting project)
+       </a>
+       <a class="dropdown-item" href="Using-Callisto.html">
+        Using Callisto
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Advanced-Topics.html">
+        Advanced Topics
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Frequently-Asked-Questions.html">
+        FAQ
+       </a>
+      </div>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container">
+   <h1 class="display-4">
+    Launching Emulators
+   </h1>
+   <p>
+    Callisto lets you conveniently launch multiple different
+emulators directly from its menu and will automatically pass the
+    <code>
+     output_rom
+    </code>
+    path to them!
+   </p>
+   <p>
+    To add emulators to Callisto’s menu, open your
+    <code>
+     %appdata%/callisto/user.toml
+    </code>
+    file, which you should have
+gotten set up earlier.
+   </p>
+   <p>
+    You should see some commented out lines at the bottom:
+   </p>
+   <div class="sourceCode" id="cb1">
+    <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="co"># [emulators.Mesen2]</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="co"># executable = "path/to/my/emulators/Mesen.exe"</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="co"># options = "--fullscreen"</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="co"># [emulators.snes9x]</span></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="co"># executable = "path/to/my/emulators/snes9x.exe"</span></span></code></pre>
+   </div>
+   <p>
+    These lines show examples of how to set up your emulators.
+   </p>
+   <p>
+    To set up an emulator, start with
+    <code>
+     [emulators.SomeEmulatorNameHere]
+    </code>
+    the
+    <code>
+     SomeEmulatorNameHere
+    </code>
+    part can be anything you want (as long
+as there are no spaces, check the TOML format’s specification to see
+what’s allowed!) and only affects how the name is displayed in
+Callisto’s menu.
+   </p>
+   <p>
+    After the
+    <code>
+     [emulators.EmulatorName]
+    </code>
+    header, specify the
+path to the executable by setting
+    <code>
+     executable = "path/to/your/emulator/YourEmulator.exe"
+    </code>
+    and,
+if necessary, specify any options that should be passed to the emulator.
+The
+    <code>
+     output_rom
+    </code>
+    ’s path is always automatically passed to the
+emulator as the final argument.
+   </p>
+   <p>
+    For the following setting:
+   </p>
+   <div class="sourceCode" id="cb2">
+    <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="kw">[emulators.Mesen2]</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="dt">executable</span> <span class="op">=</span> <span class="st">"path/to/my/emulators/Mesen.exe"</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class="dt">options</span> <span class="op">=</span> <span class="st">"--fullscreen"</span></span></code></pre>
+   </div>
+   <p>
+    if your
+    <code>
+     output_rom
+    </code>
+    path is
+    <code>
+     C:/my_hack/my_hack.smc
+    </code>
+    , Callisto will launch the emulator
+via
+    <code>
+     path/to/my/emulators/Mesen.exe --fullscreen C:/my_hack/my_hack.smc
+    </code>
+    .
+   </p>
+   <p>
+    Your emulator list will then show up similarly to this, on the right
+side of Callisto’s main menu:
+   </p>
+   <figure>
+    <img alt="Image of emulator list in Callisto’s menu" src="images/emulator_list.png"/>
+    <figcaption aria-hidden="true">
+     Image of emulator list in Callisto’s
+menu
+    </figcaption>
+   </figure>
+   <p>
+    You can launch the corresponding emulator by either navigating to it
+with your arrow keys or by pressing the number next to the emulator’s
+name on your keyboard, i.e. I could press “1” to launch my
+    <code>
+     output_rom
+    </code>
+    in Mesen 2 in this screenshot.
+   </p>
+   <p>
+    That’s all there is to it, your emulators are shared across all
+projects since you’ve set them in your user settings, so you only need
+to do this setup once!
+   </p>
+  </div>
+  <div style="padding-top: 5rem">
+  </div>
+  <footer class="footer text-muted">
+   <div align="center">
+    <button class="btn btn-primary back-to-top">
+     Back to top
+    </button>
+    <br/>
+    <br/>
+    This documentation is available under
+    <a href="https://creativecommons.org/share-your-work/public-domain/cc0/" rel="noopener" target="_blank">
+     CC0
+    </a>
+    <br/>
+    Copyright (c) 2023, underway
+   </div>
+  </footer>
+  <!-- JS, Popper.js, and jQuery -->
+  <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+  </script>
+  <!-- Mathjax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+  </script>
+  <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script>
+   /* Bootstrap styles to tables */
+         function bootstrapStylePandocTables() {
+         $('tr.header').parent('thead').parent('table').addClass('table table-condensed'); }
+         $(document).ready(function () { bootstrapStylePandocTables(); });
+         /* Adjust the height when click the toc */
+         var shiftWindow = function() { scrollBy(0, -60) };
+         window.addEventListener("hashchange", shiftWindow);
+         function load() { if (window.location.hash) shiftWindow(); }
+
+         const goToTop = () => {
+            document.body.scrollIntoView({
+               behavior: "smooth",
+            });
+         };
+
+         const backToTopButton = document.querySelector(".back-to-top")
+         backToTopButton.addEventListener("click", goToTop)
+  </script>
+ </body>
+</html>

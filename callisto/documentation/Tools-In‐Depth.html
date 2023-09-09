@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="pandoc" name="generator"/>
+  <title>
+   Tools In‐Depth
+  </title>
+  <!-- Bootstrap -->
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
+  <!-- Font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <!-- Styles -->
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="callisto1.ico" rel="shortcut icon" type="image/x-icon">
+  </link>
+ </head>
+ <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.4">
+    Callisto
+    <small>
+     v0.2.4
+    </small>
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="Home.html">
+       Home
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+       Sections
+      </a>
+      <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+       <a class="dropdown-item" href="Callisto-Setup-(new-project).html">
+        Callisto Setup (new project)
+       </a>
+       <a class="dropdown-item" href="Callisto-Setup-(preexisting-project).html">
+        Callisto Setup (preexisting project)
+       </a>
+       <a class="dropdown-item" href="Using-Callisto.html">
+        Using Callisto
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Advanced-Topics.html">
+        Advanced Topics
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Frequently-Asked-Questions.html">
+        FAQ
+       </a>
+      </div>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container">
+   <h1 class="display-4">
+    Tools In‐Depth
+   </h1>
+   <div class="row">
+    <div class="col-xl-10">
+     <p>
+      When we were setting up Callisto,
+we sort of glossed over
+      <code>
+       tools.toml
+      </code>
+      . But there’s a lot going
+on in there!
+     </p>
+     <p>
+      Let me explain in a little bit more detail now.
+     </p>
+     <h1 id="tool-requirements">
+      Tool Requirements
+     </h1>
+     <p>
+      Outside of Lunar Magic and FLIPS, Callisto makes no special
+assumptions about the tools it’s working with. That means, you won’t
+find any references to “PIXI”, “GPS” or similar tools inside Callisto’s
+source code. This also means that any weird tools or scripts you make,
+as well as old and future tools, can work with Callisto as long as they
+follow two simple rules:
+     </p>
+     <ul>
+      <li>
+       return a non-zero exit code on failure and 0 on success
+      </li>
+      <li>
+       output the (absolute or relative to your tool) paths of the files
+your program depends on line-by-line in a text file after your tool
+runs
+      </li>
+     </ul>
+     <p>
+      The first rule ensures that Callisto can tell when your program runs
+into an error, which should obviously stop the build process.
+     </p>
+     <p>
+      The second rule ensures that Callisto’s
+      <code>
+       Update
+      </code>
+      can
+figure out when your tool needs to be re-applied. In particular,
+Callisto will check for each file your program listed as a dependency in
+its output file whether the file has changed since your tool was last
+applied to the ROM. If any files
+      <em>
+       have
+      </em>
+      changed, your tool will
+be re-applied, otherwise,
+      <code>
+       Update
+      </code>
+      will know that re-applying
+your tool is not necessary.
+     </p>
+     <p>
+      That’s all your tool needs to do to work well with Callisto.
+     </p>
+     <h1 id="tool-configuration">
+      Tool Configuration
+     </h1>
+     <p>
+      Now, that’s just the requirements. Configuring your tool to work with
+Callisto is also necessary. This is what the
+      <code>
+       tools.toml
+      </code>
+      file that comes with Callisto does. Let’s take a look at it now.
+     </p>
+     <p>
+      Here is part of a configuration for PIXI (comments removed for
+brevity):
+     </p>
+     <div class="sourceCode" id="cb1">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="kw">[tools.generic.PIXI]</span></span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="dt">directory</span> <span class="op">=</span> <span class="st">"tools/pixi"</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="dt">executable</span> <span class="op">=</span> <span class="st">"pixi.exe"</span></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a></span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="dt">options</span> <span class="op">=</span> <span class="st">"-l ../../tools/pixi/list.txt"</span></span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a></span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a><span class="co"># pass_rom = false</span></span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a></span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a><span class="dt">static_dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"pixi.exe"</span><span class="op">, </span><span class="dt">policy</span><span class="op"> =</span> <span class="st">"rebuild"</span><span class="op"> },</span></span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"list.txt"</span><span class="op"> },</span> </span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"asar.dll"</span><span class="op">, </span><span class="dt">policy</span><span class="op"> =</span> <span class="st">"rebuild"</span><span class="op"> },</span> </span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"NewtonSoft.Json.dll"</span><span class="op">, </span><span class="dt">policy</span><span class="op"> =</span> <span class="st">"rebuild"</span><span class="op"> }</span> <span class="op">,</span></span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"routines"</span><span class="op">, </span><span class="dt">policy</span><span class="op"> =</span> <span class="st">"reinsert"</span><span class="op"> },</span></span>
+<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"sprites"</span><span class="op">, </span><span class="dt">policy</span><span class="op"> =</span> <span class="st">"reinsert"</span><span class="op"> }</span></span>
+<span id="cb1-19"><a aria-hidden="true" href="#cb1-19" tabindex="-1"></a><span class="op">]</span></span>
+<span id="cb1-20"><a aria-hidden="true" href="#cb1-20" tabindex="-1"></a></span>
+<span id="cb1-21"><a aria-hidden="true" href="#cb1-21" tabindex="-1"></a><span class="dt">dependency_report_file</span> <span class="op">=</span> <span class="st">".dependencies"</span></span></code></pre>
+     </div>
+     <p>
+      You can probably already guess what most of this means, but let’s go
+through it step by step.
+     </p>
+     <h2 id="configuration-header">
+      Configuration Header
+     </h2>
+     <div class="sourceCode" id="cb2">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="kw">[tools.generic.PIXI]</span></span></code></pre>
+     </div>
+     <p>
+      This line starts the configuration for
+      <code>
+       PIXI
+      </code>
+      . Note that
+the part at the end (
+      <code>
+       PIXI
+      </code>
+      ) can be freely chosen to be
+whatever name you wish (as long as it is allowed by
+      <a href="https://toml.io/en/v1.0.0#keys">
+       TOML’s syntax for keys
+      </a>
+      ). That
+part of the header is
+      <em>
+       also
+      </em>
+      the name that you will use to refer
+to it in the
+      <code>
+       build_order
+      </code>
+      , so now you know where the
+      <code>
+       "PIXI"
+      </code>
+      in the build order actually comes from. Unlike
+      <code>
+       Graphics
+      </code>
+      ,
+      <code>
+       Overworld
+      </code>
+      and the like,
+      <code>
+       "PIXI"
+      </code>
+      is not some magic string, it’s exactly the name we
+gave it in the
+      <code>
+       tools.toml
+      </code>
+      file and we could have chosen a
+different one if we wanted!
+     </p>
+     <p>
+      You always must start a tool’s configuration with a header.
+     </p>
+     <h2 id="directory">
+      Directory
+     </h2>
+     <div class="sourceCode" id="cb3">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a><span class="dt">directory</span> <span class="op">=</span> <span class="st">"tools/pixi"</span></span></code></pre>
+     </div>
+     <p>
+      This is pretty self-explanatory. This is just the directory the tool
+is in. It’s relative to the project root, so if my project root is
+      <code>
+       my_hack
+      </code>
+      , this means my PIXI folder is at
+      <code>
+       my_hack/tools/pixi
+      </code>
+      . Note that any other paths inside this
+tool’s configuration will be relative to this path, which makes
+configuration a little less verbose than if it were relative to the
+project root.
+     </p>
+     <h2 id="executable">
+      Executable
+     </h2>
+     <div class="sourceCode" id="cb4">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a><span class="dt">executable</span> <span class="op">=</span> <span class="st">"pixi.exe"</span></span></code></pre>
+     </div>
+     <p>
+      This is just the executable file of the tool. Note that this doesn’t
+need to be an EXE necessarily, a BAT or anything else executable should
+also work just fine. Note again that this is relative to the
+      <code>
+       directory
+      </code>
+      , i.e.
+      <code>
+       tools/pixi
+      </code>
+      in this example. So
+the full path to
+      <code>
+       pixi.exe
+      </code>
+      in our project is
+      <code>
+       my_hack/tools/pixi/pixi.exe
+      </code>
+      .
+     </p>
+     <h2 id="options-flags">
+      Options Flags
+     </h2>
+     <div class="sourceCode" id="cb5">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="dt">options</span> <span class="op">=</span> <span class="st">"-l ../../tools/pixi/list.txt"</span></span></code></pre>
+     </div>
+     <p>
+      This setting lets you specify any additional options to be passed to
+the tool. In this case, we are passing an option to PIXI to let it know
+where the sprite list is relative to the temporary ROM which it is being
+applied to, since PIXI usually expects the list file to be in the same
+folder as the ROM rather than itself. To learn which options you can
+pass to a tool, consult its readme file or other documentation.
+     </p>
+     <p>
+      If this is omitted, no options are passed.
+     </p>
+     <h2 id="passing-the-rom">
+      Passing the ROM
+     </h2>
+     <div class="sourceCode" id="cb6">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb6-1"><a aria-hidden="true" href="#cb6-1" tabindex="-1"></a><span class="co"># pass_rom = false</span></span></code></pre>
+     </div>
+     <p>
+      As you can see, this line is commented out. This is because PIXI
+expects to be passed the ROM it is inserting into as an argument on the
+command line. When this setting is omitted or set to
+      <code>
+       true
+      </code>
+      ,
+the path to the temporary ROM will automatically be passed by Callisto
+as the final argument during the build process. If this is set to
+      <code>
+       false
+      </code>
+      , the ROM will not be passed, which can be useful for
+some tools/scripts that don’t directly work on the ROM but only produce
+files for other tools to use in their own building process.
+     </p>
+     <table>
+      <colgroup>
+       <col style="width: 100%"/>
+      </colgroup>
+      <thead>
+       <tr class="header">
+        <th>
+         ⚠️ If a tool has
+         <code>
+          pass_rom = false
+         </code>
+         set, it
+         <strong>
+          should never
+         </strong>
+         edit the temporary ROM during the build
+⚠️
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+      </tbody>
+     </table>
+     <h2 id="static-dependencies">
+      Static Dependencies
+     </h2>
+     <div class="sourceCode" id="cb7">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb7-1"><a aria-hidden="true" href="#cb7-1" tabindex="-1"></a><span class="dt">static_dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"pixi.exe"</span><span class="op">, </span><span class="dt">policy</span><span class="op"> =</span> <span class="st">"rebuild"</span><span class="op"> },</span></span>
+<span id="cb7-3"><a aria-hidden="true" href="#cb7-3" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"list.txt"</span><span class="op"> },</span> </span>
+<span id="cb7-4"><a aria-hidden="true" href="#cb7-4" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"asar.dll"</span><span class="op">, </span><span class="dt">policy</span><span class="op"> =</span> <span class="st">"rebuild"</span><span class="op"> },</span> </span>
+<span id="cb7-5"><a aria-hidden="true" href="#cb7-5" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"NewtonSoft.Json.dll"</span><span class="op">, </span><span class="dt">policy</span><span class="op"> =</span> <span class="st">"rebuild"</span><span class="op"> }</span> <span class="op">,</span></span>
+<span id="cb7-6"><a aria-hidden="true" href="#cb7-6" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"routines"</span><span class="op">, </span><span class="dt">policy</span><span class="op"> =</span> <span class="st">"reinsert"</span><span class="op"> },</span></span>
+<span id="cb7-7"><a aria-hidden="true" href="#cb7-7" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"sprites"</span><span class="op">, </span><span class="dt">policy</span><span class="op"> =</span> <span class="st">"reinsert"</span><span class="op"> }</span></span>
+<span id="cb7-8"><a aria-hidden="true" href="#cb7-8" tabindex="-1"></a><span class="op">]</span></span></code></pre>
+     </div>
+     <p>
+      Now, this is probably the most complicated part of setting up a tool.
+There are generally some files that a tool depends on no matter what,
+like its own executable or some static libraries it’s using. These are
+listed here, alongside files and resources that are “hard” to track for
+some reason or another (I will talk more about this in a few
+paragraphs).
+     </p>
+     <p>
+      Each entry in this list is an object containing a
+      <code>
+       path
+      </code>
+      to a file or folder as well as, optionally, a
+      <code>
+       policy
+      </code>
+      that
+can be either
+      <code>
+       rebuild
+      </code>
+      or
+      <code>
+       reinsert
+      </code>
+      . If the
+      <code>
+       policy
+      </code>
+      is omitted, it is implicitly
+      <code>
+       reinsert
+      </code>
+      .
+     </p>
+     <p>
+      When the
+      <code>
+       path
+      </code>
+      is a file, we are saying “the tool in some
+way works with this file”. When the
+      <code>
+       path
+      </code>
+      is a folder, we
+are saying “the tool in some way works with this folder and all files in
+it”.
+     </p>
+     <p>
+      During
+      <code>
+       Update
+      </code>
+      , if any file or folder (or any files in a
+folder) listed in the
+      <code>
+       static_dependencies
+      </code>
+      has been written
+to since the last time the
+      <code>
+       output_rom
+      </code>
+      was built, the
+      <code>
+       policy
+      </code>
+      of that entry will be triggered. If the policy is
+      <code>
+       reinsert
+      </code>
+      , the tool will just be re-inserted. If the policy
+is
+      <code>
+       rebuild
+      </code>
+      , the entire ROM will be rebuilt from scratch.
+Whether it makes more sense to use
+      <code>
+       reinsert
+      </code>
+      or
+      <code>
+       rebuild
+      </code>
+      for any particular folder or file depends on how
+severe of an effect you think a change to that file or folder will have
+on the build process overall. This is a judgment call on your part.
+     </p>
+     <p>
+      Now, a brief word on the last two entries in this list:
+     </p>
+     <div class="sourceCode" id="cb8">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb8-1"><a aria-hidden="true" href="#cb8-1" tabindex="-1"></a><span class="dt">static_dependencies</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"routines"</span><span class="op">, </span><span class="dt">policy</span><span class="op"> =</span> <span class="st">"reinsert"</span><span class="op"> },</span></span>
+<span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a>    <span class="op">{ </span><span class="dt">path</span><span class="op"> =</span> <span class="st">"sprites"</span><span class="op">, </span><span class="dt">policy</span><span class="op"> =</span> <span class="st">"reinsert"</span><span class="op"> }</span></span>
+<span id="cb8-5"><a aria-hidden="true" href="#cb8-5" tabindex="-1"></a><span class="op">]</span></span></code></pre>
+     </div>
+     <p>
+      As you may know, Callisto uses a customized asar version, which helps
+us automatically track dependencies on anything inserted by asar (more
+on this in the next section!). Unfortunately, that does mean that for
+anything else that tools depend on, we
+      <em>
+       don’t
+      </em>
+      have automatic
+tracking. In PIXI’s case, this affects
+      <code>
+       routines
+      </code>
+      , which are
+implicitly made available to sprites as well as
+      <code>
+       .cfg/.json
+      </code>
+      files, which are handled by PIXI internally.
+     </p>
+     <p>
+      Whenever we can’t easily and automatically track a set of
+dependencies, either by the tool playing nice and making itself
+compatible with Callisto by outputting its dependencies in a file or by
+tricking it into doing so via our customized asar version, we have to
+resort to static dependencies. Which is what I’m doing with these last
+two lines. Basically, any changes to the
+      <code>
+       my_hack/tools/pixi/routines
+      </code>
+      and
+      <code>
+       my_hack/tools/pixi/sprites
+      </code>
+      folders will trigger a
+reinsertion of PIXI during
+      <code>
+       Update
+      </code>
+      . This is not as precise
+as we would like, after all, we can just drop a
+      <code>
+       .cfg/.json
+      </code>
+      into the
+      <code>
+       sprites
+      </code>
+      folder without using it anywhere, which
+wouldn’t make a reinsertion meaningful, but it is the best we have for
+now.
+     </p>
+     <p>
+      It is important to set up
+      <code>
+       static_dependencies
+      </code>
+      adequately, or important changes could slip by
+      <code>
+       Update
+      </code>
+      and
+cause inaccurate results!
+     </p>
+     <h2 id="the-dependencies-file">
+      The Dependencies File
+     </h2>
+     <div class="sourceCode" id="cb9">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb9-1"><a aria-hidden="true" href="#cb9-1" tabindex="-1"></a><span class="dt">dependency_report_file</span> <span class="op">=</span> <span class="st">".dependencies"</span></span></code></pre>
+     </div>
+     <p>
+      As alluded to earlier, tools should output their dependencies in a
+file so Callisto can track which files it depends on. This is where we
+specify the path to this file. The file can be named anything you want,
+the
+      <code>
+       .dependencies
+      </code>
+      name is just a convention, making it easy
+to ignore them in a
+      <code>
+       .gitignore
+      </code>
+      file if needed.
+     </p>
+     <p>
+      That’s all for tool configuration and compatibility!
+     </p>
+    </div>
+    <div class="d-none d-xl-block col-xl-2 bd-toc">
+     <ul class="section-nav">
+      <li class="toc-entry">
+       <ul>
+        <li>
+         <a href="#tool-requirements" id="toc-tool-requirements">
+          Tool
+Requirements
+         </a>
+        </li>
+        <li>
+         <a href="#tool-configuration" id="toc-tool-configuration">
+          Tool
+Configuration
+         </a>
+         <ul>
+          <li>
+           <a href="#configuration-header" id="toc-configuration-header">
+            Configuration Header
+           </a>
+          </li>
+          <li>
+           <a href="#directory" id="toc-directory">
+            Directory
+           </a>
+          </li>
+          <li>
+           <a href="#executable" id="toc-executable">
+            Executable
+           </a>
+          </li>
+          <li>
+           <a href="#options-flags" id="toc-options-flags">
+            Options
+Flags
+           </a>
+          </li>
+          <li>
+           <a href="#passing-the-rom" id="toc-passing-the-rom">
+            Passing the
+ROM
+           </a>
+          </li>
+          <li>
+           <a href="#static-dependencies" id="toc-static-dependencies">
+            Static
+Dependencies
+           </a>
+          </li>
+          <li>
+           <a href="#the-dependencies-file" id="toc-the-dependencies-file">
+            The
+Dependencies File
+           </a>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div style="padding-top: 5rem">
+  </div>
+  <footer class="footer text-muted">
+   <div align="center">
+    <button class="btn btn-primary back-to-top">
+     Back to top
+    </button>
+    <br/>
+    <br/>
+    This documentation is available under
+    <a href="https://creativecommons.org/share-your-work/public-domain/cc0/" rel="noopener" target="_blank">
+     CC0
+    </a>
+    <br/>
+    Copyright (c) 2023, underway
+   </div>
+  </footer>
+  <!-- JS, Popper.js, and jQuery -->
+  <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+  </script>
+  <!-- Mathjax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+  </script>
+  <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script>
+   /* Bootstrap styles to tables */
+         function bootstrapStylePandocTables() {
+         $('tr.header').parent('thead').parent('table').addClass('table table-condensed'); }
+         $(document).ready(function () { bootstrapStylePandocTables(); });
+         /* Adjust the height when click the toc */
+         var shiftWindow = function() { scrollBy(0, -60) };
+         window.addEventListener("hashchange", shiftWindow);
+         function load() { if (window.location.hash) shiftWindow(); }
+
+         const goToTop = () => {
+            document.body.scrollIntoView({
+               behavior: "smooth",
+            });
+         };
+
+         const backToTopButton = document.querySelector(".back-to-top")
+         backToTopButton.addEventListener("click", goToTop)
+  </script>
+ </body>
+</html>

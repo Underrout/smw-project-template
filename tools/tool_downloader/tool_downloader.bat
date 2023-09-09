@@ -110,8 +110,6 @@ del /q "%basePath%\tools\tool_downloader\asar\64-Bit\ASAR_LICENSE" > nul 2>&1
 del /q "%basePath%\callisto\ASAR_LICENSE" > nul 2>&1
 del /q "%basePath%\callisto\LICENSE" > nul 2>&1
 
-rd /s /q "%basePath%\callisto\documentation" > nul 2>&1
-
 echo.
 echo All tools are set up
 echo.

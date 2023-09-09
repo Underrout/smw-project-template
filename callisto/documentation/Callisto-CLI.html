@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="pandoc" name="generator"/>
+  <title>
+   Callisto CLI
+  </title>
+  <!-- Bootstrap -->
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
+  <!-- Font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <!-- Styles -->
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="callisto1.ico" rel="shortcut icon" type="image/x-icon">
+  </link>
+ </head>
+ <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.4">
+    Callisto
+    <small>
+     v0.2.4
+    </small>
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="Home.html">
+       Home
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+       Sections
+      </a>
+      <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+       <a class="dropdown-item" href="Callisto-Setup-(new-project).html">
+        Callisto Setup (new project)
+       </a>
+       <a class="dropdown-item" href="Callisto-Setup-(preexisting-project).html">
+        Callisto Setup (preexisting project)
+       </a>
+       <a class="dropdown-item" href="Using-Callisto.html">
+        Using Callisto
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Advanced-Topics.html">
+        Advanced Topics
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Frequently-Asked-Questions.html">
+        FAQ
+       </a>
+      </div>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container">
+   <h1 class="display-4">
+    Callisto CLI
+   </h1>
+   <div class="row">
+    <div class="col-xl-10">
+     <p>
+      All main functions of Callisto are
+also available via command-line calls.
+     </p>
+     <p>
+      You can use
+      <code>
+       callisto.exe --help
+      </code>
+      to see them, I will also
+show a short list of them here.
+     </p>
+     <h2 id="callisto.exe-rebuild">
+      <code>
+       callisto.exe rebuild
+      </code>
+     </h2>
+     <p>
+      This is equivalent to
+      <code>
+       Rebuild
+      </code>
+      .
+     </p>
+     <p>
+      You can pass
+      <code>
+       --no-export
+      </code>
+      to make Callisto not call
+      <code>
+       Save
+      </code>
+      prior to the build if there may be unsaved resources
+in your ROM, which it will do by default. Instead, it will error out if
+there may be unsaved resources, aborting the build.
+     </p>
+     <h2 id="callisto.exe-update">
+      <code>
+       callisto.exe update
+      </code>
+     </h2>
+     <p>
+      This is equivalent to
+      <code>
+       Update
+      </code>
+      .
+     </p>
+     <p>
+      The
+      <code>
+       --no-export
+      </code>
+      flag can also be passed with this
+command and has the same effect as with
+      <code>
+       rebuild
+      </code>
+      .
+     </p>
+     <h2 id="callisto.exe-save">
+      <code>
+       callisto.exe save
+      </code>
+     </h2>
+     <p>
+      This is equivalent to
+      <code>
+       Save
+      </code>
+      .
+     </p>
+     <h2 id="callisto.exe-edit">
+      <code>
+       callisto.exe edit
+      </code>
+     </h2>
+     <p>
+      This is equivalent to
+      <code>
+       Edit
+      </code>
+      . Note that this also supports
+automatic ROM reloads and automatic resource exports if you have those
+enabled, just like Callisto’s main menu.
+     </p>
+     <h2 id="callisto.exe-package">
+      <code>
+       callisto.exe package
+      </code>
+     </h2>
+     <p>
+      This is equivalent to
+      <code>
+       Package
+      </code>
+      .
+     </p>
+     <h2 id="callisto.exe-profiles">
+      <code>
+       callisto.exe profiles
+      </code>
+     </h2>
+     <p>
+      This will list the configured profiles for this project (see
+      <a href="Using-Profiles.html">
+       Using Profiles
+      </a>
+      for details). Each profile name
+will appear on its own line.
+     </p>
+     <p>
+      If you are using profiles, you can also pass the profile to use
+during builds/saves to
+      <code>
+       rebuild
+      </code>
+      ,
+      <code>
+       update
+      </code>
+      and
+      <code>
+       save
+      </code>
+      with the
+      <code>
+       --profile
+      </code>
+      option,
+i.e.
+      <code>
+       callisto.exe rebuild --profile release
+      </code>
+      is the same as
+selecting the
+      <code>
+       release
+      </code>
+      profile in Callisto’s menu and using
+      <code>
+       Rebuild
+      </code>
+      .
+     </p>
+     <h2 id="other-options">
+      Other Options
+     </h2>
+     <p>
+      The
+      <code>
+       --max-threads
+      </code>
+      ,
+      <code>
+       --allow-user-input
+      </code>
+      and
+      <code>
+       ---check-pending-save
+      </code>
+      options you may see in the help
+message, while technically usable, are mostly meant for
+      <code>
+       eloper.exe
+      </code>
+      to use when telling Callisto to perform an
+automatic export. Using them yourself is not recommended, but may work
+fine anyway.
+     </p>
+    </div>
+    <div class="d-none d-xl-block col-xl-2 bd-toc">
+     <ul class="section-nav">
+      <li class="toc-entry">
+       <ul>
+        <li>
+         <a href="#callisto.exe-rebuild" id="toc-callisto.exe-rebuild">
+          <code>
+           callisto.exe rebuild
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#callisto.exe-update" id="toc-callisto.exe-update">
+          <code>
+           callisto.exe update
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#callisto.exe-save" id="toc-callisto.exe-save">
+          <code>
+           callisto.exe save
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#callisto.exe-edit" id="toc-callisto.exe-edit">
+          <code>
+           callisto.exe edit
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#callisto.exe-package" id="toc-callisto.exe-package">
+          <code>
+           callisto.exe package
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#callisto.exe-profiles" id="toc-callisto.exe-profiles">
+          <code>
+           callisto.exe profiles
+          </code>
+         </a>
+        </li>
+        <li>
+         <a href="#other-options" id="toc-other-options">
+          Other
+Options
+         </a>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div style="padding-top: 5rem">
+  </div>
+  <footer class="footer text-muted">
+   <div align="center">
+    <button class="btn btn-primary back-to-top">
+     Back to top
+    </button>
+    <br/>
+    <br/>
+    This documentation is available under
+    <a href="https://creativecommons.org/share-your-work/public-domain/cc0/" rel="noopener" target="_blank">
+     CC0
+    </a>
+    <br/>
+    Copyright (c) 2023, underway
+   </div>
+  </footer>
+  <!-- JS, Popper.js, and jQuery -->
+  <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+  </script>
+  <!-- Mathjax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+  </script>
+  <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script>
+   /* Bootstrap styles to tables */
+         function bootstrapStylePandocTables() {
+         $('tr.header').parent('thead').parent('table').addClass('table table-condensed'); }
+         $(document).ready(function () { bootstrapStylePandocTables(); });
+         /* Adjust the height when click the toc */
+         var shiftWindow = function() { scrollBy(0, -60) };
+         window.addEventListener("hashchange", shiftWindow);
+         function load() { if (window.location.hash) shiftWindow(); }
+
+         const goToTop = () => {
+            document.body.scrollIntoView({
+               behavior: "smooth",
+            });
+         };
+
+         const backToTopButton = document.querySelector(".back-to-top")
+         backToTopButton.addEventListener("click", goToTop)
+  </script>
+ </body>
+</html>

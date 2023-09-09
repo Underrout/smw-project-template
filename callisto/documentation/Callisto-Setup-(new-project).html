@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="pandoc" name="generator"/>
+  <title>
+   Callisto Setup (new project)
+  </title>
+  <!-- Bootstrap -->
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
+  <!-- Font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <!-- Styles -->
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="callisto1.ico" rel="shortcut icon" type="image/x-icon">
+  </link>
+ </head>
+ <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.4">
+    Callisto
+    <small>
+     v0.2.4
+    </small>
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="Home.html">
+       Home
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+       Sections
+      </a>
+      <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+       <a class="dropdown-item" href="Callisto-Setup-(new-project).html">
+        Callisto Setup (new project)
+       </a>
+       <a class="dropdown-item" href="Callisto-Setup-(preexisting-project).html">
+        Callisto Setup (preexisting project)
+       </a>
+       <a class="dropdown-item" href="Using-Callisto.html">
+        Using Callisto
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Advanced-Topics.html">
+        Advanced Topics
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Frequently-Asked-Questions.html">
+        FAQ
+       </a>
+      </div>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container">
+   <h1 class="display-4">
+    Callisto Setup (new project)
+   </h1>
+   <div class="row">
+    <div class="col-xl-10">
+     <h1 id="alternatives-to-manual-setup">
+      Alternatives to Manual Setup
+     </h1>
+     <p>
+      Setting up Callisto can be a fairly complex process. It is often far
+more convenient to use a baserom that comes with Callisto integrated
+already. These baseroms make setup far easier and allow you to jump
+right into designing within minutes.
+     </p>
+     <p>
+      Some baseroms that come with Callisto:
+     </p>
+     <ul>
+      <li>
+       <a href="https://github.com/Underrout/smw-project-template">
+        my own
+project template
+       </a>
+      </li>
+     </ul>
+     <p>
+      Even if you end up using a baserom, you may still find it useful to
+refer to this wiki for non-setup-related information about Callisto,
+such as
+      <a href="Using-Callisto.html">
+       Using Callisto
+      </a>
+      or the section of
+this setup page about
+      <a href="Callisto-Setup-(new-project)#adding-patches">
+       adding patches
+      </a>
+      ,
+but you can safely skip most of this setup page!
+     </p>
+     <p>
+      Otherwise, if you’re a brave soul, please continue below.
+     </p>
+     <h1 id="getting-callisto">
+      Getting Callisto
+     </h1>
+     <p>
+      The latest version of Callisto can be
+      <a href="https://github.com/Underrout/callisto/releases/latest">
+       downloaded
+here
+      </a>
+      .
+     </p>
+     <p>
+      Just click on
+      <code>
+       callisto-vX.X.X.zip
+      </code>
+      in the “Assets” list
+and your browser should download the ZIP archive.
+     </p>
+     <h2 id="contents-of-the-zip-archive">
+      Contents of the ZIP Archive
+     </h2>
+     <p>
+      The archive should contain the following folders:
+     </p>
+     <pre><code>- asar
+- config
+- initial_patches</code></pre>
+     <p>
+      and the following files:
+     </p>
+     <pre><code>- asar.dll
+- ASAR_LICENSE
+- callisto.exe
+- eloper.exe
+- LICENSE</code></pre>
+     <h1 id="setting-up-callisto">
+      Setting up Callisto
+     </h1>
+     <p>
+      To start, create a new folder for your project to go in, for
+demonstration’s sake we’ll use
+      <code>
+       my_hack
+      </code>
+      .
+     </p>
+     <p>
+      In this newly created empty project folder, create another folder and
+call it
+      <code>
+       tools
+      </code>
+      and then another folder inside the
+      <code>
+       tools
+      </code>
+      folder called
+      <code>
+       callisto
+      </code>
+      . The folder
+structure now looks like this:
+     </p>
+     <pre><code>my_hack/
+└── tools/
+    └── callisto/</code></pre>
+     <p>
+      Now, put Callisto into the
+      <code>
+       callisto
+      </code>
+      folder. To do
+so:
+     </p>
+     <ol type="1">
+      <li>
+       copy the
+       <code>
+        callisto.exe
+       </code>
+       ,
+       <code>
+        eloper.exe
+       </code>
+       and
+       <code>
+        asar.dll
+       </code>
+       files from the root of the downloaded ZIP archive
+into the
+       <code>
+        callisto
+       </code>
+       folder
+      </li>
+      <li>
+       copy all files from the
+       <code>
+        config/project
+       </code>
+       folder from the
+ZIP file to the
+       <code>
+        callisto
+       </code>
+       folder too
+      </li>
+     </ol>
+     <p>
+      Project folder’s structure now looks like this:
+     </p>
+     <pre><code>my_hack/
+└── tools/
+    └── callisto/
+        ├── asar.dll
+        ├── callisto.exe
+        ├── eloper.exe
+        └── (various other files ending in .toml)</code></pre>
+     <p>
+      Great! Now, Callisto
+      <em>
+       does
+      </em>
+      require some additional tools in
+order to run. We at least need:
+     </p>
+     <ul>
+      <li>
+       Lunar Magic 3.33 (or newer)
+      </li>
+      <li>
+       Floating IPS (FLIPS)
+      </li>
+     </ul>
+     <p>
+      Grab Lunar Magic 3.33 and FLIPS from SMWCentral and place them into
+your project folder in their respective folders like this:
+     </p>
+     <pre><code>my_hack/
+└── tools/
+    ├── callisto/
+    │   ├── asar.dll
+    │   ├── callisto.exe
+    │   ├── eloper.exe
+    │   └── (various TOML config files)
+    ├── flips/
+    │   └── flips.exe
+    └── lunar_magic/
+        └── Lunar Magic.exe</code></pre>
+     <p>
+      Nice, now let’s create a folder to hold various resources for our
+hack. Create a new
+      <code>
+       resources
+      </code>
+      folder in your project’s main
+folder, like this:
+     </p>
+     <pre><code>my_hack/
+├── tools/
+│   ├── callisto/
+│   │   ├── asar.dll
+│   │   ├── callisto.exe
+│   │   ├── eloper.exe
+│   │   └── (various TOML config files)
+│   ├── flips/
+│   │   └── flips.exe
+│   └── lunar_magic/
+│       └── Lunar Magic.exe
+└── resources/</code></pre>
+     <p>
+      There are generally a few things that a ROM needs in it for various
+other resources to be inserted into it without problems. This is why
+Callisto comes with two “initial patches” that will put a ROM into a
+state where it is ready for insertion.
+     </p>
+     <p>
+      Callisto comes with an initial patch for FastROM and one for SA-1,
+both of them are in the
+      <code>
+       initial_patches
+      </code>
+      folder in
+Callisto’s ZIP archive. Grab whichever of the two you prefer (if you
+don’t know what FastROM and SA-1 are, you can just pick one), move it to
+your
+      <code>
+       my_hack/resources
+      </code>
+      folder and rename it to
+      <code>
+       initial_patch.bps
+      </code>
+      , like this:
+     </p>
+     <pre><code>my_hack/
+├── tools/
+│   ├── callisto/
+│   │   ├── asar.dll
+│   │   ├── callisto.exe
+│   │   ├── eloper.exe
+│   │   └── (various TOML config files)
+│   ├── flips/
+│   │   └── flips.exe
+│   └── lunar_magic/
+│       └── Lunar Magic.exe
+└── resources/
+    └── initial_patch.bps</code></pre>
+     <p>
+      Great! Now all we need to do is give Callisto a clean Super Mario
+World ROM to work with. If you’ve already followed this guide previously
+and done this step, you shouldn’t need to do it again.
+     </p>
+     <p>
+      To do this, we need to open Callisto. Go ahead and double-click on
+      <code>
+       my_hack/tools/callisto/callisto.exe
+      </code>
+      and the window should
+open. You might get a Windows Defender warning, but you can just dismiss
+it. After this, there should be a new folder at
+      <code>
+       %appdata%/callisto
+      </code>
+      . Grab the files from the
+      <code>
+       config/user
+      </code>
+      folder in Callisto’s ZIP archive and copy them
+to your
+      <code>
+       %appdata%/callisto
+      </code>
+      folder. Now, go ahead and open
+the
+      <code>
+       user.toml
+      </code>
+      file in a text editor of your choice (some
+text editors like VSCode even have nice syntax highlighting for TOML
+files!).
+     </p>
+     <p>
+      You should see the following lines:
+     </p>
+     <div class="sourceCode" id="cb8">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb8-1"><a aria-hidden="true" href="#cb8-1" tabindex="-1"></a><span class="kw">[settings]</span></span>
+<span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a><span class="dt">clean_rom</span> <span class="op">=</span> <span class="st">"path/to/my/clean/rom.smc"</span></span></code></pre>
+     </div>
+     <p>
+      This tells Callisto where it can find a clean, headered Super Mario
+World ROM on your computer. This can be any path to a clean ROM, but for
+simplicity, I will move a clean ROM to my
+      <code>
+       %appdata%/callisto
+      </code>
+      folder, call it
+      <code>
+       clean.smc
+      </code>
+      and then change the two lines in
+      <code>
+       user.toml
+      </code>
+      to:
+     </p>
+     <div class="sourceCode" id="cb9">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb9-1"><a aria-hidden="true" href="#cb9-1" tabindex="-1"></a><span class="kw">[settings]</span></span>
+<span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a><span class="dt">clean_rom</span> <span class="op">=</span> <span class="st">"C:/Users/user/AppData/Roaming/callisto/clean.smc"</span></span></code></pre>
+     </div>
+     <p>
+      Now we are actually ready for our first build! If you still have
+Callisto open, go ahead and switch back to its window, otherwise re-open
+it (by double-clicking
+      <code>
+       my_hack/tools/callisto/callisto.exe
+      </code>
+      .
+     </p>
+     <p>
+      You should see a window with various options. You can navigate it
+either with your arrow keys or by pressing the button next to the option
+on your keyboard. To build, go ahead and press
+      <code>
+       R
+      </code>
+      on your
+keyboard or navigate to
+      <code>
+       Rebuild
+      </code>
+      with your arrow keys and
+press enter.
+     </p>
+     <p>
+      You should see the build process start and then get a message saying
+      <code>
+       Some resources which are configured to be inserted are not present, extract them from your clean ROM? Y/N
+      </code>
+      .
+This is because we don’t yet have anything to insert into our ROM! Go
+ahead and press
+      <code>
+       y
+      </code>
+      then enter so that Callisto will extract
+all relevant resources from our vanilla ROM and give us a clean slate to
+work with.
+     </p>
+     <p>
+      If all goes well, you should see
+      <code>
+       Build finished successfully
+      </code>
+      . Congratulations, you just
+built an (almost) vanilla ROM!
+     </p>
+     <p>
+      You will also see the various files Callisto extracted from our clean
+ROM in your resources folder:
+     </p>
+     <pre><code>my_hack/
+├── tools/
+│   ├── callisto/
+│   │   ├── asar.dll
+│   │   ├── callisto.exe
+│   │   ├── eloper.exe
+│   │   └── (various TOML config files)
+│   ├── flips/
+│   │   └── flips.exe
+│   └── lunar_magic/
+│       └── Lunar Magic.exe
+└── resources/
+    ├── all_map16/
+    ├── exgraphics/
+    ├── graphics/
+    ├── levels/
+    ├── credits.bps
+    ├── global_exanimation.bps
+    ├── initial_patch.bps
+    ├── overworld.bps
+    ├── shared_palettes.pal
+    └── titlescreen.bps</code></pre>
+     <p>
+      If you want, you can take a peek at the ROM by pressing
+      <code>
+       e
+      </code>
+      in Callisto’s main menu, which will open the built ROM in
+Lunar Magic for you. It’s not much to look at for now though.
+     </p>
+     <p>
+      Now that we’ve come this far, it is time to talk about
+configuration.
+     </p>
+     <h1 id="basic-callisto-configuring">
+      Basic Callisto Configuring
+     </h1>
+     <h2 id="build_order.toml">
+      <code>
+       build_order.toml
+      </code>
+     </h2>
+     <p>
+      Let’s take a look at
+      <code>
+       my_hack/tools/callisto/build_order.toml
+      </code>
+      . This file
+specifies in which order all our resources are inserted into our ROM
+during the build process.
+     </p>
+     <div class="sourceCode" id="cb11">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb11-1"><a aria-hidden="true" href="#cb11-1" tabindex="-1"></a><span class="kw">[orders]</span></span>
+<span id="cb11-2"><a aria-hidden="true" href="#cb11-2" tabindex="-1"></a><span class="dt">build_order</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb11-3"><a aria-hidden="true" href="#cb11-3" tabindex="-1"></a>    <span class="st">"InitialPatch"</span><span class="op">,</span>             <span class="co"># Apply initial patch</span></span>
+<span id="cb11-4"><a aria-hidden="true" href="#cb11-4" tabindex="-1"></a></span>
+<span id="cb11-5"><a aria-hidden="true" href="#cb11-5" tabindex="-1"></a>    <span class="co"># "Modules",                  # Insert modules</span></span>
+<span id="cb11-6"><a aria-hidden="true" href="#cb11-6" tabindex="-1"></a></span>
+<span id="cb11-7"><a aria-hidden="true" href="#cb11-7" tabindex="-1"></a>    <span class="st">"Graphics"</span><span class="op">,</span>                 <span class="co"># Insert GFX</span></span>
+<span id="cb11-8"><a aria-hidden="true" href="#cb11-8" tabindex="-1"></a>    <span class="st">"ExGraphics"</span><span class="op">,</span>               <span class="co"># Insert ExGFX</span></span>
+<span id="cb11-9"><a aria-hidden="true" href="#cb11-9" tabindex="-1"></a>    <span class="st">"Map16"</span><span class="op">,</span>                    <span class="co"># Insert Map16</span></span>
+<span id="cb11-10"><a aria-hidden="true" href="#cb11-10" tabindex="-1"></a></span>
+<span id="cb11-11"><a aria-hidden="true" href="#cb11-11" tabindex="-1"></a>    <span class="co"># "TitleScreenMovement",      # Uncomment this if you're inserting title moves</span></span>
+<span id="cb11-12"><a aria-hidden="true" href="#cb11-12" tabindex="-1"></a></span>
+<span id="cb11-13"><a aria-hidden="true" href="#cb11-13" tabindex="-1"></a>    <span class="st">"SharedPalettes"</span><span class="op">,</span>           <span class="co"># Insert Shared Palettes </span></span>
+<span id="cb11-14"><a aria-hidden="true" href="#cb11-14" tabindex="-1"></a>    <span class="st">"Overworld"</span><span class="op">,</span>                <span class="co"># Insert Overworld</span></span>
+<span id="cb11-15"><a aria-hidden="true" href="#cb11-15" tabindex="-1"></a>    <span class="st">"TitleScreen"</span><span class="op">,</span>              <span class="co"># Insert Titlescren</span></span>
+<span id="cb11-16"><a aria-hidden="true" href="#cb11-16" tabindex="-1"></a>    <span class="st">"Credits"</span><span class="op">,</span>                  <span class="co"># Insert Credits</span></span>
+<span id="cb11-17"><a aria-hidden="true" href="#cb11-17" tabindex="-1"></a>    <span class="st">"GlobalExAnimation"</span><span class="op">,</span>        <span class="co"># Insert Global ExAnimation</span></span>
+<span id="cb11-18"><a aria-hidden="true" href="#cb11-18" tabindex="-1"></a></span>
+<span id="cb11-19"><a aria-hidden="true" href="#cb11-19" tabindex="-1"></a>    <span class="co"># "Patches",                  # Insert all remaining patches from the patches list that </span></span>
+<span id="cb11-20"><a aria-hidden="true" href="#cb11-20" tabindex="-1"></a>                                <span class="co"># are not explicitly mentioned in this build order</span></span>
+<span id="cb11-21"><a aria-hidden="true" href="#cb11-21" tabindex="-1"></a></span>
+<span id="cb11-22"><a aria-hidden="true" href="#cb11-22" tabindex="-1"></a></span>
+<span id="cb11-23"><a aria-hidden="true" href="#cb11-23" tabindex="-1"></a>    <span class="co"># "PIXI",                     # Insert custom sprites</span></span>
+<span id="cb11-24"><a aria-hidden="true" href="#cb11-24" tabindex="-1"></a>    <span class="st">"Levels"</span><span class="op">,</span>                   <span class="co"># Insert all levels</span></span>
+<span id="cb11-25"><a aria-hidden="true" href="#cb11-25" tabindex="-1"></a></span>
+<span id="cb11-26"><a aria-hidden="true" href="#cb11-26" tabindex="-1"></a>    <span class="co"># "GPS",                      # Insert custom blocks</span></span>
+<span id="cb11-27"><a aria-hidden="true" href="#cb11-27" tabindex="-1"></a>    <span class="co"># "AddMusicK",                # Insert custom music</span></span>
+<span id="cb11-28"><a aria-hidden="true" href="#cb11-28" tabindex="-1"></a>    <span class="co"># "UberASM",                  # Insert UberASM code</span></span>
+<span id="cb11-29"><a aria-hidden="true" href="#cb11-29" tabindex="-1"></a></span>
+<span id="cb11-30"><a aria-hidden="true" href="#cb11-30" tabindex="-1"></a>    <span class="co"># "patches/some_patch.asm",   # Example of inserting a specific patch at a specific point</span></span>
+<span id="cb11-31"><a aria-hidden="true" href="#cb11-31" tabindex="-1"></a><span class="op">]</span></span></code></pre>
+     </div>
+     <p>
+      As you can see, a lot of lines are commented out, so by default we
+get a build order that is suitable for vanilla hacks. Whenever we add a
+tool, for example PIXI, or a resource to our hack, we will need to add
+it to the build order to tell Callisto to actually apply that
+tool/insert that resource.
+     </p>
+     <h2 id="project.toml">
+      <code>
+       project.toml
+      </code>
+     </h2>
+     <p>
+      Let’s take a quick look at the
+      <code>
+       my_hack/tools/callisto/project.toml
+      </code>
+      file.
+     </p>
+     <p>
+      Opening it up, you will see a lot of comments about every
+configuration variable, I will only touch on a few that are of immediate
+interest here.
+     </p>
+     <p>
+      <code>
+       project_root
+      </code>
+      specifies the root of your project folder.
+All other paths you specify will be relative to this one. As you can
+see, it is currently set to
+      <code>
+       "../../"
+      </code>
+      , which means the
+folder two levels up from this one. Since Callisto is at
+      <code>
+       my_hack/tools/callisto
+      </code>
+      ,
+      <code>
+       ../../
+      </code>
+      refers to the
+      <code>
+       my_hack
+      </code>
+      folder, which is indeed the root of our project! If
+you move your Callisto folder around, let’s say to
+      <code>
+       my_hack/callisto
+      </code>
+      , you might need to change this setting, in
+this case to
+      <code>
+       project_root = "../"
+      </code>
+     </p>
+     <p>
+      Note that it is easier to use forward slashes (
+      <code>
+       /
+      </code>
+      ) with
+the
+      <a href="https://toml.io/en/">
+       TOML format
+      </a>
+      , since you will have
+to use
+      <code>
+       \\
+      </code>
+      instead of just
+      <code>
+       \
+      </code>
+      when using
+backwards slashes, so I would recommend sticking to forward slashes for
+all your paths!
+     </p>
+     <p>
+      <code>
+       output_rom
+      </code>
+      specifies the path where the ROM Callisto
+builds will be output. You can change this to
+      <code>
+       build/my_cool_hack.smc
+      </code>
+      or anything else you prefer if you
+want your ROM name and location to be different! The same goes for
+      <code>
+       bps_package
+      </code>
+      , which specifies where the BPS package of your
+ROM will be output when you use the
+      <code>
+       Package (P)
+      </code>
+      function in
+Callisto’s main menu.
+     </p>
+     <h2 id="resources.toml">
+      <code>
+       resources.toml
+      </code>
+     </h2>
+     <p>
+      The
+      <code>
+       my_hack/tools/callisto/resources.toml
+      </code>
+      file contains
+the paths to various resources used by your hack. Most should be pretty
+self-explanatory.
+     </p>
+     <p>
+      Note that the
+      <code>
+       graphics
+      </code>
+      and
+      <code>
+       ex_graphics
+      </code>
+      settings allow you to do something pretty unusual. Generally, with Lunar
+Magic, the
+      <code>
+       Graphics
+      </code>
+      and
+      <code>
+       ExGraphics
+      </code>
+      folders
+have to be right next to the ROM, but Callisto lets you get around this
+by using some filesystem trickery. There will still be
+      <code>
+       Graphics
+      </code>
+      and
+      <code>
+       ExGraphics
+      </code>
+      folders next to your
+ROM in the
+      <code>
+       my_hack/build
+      </code>
+      folder, but editing the files in
+these folders is exactly the same as editing the files in the
+corresponding folders in the
+      <code>
+       my_hack/resources
+      </code>
+      folder and
+vice-versa, so you can edit graphics in either of the two locations and
+they will be tracked the same way! If you would rather only use the
+default folder locations next to the ROM, you can just comment out the
+two lines in the file like this:
+     </p>
+     <div class="sourceCode" id="cb12">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb12-1"><a aria-hidden="true" href="#cb12-1" tabindex="-1"></a><span class="co"># graphics = "resources/graphics"</span></span>
+<span id="cb12-2"><a aria-hidden="true" href="#cb12-2" tabindex="-1"></a><span class="co"># ex_graphics = "resources/exgraphics"</span></span></code></pre>
+     </div>
+     <p>
+      If you’re just making a vanilla hack, this should already be enough
+information and you can probably move on to
+      <a href="Using-Callisto.html">
+       Using Callisto
+      </a>
+      if you want to! Otherwise, feel
+free to continue below.
+     </p>
+     <h1 id="adding-tools">
+      Adding Tools
+     </h1>
+     <p>
+      So far, we have only used Callisto with two other tools, FLIPS and
+Lunar Magic. But Callisto is also compatible with all standard tools
+(PIXI, GPS, UberASMTool, AddMusicK) as well as
+      <em>
+       any
+      </em>
+      other tools
+that conform to some simple requirements (see
+      <a href="Tools-In-Depth">
+       Tools In-Depth
+      </a>
+      for details).
+     </p>
+     <p>
+      In the interest of simplicity, I will only show you how to add PIXI,
+GPS, UberASMTool and AddMusicK to your project here and leave out any
+low-level details.
+     </p>
+     <h2 id="a-note-on-asar">
+      A Note on Asar
+     </h2>
+     <p>
+      As noted earlier, tools must conform to some basic requirements to
+work (well) with Callisto. To ensure that the standard tools come as
+close to these requirements as possible, Callisto uses
+      <a href="https://github.com/Underrout/asar/tree/v1.81-callisto">
+       a
+customized version of asar 1.81
+      </a>
+      which you can
+      <a href="https://github.com/Underrout/asar/releases/tag/c-v1.81">
+       download
+here
+      </a>
+      .
+     </p>
+     <p>
+      For
+      <em>
+       any
+      </em>
+      tool which uses asar, you will need to replace the
+      <code>
+       asar.dll
+      </code>
+      or
+      <code>
+       asar.exe
+      </code>
+      that comes with that tool
+with a customized version.
+     </p>
+     <p>
+      You will notice that the customized asar’s ZIP archive contains both
+32-Bit and 64-Bit versions of asar, this is because different tools may
+require either the 32-Bit or 64-Bit version and you will have to replace
+the tool’s asar with the correct version for it to still function.
+     </p>
+     <p>
+      Here is a brief list of which tools use which version of asar for
+your convenience:
+     </p>
+     <table>
+      <thead>
+       <tr class="header">
+        <th>
+         Tool Version
+        </th>
+        <th>
+         Asar 1.81 Bitness
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr class="odd">
+        <td>
+         PIXI &lt; v1.40
+        </td>
+        <td>
+         32-Bit
+        </td>
+       </tr>
+       <tr class="even">
+        <td>
+         PIXI &gt;= v1.40
+        </td>
+        <td>
+         64-Bit
+        </td>
+       </tr>
+       <tr class="odd">
+        <td>
+         GPS &lt;= V1.4.4
+        </td>
+        <td>
+         32-Bit
+        </td>
+       </tr>
+       <tr class="even">
+        <td>
+         AddMusicK 1.0.9
+        </td>
+        <td>
+         32-Bit
+        </td>
+       </tr>
+       <tr class="odd">
+        <td>
+         UberASMTool 2.0
+        </td>
+        <td>
+         32-Bit
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <p>
+      You may notice that for AddMusicK and UberASMTool only version 1.0.9
+and version 2.0 are listed respectively. This is because Callisto is
+      <em>
+       not
+      </em>
+      compatible with versions of those tools lower than the ones
+listed. At time of writing, neither of the tools have been standardized
+with these version numbers yet, but appear to work fine in testing, so
+use them at your own risk.
+     </p>
+     <h2 id="a-note-on-folder-paths">
+      A Note on Folder Paths
+     </h2>
+     <p>
+      It should be noted that all the setup instructions below assume that
+you are also using the same folder structure and folder names as I am.
+Changing the folder names would entail making small edits in
+      <code>
+       tools.toml
+      </code>
+      , which you can otherwise avoid. I would
+recommend simply sticking with these folder names and this folder
+structure until you are more comfortable with Callisto and have perhaps
+read
+      <a href="Tools-In-Depth">
+       Tools In-Depth
+      </a>
+      .
+     </p>
+     <h2 id="adding-pixi">
+      Adding PIXI
+     </h2>
+     <p>
+      To add PIXI to my project, I will first download it. Personally, I
+will go with PIXI v1.40, but any other version should also be fine.
+     </p>
+     <p>
+      I will now create a
+      <code>
+       my_hack/tools/pixi
+      </code>
+      folder and place
+the contents of the PIXI ZIP archive in it, resulting in this
+structure:
+     </p>
+     <pre><code>my_hack/
+├── tools/
+│   ├── callisto/
+│   ├── flips/
+│   ├── lunar_magic/
+│   └── pixi/
+│       ├── asm/
+│       ├── cluster/
+│       ├── extended/
+│       └── ...
+└── resources/</code></pre>
+     <p>
+      As mentioned earlier, we will have to replace the
+      <code>
+       asar.dll
+      </code>
+      that comes with PIXI with the customized version.
+For PIXI 1.40, which I’m using, I will need the 64-Bit version of asar.
+I’ll grab the
+      <code>
+       asar/64-Bit/asar.dll
+      </code>
+      file from Callisto’s ZIP
+archive and copy it into my
+      <code>
+       my_hack/tools/pixi
+      </code>
+      folder,
+overwriting the
+      <code>
+       asar.dll
+      </code>
+      that came with PIXI.
+     </p>
+     <p>
+      Since PIXI doesn’t come with a list file by default, I will add an
+empty one in the
+      <code>
+       my_hack/tools/pixi
+      </code>
+      folder and call it
+      <code>
+       list.txt
+      </code>
+      :
+     </p>
+     <pre><code>my_hack/
+├── tools/
+│   ├── callisto/
+│   ├── flips/
+│   ├── lunar_magic/
+│   └── pixi/
+│       ├── asm/
+│       ├── cluster/
+│       ├── extended/
+|       ├── ...
+|       ├── list.txt
+│       └── ...
+└── resources/</code></pre>
+     <p>
+      Finally, I will open
+      <code>
+       my_hack/tools/callisto/build_order.toml
+      </code>
+      and uncomment the
+PIXI line by removing the
+      <code>
+       #
+      </code>
+      sign to tell Callisto to insert
+PIXI.
+     </p>
+     <p>
+      Now, if we use
+      <code>
+       Rebuild (R)
+      </code>
+      in Callisto’s menu, PIXI will
+be inserted, just like we wanted!
+     </p>
+     <h2 id="adding-gps">
+      Adding GPS
+     </h2>
+     <p>
+      To add GPS, I will download GPS V1.4.4 from SMWCentral and move the
+contents of the ZIP archive into a new
+      <code>
+       my_hack/tools/gps
+      </code>
+      folder, like this:
+     </p>
+     <pre><code>my_hack/
+├── tools/
+│   ├── callisto/
+│   ├── flips/
+│   ├── gps/
+│   │   ├── blocks/
+│   │   ├── routines/
+│   │   ├── asar.dll
+│   │   └── ...
+│   └── lunar_magic/
+└── resources/</code></pre>
+     <p>
+      Again, I will need to replace the
+      <code>
+       asar.dll
+      </code>
+      that comes
+with GPS with the one that comes with Callisto. Since GPS V1.4.4 uses
+the 32-Bit version, I will grab
+      <code>
+       asar/32-Bit/asar.dll
+      </code>
+      from
+Callisto’s ZIP archive and copy it to my
+      <code>
+       my_hack/tools/gps
+      </code>
+      folder, overwriting the
+      <code>
+       asar.dll
+      </code>
+      that was already
+there.
+     </p>
+     <p>
+      Now, I will simply uncomment the line that says
+      <code>
+       # GPS
+      </code>
+      in
+      <code>
+       my_hack/tools/callisto/build_order.toml
+      </code>
+      and Callisto will
+insert GPS during the build process, just like we wanted!
+     </p>
+     <h2 id="adding-uberasmtool">
+      Adding UberASMTool
+     </h2>
+     <p>
+      To add UberASMTool, we will actually have to ensure we’re using
+UberASMTool 2.0 (newer versions may also work, older versions will
+      <strong>
+       definitely
+      </strong>
+      not, though they may look like they do at
+first glance). For the time being, you can use
+      <a href="https://github.com/Underrout/UberASMTool/releases/latest">
+       the
+version in my fork
+      </a>
+      which is just a compiled version of
+      <a href="https://github.com/Fernap/UberASMTool">
+       Fernap’s fork
+      </a>
+      of the
+      <a href="https://github.com/VitorVilela7/UberASMTool">
+       main UberASMTool
+repository
+      </a>
+      (confusing, I know). If the latter two repositories end
+up containing a newer release that is also labeled 2.0 or higher, using
+that version instead of the one in my fork is probably also fine.
+     </p>
+     <p>
+      With that out of the way, I’ll just create a new folder for
+UberASMTool in my project at
+      <code>
+       my_hack/tools/uberasm_tool
+      </code>
+      and
+move the contents of the UberASMTool 2.0 ZIP I downloaded earlier into
+it:
+     </p>
+     <pre><code>my_hack/
+├── tools/
+│   ├── callisto/
+│   ├── flips/
+│   ├── lunar_magic/
+│   └── uberasm_tool/
+│       ├── asm/
+│       ├── gamemode/
+│       ├── level/
+│       └── ...
+└── resources/</code></pre>
+     <p>
+      Since UberASMTool also uses an
+      <code>
+       asar.dll
+      </code>
+      file, we will
+again need to replace it. UberASMTool 2.0 stil uses 32-Bit, so I will
+copy the
+      <code>
+       asar/32-Bit/asar.dll
+      </code>
+      from Callisto’s ZIP archive
+to the
+      <code>
+       my_hack/tools/uberasm_tool
+      </code>
+      folder and overwrite the
+      <code>
+       asar.dll
+      </code>
+      file that’s already in there.
+     </p>
+     <p>
+      Since Callisto will automatically pass UberASMTool the ROM’s
+filename, I will also remove
+     </p>
+     <pre><code>; ROM file to use, may be overridden on command line, optional here if so
+rom: smw.smc</code></pre>
+     <p>
+      from the
+      <code>
+       my_hack/tools/uberasm_tool/list.txt
+      </code>
+      file, just
+for cleanliness.
+     </p>
+     <p>
+      Finally, I will uncomment the
+      <code>
+       # UberASM
+      </code>
+      line in
+      <code>
+       my_hack/tools/callisto/build_order.toml
+      </code>
+      . Callisto will now
+apply UberASMTool during the build process!
+     </p>
+     <h2 id="adding-addmusick">
+      Adding AddMusicK
+     </h2>
+     <p>
+      As stated earlier, to add AddMusicK, we should ideally use the 1.0.9
+version, which is (at time of writing) in the process of being moderated
+on SMWCentral. I will download the AddMusicK 1.0.9 ZIP archive from
+SMWCentral and place its contents into a new
+      <code>
+       my_hack/tools/addmusick
+      </code>
+      folder:
+     </p>
+     <pre><code>my_hack/
+├── tools/
+│   ├── addmusick/
+│   │   ├── 1DF9/
+│   │   ├── 1DFC/
+│   │   ├── asm/
+│   │   └── ...
+│   ├── callisto/
+│   ├── flips/
+│   └── lunar_magic/
+└── resources/</code></pre>
+     <p>
+      AddMusicK has historically used an EXE version of asar, but appears
+to now also support a DLL, so you can grab either the
+      <code>
+       asar.dll
+      </code>
+      or
+      <code>
+       asar.exe
+      </code>
+      file from the Callisto
+ZIP archive’s
+      <code>
+       asar/32-Bit
+      </code>
+      folder and copy it to the
+      <code>
+       my_hack/tools/addmusick
+      </code>
+      folder.
+     </p>
+     <p>
+      Finally, just uncomment
+      <code>
+       # AddMusicK
+      </code>
+      in
+      <code>
+       my_hack/tools/callisto/build_order.toml
+      </code>
+      and Callisto will
+insert AddMusicK for you during the build process!
+     </p>
+     <h2 id="setting-up-tools-finishing-up">
+      Setting up Tools: Finishing
+up
+     </h2>
+     <p>
+      That’s pretty much it for setting up the standardized tools! If you
+want to (and/or need to), you can read more about how this all works and
+how the
+      <code>
+       tools.toml
+      </code>
+      file plays into this in the
+      <a href="Tools-In-Depth">
+       Tools In-Depth
+      </a>
+      section, but this should
+generally not be necessary and is also much more complex, so I would
+recommend only reading it once you’re comfortable.
+     </p>
+     <p>
+      Adding blocks, sprites, etc. to the tool’s insertion lists works
+exactly the same as it would if you weren’t using Callisto, the only
+difference is that you will no longer run the tools by hand, since
+Callisto handles this for you!
+     </p>
+     <p>
+      Next, we will cover how to insert patches.
+     </p>
+     <h1 id="adding-patches">
+      Adding Patches
+     </h1>
+     <p>
+      Adding patches is very simple, since Callisto comes with asar
+integration and can patch anything needed itself!
+     </p>
+     <p>
+      To keep all my patches in one place, I will add a new
+      <code>
+       patches
+      </code>
+      folder to my
+      <code>
+       resources
+      </code>
+      folder like
+this:
+     </p>
+     <pre><code>my_hack/
+├── tools/
+│   ├── callisto/
+│   ├── flips/
+│   └── lunar_magic/
+└── resources/
+    └── patches/</code></pre>
+     <p>
+      Let’s say I want to insert the Remove Status Bar patch from
+SMWCentral. To do so, I would just grab the
+      <code>
+       nuke_statusbar.asm
+      </code>
+      file from the patch’s ZIP archive and
+move it to my new
+      <code>
+       patches
+      </code>
+      folder. Then, I would open the
+      <code>
+       patches.toml
+      </code>
+      file at
+      <code>
+       my_hack/tools/callisto/patches.toml
+      </code>
+      , which we haven’t
+covered yet. It contains the following lines:
+     </p>
+     <div class="sourceCode" id="cb20">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb20-1"><a aria-hidden="true" href="#cb20-1" tabindex="-1"></a><span class="kw">[resources]</span></span>
+<span id="cb20-2"><a aria-hidden="true" href="#cb20-2" tabindex="-1"></a><span class="dt">patches</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb20-3"><a aria-hidden="true" href="#cb20-3" tabindex="-1"></a>    <span class="co"># "patches/some_patch.asm",</span></span>
+<span id="cb20-4"><a aria-hidden="true" href="#cb20-4" tabindex="-1"></a>    <span class="co"># "patches/etc.asm"</span></span>
+<span id="cb20-5"><a aria-hidden="true" href="#cb20-5" tabindex="-1"></a><span class="op">]</span></span></code></pre>
+     </div>
+     <p>
+      The two lines that are commented out are examples of how we might
+specify a path to a patch.
+     </p>
+     <p>
+      Since our patch is at
+      <code>
+       resources/patches/nuke_statusbar.asm
+      </code>
+      , relative to the
+project’s root folder, I will change the list to look like this:
+     </p>
+     <div class="sourceCode" id="cb21">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb21-1"><a aria-hidden="true" href="#cb21-1" tabindex="-1"></a><span class="kw">[resources]</span></span>
+<span id="cb21-2"><a aria-hidden="true" href="#cb21-2" tabindex="-1"></a><span class="dt">patches</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb21-3"><a aria-hidden="true" href="#cb21-3" tabindex="-1"></a>    <span class="st">"resources/patches/nuke_statusbar.asm"</span></span>
+<span id="cb21-4"><a aria-hidden="true" href="#cb21-4" tabindex="-1"></a><span class="op">]</span></span></code></pre>
+     </div>
+     <p>
+      Finally, I would need to uncomment the
+      <code>
+       # Patches
+      </code>
+      line in
+Callisto’s build order file
+(
+      <code>
+       my_hack/tools/callisto/build_order.toml
+      </code>
+      ). The
+      <code>
+       Patches
+      </code>
+      symbol is special and stands for all patches in the
+      <code>
+       patches
+      </code>
+      list from
+      <code>
+       patches.toml
+      </code>
+      , so any patch
+we add to that list will automatically be inserted at the point in time
+where the
+      <code>
+       Patches
+      </code>
+      symbol appears in the build order. If you
+want a patch to be inserted at a different point, you can just write the
+path of the name directly into the
+      <code>
+       build_order
+      </code>
+      list. Note
+that it will then
+      <strong>
+       not
+      </strong>
+      be inserted when the
+      <code>
+       Patches
+      </code>
+      symbol appears in the build order, only when it
+itself appears in the list. The patch also has to still be listed in the
+      <code>
+       patches
+      </code>
+      list, even if you put its path directly in the
+      <code>
+       build_order
+      </code>
+      .
+     </p>
+     <p>
+      And that’s it, if we build our hack with
+      <code>
+       Rebuild (R)
+      </code>
+      in
+Callisto, it will insert the patch for us, just like we specified!
+     </p>
+     <h1 id="moving-on">
+      Moving on
+     </h1>
+     <p>
+      That pretty much covers all the basic setup of Callisto! You can now
+move on to
+      <a href="Using-Callisto.html">
+       Using Callisto
+      </a>
+      .
+     </p>
+    </div>
+    <div class="d-none d-xl-block col-xl-2 bd-toc">
+     <ul class="section-nav">
+      <li class="toc-entry">
+       <ul>
+        <li>
+         <a href="#alternatives-to-manual-setup" id="toc-alternatives-to-manual-setup">
+          Alternatives to Manual
+Setup
+         </a>
+        </li>
+        <li>
+         <a href="#getting-callisto" id="toc-getting-callisto">
+          Getting
+Callisto
+         </a>
+         <ul>
+          <li>
+           <a href="#contents-of-the-zip-archive" id="toc-contents-of-the-zip-archive">
+            Contents of the ZIP
+Archive
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#setting-up-callisto" id="toc-setting-up-callisto">
+          Setting
+up Callisto
+         </a>
+        </li>
+        <li>
+         <a href="#basic-callisto-configuring" id="toc-basic-callisto-configuring">
+          Basic Callisto Configuring
+         </a>
+         <ul>
+          <li>
+           <a href="#build_order.toml" id="toc-build_order.toml">
+            <code>
+             build_order.toml
+            </code>
+           </a>
+          </li>
+          <li>
+           <a href="#project.toml" id="toc-project.toml">
+            <code>
+             project.toml
+            </code>
+           </a>
+          </li>
+          <li>
+           <a href="#resources.toml" id="toc-resources.toml">
+            <code>
+             resources.toml
+            </code>
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#adding-tools" id="toc-adding-tools">
+          Adding Tools
+         </a>
+         <ul>
+          <li>
+           <a href="#a-note-on-asar" id="toc-a-note-on-asar">
+            A Note on
+Asar
+           </a>
+          </li>
+          <li>
+           <a href="#a-note-on-folder-paths" id="toc-a-note-on-folder-paths">
+            A
+Note on Folder Paths
+           </a>
+          </li>
+          <li>
+           <a href="#adding-pixi" id="toc-adding-pixi">
+            Adding PIXI
+           </a>
+          </li>
+          <li>
+           <a href="#adding-gps" id="toc-adding-gps">
+            Adding GPS
+           </a>
+          </li>
+          <li>
+           <a href="#adding-uberasmtool" id="toc-adding-uberasmtool">
+            Adding
+UberASMTool
+           </a>
+          </li>
+          <li>
+           <a href="#adding-addmusick" id="toc-adding-addmusick">
+            Adding
+AddMusicK
+           </a>
+          </li>
+          <li>
+           <a href="#setting-up-tools-finishing-up" id="toc-setting-up-tools-finishing-up">
+            Setting up Tools: Finishing
+up
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="#adding-patches" id="toc-adding-patches">
+          Adding
+Patches
+         </a>
+        </li>
+        <li>
+         <a href="#moving-on" id="toc-moving-on">
+          Moving on
+         </a>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div style="padding-top: 5rem">
+  </div>
+  <footer class="footer text-muted">
+   <div align="center">
+    <button class="btn btn-primary back-to-top">
+     Back to top
+    </button>
+    <br/>
+    <br/>
+    This documentation is available under
+    <a href="https://creativecommons.org/share-your-work/public-domain/cc0/" rel="noopener" target="_blank">
+     CC0
+    </a>
+    <br/>
+    Copyright (c) 2023, underway
+   </div>
+  </footer>
+  <!-- JS, Popper.js, and jQuery -->
+  <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+  </script>
+  <!-- Mathjax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+  </script>
+  <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script>
+   /* Bootstrap styles to tables */
+         function bootstrapStylePandocTables() {
+         $('tr.header').parent('thead').parent('table').addClass('table table-condensed'); }
+         $(document).ready(function () { bootstrapStylePandocTables(); });
+         /* Adjust the height when click the toc */
+         var shiftWindow = function() { scrollBy(0, -60) };
+         window.addEventListener("hashchange", shiftWindow);
+         function load() { if (window.location.hash) shiftWindow(); }
+
+         const goToTop = () => {
+            document.body.scrollIntoView({
+               behavior: "smooth",
+            });
+         };
+
+         const backToTopButton = document.querySelector(".back-to-top")
+         backToTopButton.addEventListener("click", goToTop)
+  </script>
+ </body>
+</html>

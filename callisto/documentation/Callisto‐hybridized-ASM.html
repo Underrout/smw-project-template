@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="pandoc" name="generator"/>
+  <title>
+   Callisto‐hybridized ASM
+  </title>
+  <!-- Bootstrap -->
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
+  <!-- Font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <!-- Styles -->
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="callisto1.ico" rel="shortcut icon" type="image/x-icon">
+  </link>
+ </head>
+ <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.4">
+    Callisto
+    <small>
+     v0.2.4
+    </small>
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="Home.html">
+       Home
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+       Sections
+      </a>
+      <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+       <a class="dropdown-item" href="Callisto-Setup-(new-project).html">
+        Callisto Setup (new project)
+       </a>
+       <a class="dropdown-item" href="Callisto-Setup-(preexisting-project).html">
+        Callisto Setup (preexisting project)
+       </a>
+       <a class="dropdown-item" href="Using-Callisto.html">
+        Using Callisto
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Advanced-Topics.html">
+        Advanced Topics
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Frequently-Asked-Questions.html">
+        FAQ
+       </a>
+      </div>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container">
+   <h1 class="display-4">
+    Callisto‐hybridized ASM
+   </h1>
+   <p>
+    (It is recommended that you read
+    <a href="Using-Modules.html">
+     Using Modules
+    </a>
+    and
+    <a href="Using-Profiles.html">
+     Using Profiles
+    </a>
+    before this chapter.)
+   </p>
+   <p>
+    Callisto offers some interesting functionality for writing hybridized
+resources which can behave in different ways, depending on whether
+they’re being inserted with Callisto or not.
+   </p>
+   <p>
+    When Callisto is inserting a patch or a module, it will implicitly
+pass
+    <code>
+     !CALLISTO_ASSEMBLING = 1
+    </code>
+    to the resource. This lets
+you determine whether Callisto is available for use or not.
+   </p>
+   <p>
+    As you might have already heard previously, Callisto will create a
+    <code>
+     callisto.asm
+    </code>
+    file at
+    <code>
+     .callisto/callisto.asm
+    </code>
+    in
+the root of your project prior to every build.
+   </p>
+   <p>
+    This file contains various information about Callisto, as well as the
+current profile that’s in use if there are any (see
+    <a href="Using-Profiles.html">
+     Using Profiles
+    </a>
+    ).
+   </p>
+   <p>
+    In addition, this file also contains a few macros for
+including/calling modules, as well as a
+    <code>
+     require_callisto_version(major, minor, patch)
+    </code>
+    macro, which
+can be used to error out if the used Callisto version is lower than the
+one required. I.e. if we use
+    <code>
+     %require_callisto_version(0, 2, 0)
+    </code>
+    and the user is using
+Callisto version 0.1.0, we will throw an error.
+   </p>
+   <p>
+    To safely include this file in resources if it is available, you can
+use:
+   </p>
+   <pre><code>if defined("CALLISTO_ASSEMBLING")
+    incsrc "callisto.asm"
+endif</code></pre>
+   <p>
+    Let’s say you are working on a patch that adds some functionality to
+a hack that can then be called from other resources. This is essentially
+what a module is! But not everyone is using Callisto, so we might still
+want to distribute it as a patch, but also offer it as a module to
+people who
+    <em>
+     are
+    </em>
+    using Callisto.
+   </p>
+   <p>
+    To do this, you could write your patch in a way where it can be
+inserted as
+    <em>
+     either
+    </em>
+    a patch or a module by checking for
+    <code>
+     !CALLISTO_ASSEMBLING
+    </code>
+    and instructing Callisto users to
+insert the patch as a module instead of a patch.
+   </p>
+   <p>
+    Perhaps you could also offer debug functionality in your patch by
+doing something like this:
+   </p>
+   <pre><code>if defined("CALLISTO_ASSEMBLING")
+    incsrc "callisto.asm"
+endif
+
+!debug_profile_name = "debug"  ; if you're using Callisto, change this to match your debug profile's name
+
+; ...
+
+!CALLISTO_PROFILE = ""
+if not(stringsequal(!CALLISTO_PROFILE, !debug_profile_name))
+    ; non-debug/non-callisto-user code here
+else
+    print "Inserting patch in Callisto debug mode to make debugging easier!"
+    ; debug code here
+endif</code></pre>
+   <p>
+    That way, if the Callisto user switches to their debug profile, your
+patch will automatically compile the other code, which may in some
+situations facilitate easier debugging. Of course you’re not limited to
+doing this with debug code, you could offer a variety of different
+functionality depending on the user’s selected profile while still
+offering people who aren’t using Callisto a perfectly normal patch.
+   </p>
+   <p>
+    Unfortunately, there is not yet an easy mechanism to offer hybrid
+functionality like this for resources other than patches and modules,
+since other resources aren’t inserted by Callisto and there is no simple
+way to pass defines like
+    <code>
+     !CALLISTO_ASSEMBLING
+    </code>
+    as well as
+additional include paths to other tools as far as I’m aware, though this
+might change in the future!
+   </p>
+   <p>
+    Hopefully this gives you some fun ideas, there are probably a lot
+more possibilities I haven’t considered yet. If you come up with any
+cool use-cases, please do let me know and I might add them
+here!
+   </p>
+  </div>
+  <div style="padding-top: 5rem">
+  </div>
+  <footer class="footer text-muted">
+   <div align="center">
+    <button class="btn btn-primary back-to-top">
+     Back to top
+    </button>
+    <br/>
+    <br/>
+    This documentation is available under
+    <a href="https://creativecommons.org/share-your-work/public-domain/cc0/" rel="noopener" target="_blank">
+     CC0
+    </a>
+    <br/>
+    Copyright (c) 2023, underway
+   </div>
+  </footer>
+  <!-- JS, Popper.js, and jQuery -->
+  <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+  </script>
+  <!-- Mathjax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+  </script>
+  <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script>
+   /* Bootstrap styles to tables */
+         function bootstrapStylePandocTables() {
+         $('tr.header').parent('thead').parent('table').addClass('table table-condensed'); }
+         $(document).ready(function () { bootstrapStylePandocTables(); });
+         /* Adjust the height when click the toc */
+         var shiftWindow = function() { scrollBy(0, -60) };
+         window.addEventListener("hashchange", shiftWindow);
+         function load() { if (window.location.hash) shiftWindow(); }
+
+         const goToTop = () => {
+            document.body.scrollIntoView({
+               behavior: "smooth",
+            });
+         };
+
+         const backToTopButton = document.querySelector(".back-to-top")
+         backToTopButton.addEventListener("click", goToTop)
+  </script>
+ </body>
+</html>

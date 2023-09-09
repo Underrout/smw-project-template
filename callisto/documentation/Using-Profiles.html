@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="pandoc" name="generator"/>
+  <title>
+   Using Profiles
+  </title>
+  <!-- Bootstrap -->
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
+  <!-- Font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <!-- Styles -->
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="callisto1.ico" rel="shortcut icon" type="image/x-icon">
+  </link>
+ </head>
+ <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.4">
+    Callisto
+    <small>
+     v0.2.4
+    </small>
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+      <a class="nav-link" href="Home.html">
+       Home
+      </a>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+       Sections
+      </a>
+      <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+       <a class="dropdown-item" href="Callisto-Setup-(new-project).html">
+        Callisto Setup (new project)
+       </a>
+       <a class="dropdown-item" href="Callisto-Setup-(preexisting-project).html">
+        Callisto Setup (preexisting project)
+       </a>
+       <a class="dropdown-item" href="Using-Callisto.html">
+        Using Callisto
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Advanced-Topics.html">
+        Advanced Topics
+       </a>
+       <div class="dropdown-divider">
+       </div>
+       <a class="dropdown-item" href="Frequently-Asked-Questions.html">
+        FAQ
+       </a>
+      </div>
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <div class="container">
+   <h1 class="display-4">
+    Using Profiles
+   </h1>
+   <div class="row">
+    <div class="col-xl-10">
+     <p>
+      (It is recommended that you read
+      <a href="Customizing-the-Configuration.html">
+       Customizing the
+Configuration
+      </a>
+      before this chapter.)
+     </p>
+     <p>
+      Profiles are a feature of Callisto that allows you to easily and
+quickly switch between different ways of building your project. This can
+be really useful in many situations. Maybe you want to include certain
+patches only while you’re actually working on the project, but not when
+you’re releasing it to testers or maybe you want to use different
+verbosity levels for tool output when you’re trying to find a bug. There
+are endless possibilities!
+     </p>
+     <h1 id="creating-profiles">
+      Creating Profiles
+     </h1>
+     <p>
+      Profiles are easy to create too, just add a
+      <code>
+       profiles
+      </code>
+      folder next to
+      <code>
+       callisto.exe
+      </code>
+      and then another folder inside
+the
+      <code>
+       profiles
+      </code>
+      folder for each profile you want to create.
+For example, I will add a
+      <code>
+       release
+      </code>
+      and
+      <code>
+       debug
+      </code>
+      profile to my project, like this:
+     </p>
+     <pre><code>my_hack/
+└── callisto/
+    ├── asar.dll
+    ├── callisto.exe
+    ├── eloper.exe
+    ├── profiles/
+    │   ├── debug/
+    │   └── release/
+    └── (various other files ending in .toml)</code></pre>
+     <p>
+      Now, the thing about profiles is that they can overwrite settings
+from the “main” configuration of the project, which are the
+      <code>
+       .toml
+      </code>
+      files that are immediately next to
+      <code>
+       callisto.exe
+      </code>
+      . So if I were to add another
+      <code>
+       project.toml
+      </code>
+      file in my
+      <code>
+       release
+      </code>
+      folder and add
+something like
+     </p>
+     <div class="sourceCode" id="cb2">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="kw">[output]</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="dt">output_rom</span> <span class="op">=</span> <span class="st">"build/my_released_hack.smc"</span></span></code></pre>
+     </div>
+     <p>
+      to it, then my hack would be built as
+      <code>
+       my_released_hack.smc
+      </code>
+      when building while in the
+      <code>
+       release
+      </code>
+      profile, neat!
+     </p>
+     <p>
+      The only exception to this are the
+      <code>
+       patches
+      </code>
+      and
+      <code>
+       module
+      </code>
+      lists; If the
+      <code>
+       patches
+      </code>
+      list next to my
+      <code>
+       callisto.exe
+      </code>
+      says
+     </p>
+     <div class="sourceCode" id="cb3">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a><span class="kw">[resources]</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="dt">patches</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>    <span class="st">"resources/patches/stickyground.asm"</span></span>
+<span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a><span class="op">]</span></span></code></pre>
+     </div>
+     <p>
+      and the
+      <code>
+       patches
+      </code>
+      list in my
+      <code>
+       profiles/debug
+      </code>
+      says
+     </p>
+     <div class="sourceCode" id="cb4">
+      <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a><span class="dt">patches</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a>    <span class="st">"resources/patches/cpumeter.asm"</span><span class="op">,</span></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a><span class="op">]</span></span></code></pre>
+     </div>
+     <p>
+      the two lists will be internally combined by Callisto, so all patches
+from the main configuration and profile configurations will be applied
+if the
+      <code>
+       Patches
+      </code>
+      symbol appears in the build order. The same
+applies for modules!
+     </p>
+     <p>
+      As with the main configuration, you can split your configuration up
+into files however you’d like.
+     </p>
+     <p>
+      That’s more or less it for high-level profile usage. Callisto will
+show you a nice little menu to the right of its main menu when profiles
+are in use so you can easily switch between them:
+     </p>
+     <figure>
+      <img alt="Image of profile list in Callisto’s menu" src="images/profile_list.png"/>
+      <figcaption aria-hidden="true">
+       Image of profile list in Callisto’s
+menu
+      </figcaption>
+     </figure>
+     <p>
+      (Fair warning, the navigation in the profiles menu is a little broken
+and I’m unsure of how to fix it, so if it’s hard to select the right
+profile, I know, it’s hard for me too.)
+     </p>
+     <p>
+      Callisto will also remember the currently selected profile, so if you
+close it and open it again, the same profile should still be
+selected!
+     </p>
+     <p>
+      Profiles will also work correctly with
+      <a href="Automatic-Resource-Exports.html">
+       Automatic Resource Exports
+      </a>
+      , even
+if you change the location resources use between profiles. The automatic
+resource exports should always use the currently selected profile, as
+you would expect.
+     </p>
+     <p>
+      Please note that if you change the name or number of profiles while
+Callisto is open, you should use the
+      <code>
+       Reload profiles
+      </code>
+      function afterwards so that Callisto can refresh that information.
+     </p>
+     <p>
+      That’s pretty much it for high-level usage of profiles. You can
+already do a lot of cool stuff with this, but for the ASM-savy, there is
+an additional section below that allows low-level customization of
+resources depending on the active profile you can dive into too!
+     </p>
+     <h1 id="low-level-profiles">
+      Low-level Profiles
+     </h1>
+     <p>
+      If you’ve read the
+      <a href="Using-Modules.html">
+       Using Modules
+      </a>
+      chapter,
+you may already know a bit about the
+      <code>
+       callisto.asm
+      </code>
+      file that
+Callisto generates before each build at
+      <code>
+       my_hack/.callisto/callisto.asm
+      </code>
+      . This file contains some
+useful information and macros provided by Callisto. In patches and
+modules, it can be included with just
+      <code>
+       incsrc "callisto.asm"
+      </code>
+      , in other resources you unfortunately
+will have to give the entire path explicitly to include it.
+     </p>
+     <p>
+      When profiles are in use, this file will contain the following lines
+in addition to its usual contents:
+     </p>
+     <pre><code>; Define containing the name of the active profile
+!CALLISTO_PROFILE = "debug"</code></pre>
+     <p>
+      where
+      <code>
+       "debug"
+      </code>
+      is the name of the currently selected
+profile at the time of the build. This allows you to easily customize
+code depending on the selected profile by including
+      <code>
+       callisto.asm
+      </code>
+      and using asar’s
+      <code>
+       if
+      </code>
+      statements.
+For example, maybe there is a certain piece of code I would rather not
+run while the
+      <code>
+       debug
+      </code>
+      profile is selected, I could accomplish
+that like this:
+     </p>
+     <pre><code>!CALLISTO_PROFILE ?= ""
+if not(stringsequal(!CALLISTO_PROFILE "debug"))
+    ; code here will be inserted in all cases except if 
+    ; the selected profile is called "debug"
+endif</code></pre>
+     <p>
+      The
+      <code>
+       !CALLISTO_PROFILE ?= ""
+      </code>
+      is a safeguard which will
+set
+      <code>
+       !CALLISTO_PROFILE
+      </code>
+      to an empty string if it is not
+defined. This ensures we don’t get any asar errors if no profiles are in
+use or the resource is assembled without Callisto.
+     </p>
+     <p>
+      And that’s all there is to using profiles in ASM.
+     </p>
+    </div>
+    <div class="d-none d-xl-block col-xl-2 bd-toc">
+     <ul class="section-nav">
+      <li class="toc-entry">
+       <ul>
+        <li>
+         <a href="#creating-profiles" id="toc-creating-profiles">
+          Creating
+Profiles
+         </a>
+        </li>
+        <li>
+         <a href="#low-level-profiles" id="toc-low-level-profiles">
+          Low-level
+Profiles
+         </a>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div style="padding-top: 5rem">
+  </div>
+  <footer class="footer text-muted">
+   <div align="center">
+    <button class="btn btn-primary back-to-top">
+     Back to top
+    </button>
+    <br/>
+    <br/>
+    This documentation is available under
+    <a href="https://creativecommons.org/share-your-work/public-domain/cc0/" rel="noopener" target="_blank">
+     CC0
+    </a>
+    <br/>
+    Copyright (c) 2023, underway
+   </div>
+  </footer>
+  <!-- JS, Popper.js, and jQuery -->
+  <script crossorigin="anonymous" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+  </script>
+  <!-- Mathjax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6">
+  </script>
+  <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script>
+   /* Bootstrap styles to tables */
+         function bootstrapStylePandocTables() {
+         $('tr.header').parent('thead').parent('table').addClass('table table-condensed'); }
+         $(document).ready(function () { bootstrapStylePandocTables(); });
+         /* Adjust the height when click the toc */
+         var shiftWindow = function() { scrollBy(0, -60) };
+         window.addEventListener("hashchange", shiftWindow);
+         function load() { if (window.location.hash) shiftWindow(); }
+
+         const goToTop = () => {
+            document.body.scrollIntoView({
+               behavior: "smooth",
+            });
+         };
+
+         const backToTopButton = document.querySelector(".back-to-top")
+         backToTopButton.addEventListener("click", goToTop)
+  </script>
+ </body>
+</html>
