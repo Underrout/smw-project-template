@@ -18,10 +18,10 @@
  </head>
  <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.4">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.6">
     Callisto
     <small>
-     v0.2.4
+     v0.2.6
     </small>
    </a>
    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
@@ -171,8 +171,8 @@ endif
 
 ; ...
 
-!CALLISTO_PROFILE = ""
-if not(stringsequal(!CALLISTO_PROFILE, !debug_profile_name))
+!CALLISTO_PROFILE ?= ""
+if not(stringsequal("!CALLISTO_PROFILE", "!debug_profile_name"))
     ; non-debug/non-callisto-user code here
 else
     print "Inserting patch in Callisto debug mode to make debugging easier!"
