@@ -1,6 +1,6 @@
 # Automated Super Mario World Project Template
 
-This repository is a template or "baserom" for Super Mario World hacking projects focused on automation and git compatibility, 
+This repository is a template or "baserom" for Super Mario World hacking projects focused on automation and [Git](https://www.git-scm.com/) compatibility, 
 though it can also be used just fine without git.
 
 The template is completely style-agnostic, as it includes no resources, but only tools. The point is to provide a 
@@ -25,20 +25,19 @@ If you have any suggestions or run into bugs with this template, please feel fre
 my best to assist, as long as the problem is directly related to this template project specifically and not one 
 of the included tools or how to use them.
 
-If you are unsure of how to use an included tool, have a look through the included readme in the tool's directory
-or see if there is a tutorial available elsewhere (there is also a list of [available tutorials](https://github.com/Underrout/callisto/wiki#what-should-i-know-before-reading-this)).
+If you are unsure of how to use an included tool see if there is a tutorial available elsewhere (there is also a list of [available tutorials](https://github.com/Underrout/callisto/wiki#what-should-i-know-before-reading-this)).
 
 
 # Setup 
 
 ## From ZIP file
 
-I would recommend using this template with GitHub (or a different repository host) and git, but 
+I would recommend using this template with GitHub (or a different repository host) and [Git](https://www.git-scm.com/), but 
 if you want you can also download the template as a ZIP file by clicking on `Code` and choosing 
 `Download ZIP` from the dropdown menu and use it as-is.
 
 Once you have downloaded it, you can simply unpack the ZIP archive wherever you would like to set up your 
-project and continue reading at [Setting up Callisto](Setting-up-Callisto).
+project and continue reading at [Setting up Callisto](#setting-up-callisto).
 
 ## With GitHub and git
 
@@ -141,8 +140,6 @@ That's all you have to do! There is nothing problematic about this conflict, it'
 
 ## More Callisto Information
 
-A more detailed description as well as much more information about Callisto in general is available [here](https://github.com/Underrout/callisto/wiki/Using-Callisto).
-
 Callisto has many more features, including:
 
 - Launching emulators
@@ -152,6 +149,6 @@ Callisto has many more features, including:
 - Command-line usage
 - Customizable color scheme
 
-which you can read more about [here] if you're interested!
+which you can read more about [here](https://github.com/Underrout/callisto/wiki) if you're interested!
 
 I hope you will enjoy working with this template, happy hacking!
