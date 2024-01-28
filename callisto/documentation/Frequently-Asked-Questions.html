@@ -18,10 +18,10 @@
  </head>
  <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.11">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.12">
     Callisto
     <small>
-     v0.2.11
+     v0.2.12
     </small>
    </a>
    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
@@ -99,8 +99,8 @@ a file path instead of forward slashes (
     </code>
     ). Just replace
 your backslashes with forward slashes and see if that helps. If you want
-to use backslashes anyway, you will need to escape them by doubling
-them, i.e. use
+to use backslashes anyway, you will either need to escape them by
+doubling them, i.e. use
     <code>
      \\
     </code>
@@ -108,7 +108,17 @@ them, i.e. use
     <code>
      \
     </code>
-    . (This is a
+    , or
+surround your paths with single quotes (
+    <code>
+     '
+    </code>
+    ) instead of
+double quotes (
+    <code>
+     "
+    </code>
+    ) to make them raw strings. (This is a
 normal part of the
     <a href="https://toml.io/en/v1.0.0#string">
      TOML
@@ -167,8 +177,42 @@ prompts, there can be up to two. All you need to do is enter
     <code>
      N
     </code>
-    as desired and press
-enter.
+    as desired and press enter.
+   </p>
+   <hr/>
+   <blockquote>
+    <p>
+     Does Callisto support
+     <a href="https://github.com/Underrout/human-readable-map16-cli">
+      text-based
+map16
+     </a>
+     ?
+    </p>
+   </blockquote>
+   <p>
+    Yes, in fact the text-based map16 format is bundled into Callisto and
+you do not need any additional tool to make it work (as long as you
+configure it to be used when you start your project).
+   </p>
+   <p>
+    Just use
+   </p>
+   <div class="sourceCode" id="cb1">
+    <pre class="sourceCode toml"><code class="sourceCode toml"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="kw">[settings]</span></span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="dt">use_text_map16_format</span> <span class="op">=</span> <span class="cn">true</span></span></code></pre>
+   </div>
+   <p>
+    and you’re good to go.
+   </p>
+   <p>
+    If you decide you want to use the format later on, you may need to
+manually convert your binary map16 file to the text format once by using
+    <a href="https://github.com/Underrout/human-readable-map16-cli/releases/tag/v0.2.0">
+     the
+original tool
+    </a>
+    , but you shouldn’t need it afterwards.
    </p>
   </div>
   <div style="padding-top: 5rem">
