@@ -10,7 +10,7 @@ In addition, this template could also serve as a "baserom for baserom" of sorts.
 
 This project template comes with the following tools:
 
-- [Callisto v0.2.12](https://github.com/Underrout/callisto/releases/tag/v0.2.12)
+- [Callisto v0.2.13](https://github.com/Underrout/callisto/releases/tag/v0.2.13)
 - [Lunar Magic 3.40](https://dl.smwcentral.net/35121/)
 - [FLIPS](https://dl.smwcentral.net/11474/)
 - [AddmusicK 1.0.9](https://dl.smwcentral.net/31558/)
