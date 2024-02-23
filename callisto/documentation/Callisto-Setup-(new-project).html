@@ -18,10 +18,10 @@
  </head>
  <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.13">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.14">
     Callisto
     <small>
-     v0.2.13
+     v0.2.14
     </small>
    </a>
    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
@@ -717,17 +717,39 @@ low-level details.
      <p>
       As noted earlier, tools must conform to some basic requirements to
 work (well) with Callisto. To ensure that the standard tools come as
-close to these requirements as possible, Callisto uses
-      <a href="https://github.com/Underrout/asar/tree/v1.81-callisto">
-       a
-customized version of asar 1.81
-      </a>
-      which you can
-      <a href="https://github.com/Underrout/asar/releases/tag/c-v1.81">
-       download
-here
-      </a>
-      .
+close to these requirements as possible, Callisto uses a customized
+version of asar, which you can find in the
+      <code>
+       asar
+      </code>
+      folder that
+comes with Callisto. Various versions of asar with 32-Bit and 64-Bit
+versions are included. When I refer to
+      <code>
+       asar/vX.XX
+      </code>
+      , I mean
+some arbitrary folder with a version number
+      <code>
+       X.XX
+      </code>
+      in the
+      <code>
+       asar
+      </code>
+      folder, so this could mean
+      <code>
+       asar/v1.81
+      </code>
+      or
+      <code>
+       asar/v1.9
+      </code>
+      , for example. Which asar version you use is
+somewhat up to you and which versions the tools you’re using
+support/ship with. If a newer version doesn’t work, you can try an older
+version and see if it does the job or just use the one that comes with
+the tool if you’re unsure.
      </p>
      <p>
       For
@@ -738,15 +760,15 @@ here
       <code>
        asar.dll
       </code>
-      or
-      <code>
-       asar.exe
-      </code>
-      that comes with that tool
-with a customized version.
+      that comes with that tool with a customized
+version.
      </p>
      <p>
-      You will notice that the customized asar’s ZIP archive contains both
+      You will notice that the
+      <code>
+       asar/vX.XX
+      </code>
+      folders contain both
 32-Bit and 64-Bit versions of asar, this is because different tools may
 require either the 32-Bit or 64-Bit version and you will have to replace
 the tool’s asar with the correct version for it to still function.
@@ -762,7 +784,7 @@ your convenience:
          Tool Version
         </th>
         <th>
-         Asar 1.81 Bitness
+         Asar Bitness
         </th>
        </tr>
       </thead>
@@ -793,7 +815,7 @@ your convenience:
        </tr>
        <tr class="even">
         <td>
-         AddMusicK 1.0.9
+         AddMusicK 1.0.9 &amp; 1.0.10
         </td>
         <td>
          32-Bit
@@ -810,15 +832,14 @@ your convenience:
       </tbody>
      </table>
      <p>
-      You may notice that for AddMusicK and UberASMTool only version 1.0.9
-and version 2.0 are listed respectively. This is because Callisto is
+      You may notice that for AddMusicK and UberASMTool only versions above
+and including 1.0.9 and version 2.0 are listed respectively. This is
+because Callisto is
       <em>
        not
       </em>
-      compatible with versions of those tools lower than the ones
-listed. At time of writing, neither of the tools have been standardized
-with these version numbers yet, but appear to work fine in testing, so
-use them at your own risk.
+      compatible with versions of those tools
+lower than the ones listed.
      </p>
      <h2 id="a-note-on-folder-paths">
       A Note on Folder Paths
@@ -875,15 +896,14 @@ structure:
 For PIXI 1.40, which I’m using, I will need the 64-Bit version of asar.
 I’ll grab the
       <code>
-       asar/64-Bit/asar.dll
+       asar/vX.XX/64-Bit/asar.dll
       </code>
-      file from Callisto’s ZIP
-archive and copy it into my
+      file from
+Callisto’s ZIP archive and copy it into my
       <code>
        my_hack/tools/pixi
       </code>
-      folder,
-overwriting the
+      folder, overwriting the
       <code>
        asar.dll
       </code>
@@ -966,10 +986,9 @@ contents of the ZIP archive into a new
 with GPS with the one that comes with Callisto. Since GPS V1.4.4 uses
 the 32-Bit version, I will grab
       <code>
-       asar/32-Bit/asar.dll
+       asar/vX.XX/32-Bit/asar.dll
       </code>
-      from
-Callisto’s ZIP archive and copy it to my
+      from Callisto’s ZIP archive and copy it to my
       <code>
        my_hack/tools/gps
       </code>
@@ -977,8 +996,7 @@ Callisto’s ZIP archive and copy it to my
       <code>
        asar.dll
       </code>
-      that was already
-there.
+      that was already there.
      </p>
      <p>
       Now, I will simply uncomment the line that says
@@ -1050,14 +1068,15 @@ it:
 again need to replace it. UberASMTool 2.0 stil uses 32-Bit, so I will
 copy the
       <code>
-       asar/32-Bit/asar.dll
+       asar/vX.XX/32-Bit/asar.dll
       </code>
-      from Callisto’s ZIP archive
-to the
+      from Callisto’s ZIP
+archive to the
       <code>
        my_hack/tools/uberasm_tool
       </code>
-      folder and overwrite the
+      folder and
+overwrite the
       <code>
        asar.dll
       </code>
@@ -1094,8 +1113,7 @@ apply UberASMTool during the build process!
      </h2>
      <p>
       As stated earlier, to add AddMusicK, we should ideally use the 1.0.9
-version, which is (at time of writing) in the process of being moderated
-on SMWCentral. I will download the AddMusicK 1.0.9 ZIP archive from
+(or newer) version. I will download the AddMusicK 1.0.9 ZIP archive from
 SMWCentral and place its contents into a new
       <code>
        my_hack/tools/addmusick
@@ -1115,20 +1133,15 @@ SMWCentral and place its contents into a new
 └── resources/</code></pre>
      <p>
       AddMusicK has historically used an EXE version of asar, but appears
-to now also support a DLL, so you can grab either the
+to now also support a DLL, so you can grab the
       <code>
        asar.dll
       </code>
-      or
+      file from
       <code>
-       asar.exe
+       asar/vX.XX/32-Bit
       </code>
-      file from the Callisto
-ZIP archive’s
-      <code>
-       asar/32-Bit
-      </code>
-      folder and copy it to the
+      and copy it to the
       <code>
        my_hack/tools/addmusick
       </code>

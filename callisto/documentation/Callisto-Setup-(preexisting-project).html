@@ -18,10 +18,10 @@
  </head>
  <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.13">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.14">
     Callisto
     <small>
-     v0.2.13
+     v0.2.14
     </small>
    </a>
    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
@@ -108,8 +108,8 @@ below 1.0.9
        here
 is a list of known incompatibilities
       </a>
-      . Note also that neither
-UberASMTool 2.0 nor AddMusicK 1.0.9 are not yet standardized and
+      . Note that UberASMTool 2.0 is
+not yet standardized and
       <em>
        may
       </em>
@@ -431,18 +431,6 @@ apply to this case. I will assume that you have successfully migrated
 your project to UberASMTool 2.0 from now on without further
 reference.
      </p>
-     <h2 id="migrating-to-addmusick-1.0.9">
-      Migrating to AddMusicK 1.0.9
-     </h2>
-     <p>
-      (You can skip this part if you’re not using AddMusicK.)
-     </p>
-     <p>
-      AddMusicK 1.0.9 is (at time of writing) in the process of being
-moderated on SMWCentral. Migrating to it should be straightforward
-(presumably) and I will leave that task in your capable hands and assume
-you have succeeded from now on without further reference.
-     </p>
      <h2 id="switching-out-tools-asar-files">
       Switching out Tool’s Asar
 Files
@@ -450,17 +438,39 @@ Files
      <p>
       Tools must conform to some basic requirements to work (well) with
 Callisto. To ensure that the standard tools come as close to these
-requirements as possible, Callisto uses a customized version of asar
-1.81 which comes included in the
+requirements as possible, Callisto uses a customized version of asar,
+which you can find in the
       <code>
        asar
       </code>
-      folder of Callisto’s
-ZIP archive. (It is also separately available
-      <a href="https://github.com/Underrout/asar/releases/tag/c-v1.81">
-       here
-      </a>
-      )
+      folder that comes with
+Callisto. Various versions of asar with 32-Bit and 64-Bit versions are
+included. When I refer to
+      <code>
+       asar/vX.XX
+      </code>
+      , I mean some arbitrary
+folder with a version number
+      <code>
+       X.XX
+      </code>
+      in the
+      <code>
+       asar
+      </code>
+      folder, so this could mean
+      <code>
+       asar/v1.81
+      </code>
+      or
+      <code>
+       asar/v1.9
+      </code>
+      , for example. Which asar version you use is
+somewhat up to you and which versions the tools you’re using
+support/ship with. If a newer version doesn’t work, you can try an older
+version and see if it does the job or just use the one that comes with
+the tool if you’re unsure.
      </p>
      <p>
       For
@@ -471,23 +481,18 @@ ZIP archive. (It is also separately available
       <code>
        asar.dll
       </code>
-      or
-      <code>
-       asar.exe
-      </code>
-      that comes with that tool
-with a customized version.
+      that comes with that tool with a customized
+version.
      </p>
      <p>
       You will notice that the
       <code>
-       asar
+       asar/vX.XX
       </code>
-      folder in Callisto’s ZIP
-archive contains both 32-Bit and 64-Bit versions of asar, this is
-because different tools may require either the 32-Bit or 64-Bit version
-and you will have to replace the tool’s asar with the correct version
-for it to still function.
+      folders contain both
+32-Bit and 64-Bit versions of asar, this is because different tools may
+require either the 32-Bit or 64-Bit version and you will have to replace
+the tool’s asar with the correct version for it to still function.
      </p>
      <p>
       Here is a brief list of which tools use which version of asar for
@@ -500,7 +505,7 @@ your convenience:
          Tool Version
         </th>
         <th>
-         Asar 1.81 Bitness
+         Asar Bitness
         </th>
        </tr>
       </thead>
@@ -531,7 +536,7 @@ your convenience:
        </tr>
        <tr class="even">
         <td>
-         AddMusicK 1.0.9
+         AddMusicK 1.0.9 &amp; 1.0.10
         </td>
         <td>
          32-Bit
@@ -560,14 +565,13 @@ project and ensure that you replace any
       files you find with the corresponding version from
 the
       <code>
-       asar/32-Bit
+       asar/vX.XX/32-Bit
       </code>
       /
       <code>
-       asar/64-Bit
+       asar/vX.XX/64-Bit
       </code>
-      folders in
-Callisto’s ZIP archive.
+      folders in Callisto’s ZIP archive.
      </p>
      <p>
       After you’ve done this, your tools should be compatible with
@@ -1219,8 +1223,8 @@ happening:
      </p>
      <ul>
       <li>
-       Your hack has turned out to be incompatible with UberASMTool 2.0,
-AddMusicK 1.0.9 or Lunar Magic 3.33
+       Your hack has turned out to be incompatible with UberASMTool &gt;=
+2.0, AddMusicK &gt;= 1.0.9 or Lunar Magic &gt;= 3.33
       </li>
      </ul>
      <p>
@@ -1332,12 +1336,6 @@ Magic
            <a href="#migrating-to-uberasmtool-2.0" id="toc-migrating-to-uberasmtool-2.0">
             Migrating to UberASMTool
 2.0
-           </a>
-          </li>
-          <li>
-           <a href="#migrating-to-addmusick-1.0.9" id="toc-migrating-to-addmusick-1.0.9">
-            Migrating to AddMusicK
-1.0.9
            </a>
           </li>
           <li>
