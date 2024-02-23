@@ -16,7 +16,7 @@ This project template comes with the following tools:
 - [AddmusicK 1.0.9](https://dl.smwcentral.net/31558/)
 - [GPS V1.4.4](https://dl.smwcentral.net/31515/)
 - [PIXI v1.40](https://dl.smwcentral.net/32277/)
-- [UberASMTool 2.0](https://github.com/Fernap/UberASMTool) (temporarily compiled [here](https://github.com/Underrout/UberASMTool/releases/tag/2.0-beta2))
+- [UberASMTool 2.0](https://github.com/Fernap/UberASMTool) (temporarily compiled [here](https://github.com/Underrout/UberASMTool/releases/tag/2.0-beta3))
 
 In addition, it comes pre-patched with SA-1 Pack v1.40 and includes a handy `.gitignore` file that 
 contains ignore rules for common build artifacts.

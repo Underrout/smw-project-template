@@ -38,7 +38,7 @@ if %errorlevel% neq 0 (
 )
 
 REM Parameters for ExtractAndProcess
-set "downloadURL=https://github.com/Underrout/UberASMTool/releases/download/2.0-beta2/UberASMTool20Beta2Standalone.zip"
+set "downloadURL=https://github.com/Underrout/UberASMTool/releases/download/2.0-beta3/UberASMTool20Beta3Standalone.zip"
 set "targetFolder=tools\uberasm_tool"
 set "itemsToRemove="
 set "filesToCopy=tools\tool_downloader\asar\32-Bit\asar.dll"
