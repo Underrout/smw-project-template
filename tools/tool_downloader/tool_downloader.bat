@@ -5,12 +5,12 @@ REM Set the script's directory as the base path
 set "basePath=%~sdp0..\.."
 
 REM Parameters for ExtractAndProcess
-set "downloadURL=https://dl.smwcentral.net/31558/"
+set "downloadURL=https://dl.smwcentral.net/35333/"
 set "targetFolder=tools\addmusick"
 set "itemsToRemove=src.zip Makefile asar.exe addmusicMRemover.pl AM4Batch.exe AMKGUI.exe AMMBatch.exe Visualizations"
 set "filesToCopy=tools\tool_downloader\asar\32-Bit\asar.dll"
 set "extractAll=false"
-set "specificFolderToExtract=AddmusicK_1.0.9"
+set "specificFolderToExtract=AddmusicK_1.0.10"
 
 REM Call ExtractAndProcess function
 call :ExtractAndProcess
