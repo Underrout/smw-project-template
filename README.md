@@ -15,7 +15,7 @@ This project template comes with the following tools:
 - [FLIPS](https://dl.smwcentral.net/11474/)
 - [AddmusicK 1.0.10](https://dl.smwcentral.net/35333/)
 - [GPS V1.4.4](https://dl.smwcentral.net/31515/)
-- [PIXI v1.40](https://dl.smwcentral.net/32277/)
+- [PIXI v1.41](https://github.com/JackTheSpades/SpriteToolSuperDelux/releases/download/1.41/pixi_v1.41.zip)
 - [UberASMTool 2.0](https://github.com/Fernap/UberASMTool)
 
 In addition, it comes pre-patched with SA-1 Pack v1.40 and includes a handy `.gitignore` file that 

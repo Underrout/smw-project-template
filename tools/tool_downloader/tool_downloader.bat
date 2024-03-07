@@ -8,7 +8,7 @@ REM Parameters for ExtractAndProcess
 set "downloadURL=https://dl.smwcentral.net/35333/"
 set "targetFolder=tools\addmusick"
 set "itemsToRemove=src.zip Makefile asar.exe addmusicMRemover.pl AM4Batch.exe AMKGUI.exe AMMBatch.exe Visualizations"
-set "filesToCopy=tools\tool_downloader\asar\32-Bit\asar.dll"
+set "filesToCopy=tools\tool_downloader\asar\v1.81\32-Bit\asar.dll"
 set "extractAll=false"
 set "specificFolderToExtract=AddmusicK_1.0.10"
 
@@ -25,7 +25,7 @@ REM Parameters for ExtractAndProcess
 set "downloadURL=https://dl.smwcentral.net/31515/"
 set "targetFolder=tools\gps"
 set "itemsToRemove=Changes.txt src.zip"
-set "filesToCopy=tools\tool_downloader\asar\32-Bit\asar.dll"
+set "filesToCopy=tools\tool_downloader\asar\v1.81\32-Bit\asar.dll"
 set "extractAll=true"
 
 REM Call ExtractAndProcess function
@@ -41,7 +41,7 @@ REM Parameters for ExtractAndProcess
 set "downloadURL=https://github.com/Fernap/UberASMTool/releases/download/2.0/UberASMTool20.zip"
 set "targetFolder=tools\uberasm_tool"
 set "itemsToRemove="
-set "filesToCopy=tools\tool_downloader\asar\32-Bit\asar.dll"
+set "filesToCopy=tools\tool_downloader\asar\v1.81\32-Bit\asar.dll"
 set "extractAll=true"
 
 REM Call ExtractAndProcess function
@@ -73,7 +73,7 @@ REM Parameters for ExtractAndProcess
 set "downloadURL=https://dl.smwcentral.net/32277/"
 set "targetFolder=tools\pixi"
 set "itemsToRemove=removedResources.txt CONTRIBUTING.html"
-set "filesToCopy=tools\tool_downloader\asar\64-Bit\asar.dll"
+set "filesToCopy=tools\tool_downloader\asar\v1.9\64-Bit\asar.dll"
 set "extractAll=true"
 
 REM Call ExtractAndProcess function
