@@ -10,7 +10,7 @@ In addition, this template could also serve as a "baserom for baserom" of sorts.
 
 This project template comes with the following tools:
 
-- [Callisto v0.2.15](https://github.com/Underrout/callisto/releases/tag/v0.2.15)
+- [Callisto v0.2.16](https://github.com/Underrout/callisto/releases/tag/v0.2.16)
 - [Lunar Magic 3.40](https://dl.smwcentral.net/35121/)
 - [FLIPS](https://dl.smwcentral.net/11474/)
 - [AddmusicK 1.0.10](https://dl.smwcentral.net/35333/)
@@ -138,9 +138,9 @@ ORG $05D8B7
 That's all you have to do! There is nothing problematic about this conflict, it's just a small change you can make if you want to make sure you don't have any conflicts when starting out, which will also help make it more apparent when more conflicts come up as you add more patches and resources.
 
 
-## A Note on asar 1.9
+## A Note on asar 1.91
 
-This template uses asar 1.81 by default, but customized versions of both 32-Bit and 64-Bit asar 1.9 DLLs are included at `callisto/asar` for your convenience. To use asar 1.9 instead of asar 1.81, just replace any `asar.dll` you want with the corresponding one from the `callisto/asar/v1.9` folder (make sure you use the correct one, it could be 32-Bit or 64-Bit depending on the tool). Note that while Callisto should work fine with asar 1.9, other tools may or may not.
+This template uses asar 1.81 by default, but customized versions of both 32-Bit and 64-Bit asar 1.91 DLLs are included at `callisto/asar` for your convenience. To use asar 1.91 instead of asar 1.81, just replace any `asar.dll` you want with the corresponding one from the `callisto/asar/v1.91` folder (make sure you use the correct one, it could be 32-Bit or 64-Bit depending on the tool). Note that while Callisto should work fine with asar 1.91, other tools may or may not.
 
 
 ## More Callisto Information

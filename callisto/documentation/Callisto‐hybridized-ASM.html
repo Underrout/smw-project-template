@@ -18,10 +18,10 @@
  </head>
  <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.15">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.16">
     Callisto
     <small>
-     v0.2.15
+     v0.2.16
     </small>
    </a>
    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
@@ -198,6 +198,56 @@ way to pass defines like
 additional include paths to other tools as far as I’m aware, though this
 might change in the future!
    </p>
+   <hr/>
+   <p>
+    Note that both patches and modules are also passed the
+    <code>
+     !CALLISTO_INSERTION_TYPE
+    </code>
+    define. This define will be equal
+to
+    <code>
+     "Patch"
+    </code>
+    if the file is being inserted as a patch and
+    <code>
+     "Module"
+    </code>
+    if the file is being inserted as a module. This
+might seem strange, after all we know if we’re writing a module or a
+patch! But this actually allows us to do things such as issue a warning
+or error if our file is inserted as the wrong type of resource or even
+creating files that can be inserted either as a patch
+    <em>
+     or
+    </em>
+    as a
+module or even
+    <em>
+     both
+    </em>
+    .
+   </p>
+   <p>
+    To check if your file is being inserted as a patch or module, you can
+use the following:
+   </p>
+   <pre><code>if stringsequal("!CALLISTO_INSERTION_TYPE", "Module")
+    ; being inserted as a module!
+else
+    ; being inserted as a patch!
+endif</code></pre>
+   <p>
+    Note that you should ensure that the file is actually being inserted
+by Callisto before doing this check by checking if
+    <code>
+     !CALLISTO_ASSEMBLING
+    </code>
+    is defined. Otherwise, you will
+probably cause an error for people who are inserting the file through
+means other than Callisto!
+   </p>
+   <hr/>
    <p>
     Hopefully this gives you some fun ideas, there are probably a lot
 more possibilities I haven’t considered yet. If you come up with any
