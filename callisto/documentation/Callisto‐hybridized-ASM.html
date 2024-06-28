@@ -18,10 +18,10 @@
  </head>
  <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.17">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.3.0">
     Callisto
     <small>
-     v0.2.17
+     v0.3.0
     </small>
    </a>
    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
@@ -85,13 +85,13 @@ resources which can behave in different ways, depending on whether
 they’re being inserted with Callisto or not.
    </p>
    <p>
-    When Callisto is inserting a patch or a module, it will implicitly
-pass
+    When any ASM resource, including sprites, blocks, etc., is inserted
+using Callisto, it will implicitly be passed
     <code>
      !CALLISTO_ASSEMBLING = 1
     </code>
-    to the resource. This lets
-you determine whether Callisto is available for use or not.
+    . This lets you determine whether
+Callisto is available for use or not.
    </p>
    <p>
     As you might have already heard previously, Callisto will create a
@@ -115,7 +115,7 @@ current profile that’s in use if there are any (see
    </p>
    <p>
     In addition, this file also contains a few macros for
-including/calling modules, as well as a
+including/calling modules or files, as well as a
     <code>
      require_callisto_version(major, minor, patch)
     </code>
@@ -135,6 +135,20 @@ use:
    <pre><code>if defined("CALLISTO_ASSEMBLING")
     incsrc "callisto.asm"
 endif</code></pre>
+   <p>
+    Note that you do not need to specify the full relative or absolute
+path to the
+    <code>
+     callisto.asm
+    </code>
+    file, no matter where the resource
+is located. Simply
+    <code>
+     incsrc "callisto.asm"
+    </code>
+    should suffice
+anywhere!
+   </p>
    <p>
     Let’s say you are working on a patch that adds some functionality to
 a hack that can then be called from other resources. This is essentially

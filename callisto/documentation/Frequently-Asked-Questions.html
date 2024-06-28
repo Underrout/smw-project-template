@@ -18,10 +18,10 @@
  </head>
  <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.2.17">
+   <a class="navbar-brand" href="https://github.com/Underrout/callisto/releases/tag/v0.3.0">
     Callisto
     <small>
-     v0.2.17
+     v0.3.0
     </small>
    </a>
    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
@@ -235,6 +235,54 @@ original tool
     </a>
     , but you shouldn’t need it afterwards.
    </p>
+   <hr/>
+   <blockquote>
+    <p>
+     Does Callisto let me include files relative to the project root?
+    </p>
+   </blockquote>
+   <p>
+    Yes, Callisto offers a convenient way to include both source and
+binary files relative to the root of your project, which can sometimes
+be easier to read and more robust than lengthy relative paths from
+within some deeply nested folder structure.
+   </p>
+   <p>
+    For this purpose,
+    <code>
+     callisto.asm
+    </code>
+    contains two macros:
+    <code>
+     incsrc_file(file_path)
+    </code>
+    and
+    <code>
+     incbin_file(file_path)
+    </code>
+    , which behave exactly like
+    <code>
+     incsrc
+    </code>
+    and
+    <code>
+     incbin
+    </code>
+    respectively, but relative
+to the root folder of your project.
+   </p>
+   <p>
+    These macros can be used as follows:
+   </p>
+   <pre><code>if defined("CALLISTO_ASSEMBLING")  ; checking if Callisto is available, if you're sure it is you can skip this check
+    incsrc "callisto.asm"
+
+    ; incsrc'ing a macro library relative to the project root
+    %incsrc_file("resources/shared/macro_library.asm")
+
+    ; incbin'ing some raw binary file relative to the project root
+    %incbin_file("resources/shared/graphics/statusbar.bin")
+endif</code></pre>
   </div>
   <div style="padding-top: 5rem">
   </div>
