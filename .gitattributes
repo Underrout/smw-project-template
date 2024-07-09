@@ -2,3 +2,6 @@
 #   can put a LF file into the git index
 *.bat -text
 *.cmd -text
+
+# Make sure .bin files are binary
+*.bin binary
