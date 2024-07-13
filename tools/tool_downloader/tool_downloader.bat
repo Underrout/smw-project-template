@@ -73,7 +73,7 @@ REM Parameters for ExtractAndProcess
 set "downloadURL=https://dl.smwcentral.net/32277/"
 set "targetFolder=tools\pixi"
 set "itemsToRemove=removedResources.txt CONTRIBUTING.html"
-set "filesToCopy=tools\tool_downloader\asar\v1.9\64-Bit\asar.dll"
+set "filesToCopy=tools\tool_downloader\asar\v1.81\64-Bit\asar.dll"
 set "extractAll=true"
 
 REM Call ExtractAndProcess function
