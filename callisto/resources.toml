@@ -24,3 +24,8 @@ global_exanimation = "resources/global_exanimation.bps"
 # usual, you can just comment out these two lines
 graphics = "resources/graphics"
 ex_graphics = "resources/exgraphics"
+
+# A used-defined file containing macros, defines and functions that 
+# will always be `incsrc`'d when you use `incsrc "callisto.asm"`
+# in any resource
+callisto_header = "resources/shared_code/callisto/header.asm"
