@@ -5,12 +5,12 @@ REM Set the script's directory as the base path
 set "basePath=%~sdp0..\.."
 
 REM Parameters for ExtractAndProcess
-set "downloadURL=https://dl.smwcentral.net/35333/"
+set "downloadURL=https://dl.smwcentral.net/37906/"
 set "targetFolder=tools\addmusick"
 set "itemsToRemove=src.zip Makefile asar.exe addmusicMRemover.pl AM4Batch.exe AMKGUI.exe AMMBatch.exe Visualizations"
-set "filesToCopy=tools\tool_downloader\asar\v1.81\32-Bit\asar.dll"
+set "filesToCopy=tools\tool_downloader\asar\v1.91\32-Bit\asar.dll"
 set "extractAll=false"
-set "specificFolderToExtract=AddmusicK_1.0.10"
+set "specificFolderToExtract=AddmusicK_1.0.11"
 
 REM Call ExtractAndProcess function
 call :ExtractAndProcess
@@ -38,7 +38,7 @@ if %errorlevel% neq 0 (
 )
 
 REM Parameters for ExtractAndProcess
-set "downloadURL=https://github.com/Fernap/UberASMTool/releases/download/2.0/UberASMTool20.zip"
+set "downloadURL=https://dl.smwcentral.net/36986/"
 set "targetFolder=tools\uberasm_tool"
 set "itemsToRemove="
 set "filesToCopy=tools\tool_downloader\asar\v1.81\32-Bit\asar.dll"
@@ -70,10 +70,10 @@ if %errorlevel% neq 0 (
 )  
 
 REM Parameters for ExtractAndProcess
-set "downloadURL=https://dl.smwcentral.net/32277/"
+set "downloadURL=https://dl.smwcentral.net/37432/"
 set "targetFolder=tools\pixi"
 set "itemsToRemove=removedResources.txt CONTRIBUTING.html"
-set "filesToCopy=tools\tool_downloader\asar\v1.81\64-Bit\asar.dll"
+set "filesToCopy=tools\tool_downloader\asar\v1.91\64-Bit\asar.dll"
 set "extractAll=true"
 
 REM Call ExtractAndProcess function
