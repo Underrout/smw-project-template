@@ -38,10 +38,10 @@ if %errorlevel% neq 0 (
 )
 
 REM Parameters for ExtractAndProcess
-set "downloadURL=https://dl.smwcentral.net/36986/"
+set "downloadURL=https://github.com/Fernap/UberASMTool/releases/download/2.1/UberASMTool21.zip"
 set "targetFolder=tools\uberasm_tool"
 set "itemsToRemove="
-set "filesToCopy=tools\tool_downloader\asar\v1.81\32-Bit\asar.dll"
+set "filesToCopy=tools\tool_downloader\asar\v1.91\32-Bit\asar.dll"
 set "extractAll=true"
 
 REM Call ExtractAndProcess function
