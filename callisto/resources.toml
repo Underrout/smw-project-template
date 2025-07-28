@@ -5,7 +5,11 @@
 # You can change these as you please!
 
 [resources]
-initial_patch = "resources/initial_patch.bps"
+
+# Change this to `resources/initial_patch_fastrom.bps` 
+# to use FastROM instead of SA-1
+initial_patch = "resources/initial_patch_sa1.bps"
+
 levels = "resources/levels"
 shared_palettes = "resources/shared_palettes.pal"
 map16 = "resources/all_map16"

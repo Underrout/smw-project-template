@@ -10,16 +10,15 @@ In addition, this template could also serve as a "baserom for baserom" of sorts.
 
 This project template comes with the following tools:
 
-- [Callisto v0.4.2](https://github.com/Underrout/callisto/releases/tag/v0.4.2)
-- [Lunar Magic 3.40](https://dl.smwcentral.net/35121/)
+- [Callisto v0.5.0](https://github.com/Underrout/callisto/releases/tag/v0.5.0)
+- [Lunar Magic 3.51](https://dl.smwcentral.net/38972/)
 - [FLIPS](https://dl.smwcentral.net/11474/)
 - [AddmusicK 1.0.11](https://dl.smwcentral.net/37906/)
 - [GPS V1.4.4](https://dl.smwcentral.net/31515/)
 - [PIXI v1.42](https://dl.smwcentral.net/37432/)
 - [UberASMTool 2.1](https://github.com/Fernap/UberASMTool/releases/tag/2.1)
 
-In addition, it comes pre-patched with SA-1 Pack v1.40 and includes a handy `.gitignore` file that 
-contains ignore rules for common build artifacts.
+In addition, it comes pre-patched with SA-1 Pack v1.40 (though switching to FastROM is easy if you ever want to, take a peek at `resources.toml` to see how) and includes a handy `.gitignore` file that contains ignore rules for common build artifacts.
 
 If you have any suggestions or run into bugs with this template, please feel free to open an issue or ask in the [Discord server](https://discord.gg/SbRM8mUjdE) and I will do 
 my best to assist, as long as the problem is directly related to this template project specifically and not one 
@@ -30,6 +29,7 @@ If you are unsure of how to use an included tool see if there is a tutorial avai
 
 # Setup 
 
+
 ## From ZIP file
 
 I would recommend using this template with GitHub (or a different repository host) and [Git](https://www.git-scm.com/), but 
@@ -38,6 +38,7 @@ if you want you can also download the template as a ZIP file by clicking on `Cod
 
 Once you have downloaded it, you can simply unpack the ZIP archive wherever you would like to set up your 
 project and continue reading at [Setting up Callisto](#setting-up-callisto).
+
 
 ## With GitHub and git
 
@@ -52,6 +53,7 @@ repository, but you would be doing so at your own risk.
 
 Now you can simply clone the repository to your local machine using `git clone`, like you would 
 with any other repository, then keep reading to find out how to set up Callisto (if you haven't previously done so).
+
 
 ## Setting up Callisto
 
@@ -69,6 +71,7 @@ Now, go ahead and press `R` in Callisto's menu, which will build the ROM you wil
 If the build succeeded, great! You can keep reading below.
 
 Otherwise, if you ran into issues, feel free to reach out in the [Discord server](https://discord.gg/SbRM8mUjdE).
+
 
 ## Git after First Build
 
@@ -111,6 +114,7 @@ To edit your hack in Lunar Magic, use `Edit` in Callisto's menu. This will launc
 
 Once you're ready to release your hack, package it with `Package`! This will just create a BPS patch from your current built ROM, that's all it does.
 
+
 ## Removing the only Conflict
 
 Callisto has a conflict detection feature which can detect when multiple steps of the build write to the same location in the ROM. With the configuration that is in use for this template, there should be only one conflict in total which you can see at the end of your `Rebuild`. This conflict is between PIXI and UberASMTool and is easily resolved, if you want to.
@@ -138,9 +142,11 @@ ORG $05D8B7
 That's all you have to do! There is nothing problematic about this conflict, it's just a small change you can make if you want to make sure you don't have any conflicts when starting out, which will also help make it more apparent when more conflicts come up as you add more patches and resources.
 
 
-## A Note on asar 1.91
+## A Note on Asar
 
-This template uses asar 1.81 by default, but customized versions of both 32-Bit and 64-Bit asar 1.91 DLLs are included at `callisto/asar` for your convenience. To use asar 1.91 instead of asar 1.81, just replace any `asar.dll` you want with the corresponding one from the `callisto/asar/v1.91` folder (make sure you use the correct one, it could be 32-Bit or 64-Bit depending on the tool). Note that while Callisto should work fine with asar 1.91, other tools may or may not.
+This template uses Asar 1.91 by default. Since 1.91 introduces deprecation warnings for the eventual release of Asar 2.00 and many users find these bothersome or confusing, they can be disabled by default for all patches and modules inserted by Callisto by setting the `disable_deprecation_warnings` configuration variable in `callisto/project.toml` to `true`, which you may find useful.
+
+If you for some reason require or prefer Asar 1.81, you can grab the `asar.dll` from the `tools/tool_downloader/asar/v1.81/64-bit` folder, copy it and replace the `asar.dll` next to `callisto/callisto.exe` with it. Make sure Callisto is not running while you do this or the `asar.dll` won't be overwritable.
 
 
 ## More Callisto Information

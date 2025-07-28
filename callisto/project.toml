@@ -65,3 +65,29 @@ ignored_conflict_symbols = [
 # instead of Lunar Magic's binary .map16 format
 # (git handles the text-based one much better)
 use_text_map16_format = true
+
+# Set to true to make callisto automatically reload your 
+# output ROM in Lunar Magic whenever a build succeeds
+#
+# Note that this only works when you launch Lunar Magic
+# through callisto's "Edit" function
+enable_automatic_reloads = true
+
+# Set to true to hide deprecation warnings in Asar 1.90+
+# for patches and modules inserted with callisto
+#
+# These warnings are usually only relevant for patch
+# and module developers. If you are not writing or
+# substantially modifying patches or modules that
+# are part of your project, you probably want to 
+# set this to true.
+disable_deprecation_warnings = false
+
+# Setting this to true will speed up your level
+# exports during Save on Lunar Magic versions
+# before 3.50.
+# If you are using a Lunar Magic version
+# that is 3.50 or newer, this should 
+# ALWAYS be set to false or level exports
+# will very likely break.
+enable_multithreaded_level_export = false
