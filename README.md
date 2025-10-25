@@ -10,8 +10,8 @@ In addition, this template could also serve as a "baserom for baserom" of sorts.
 
 This project template comes with the following tools:
 
-- [Callisto v0.5.0](https://github.com/Underrout/callisto/releases/tag/v0.5.0)
-- [Lunar Magic 3.51](https://dl.smwcentral.net/38972/)
+- [Callisto v0.6.0](https://github.com/Underrout/callisto/releases/tag/v0.6.0)
+- [Lunar Magic 3.61](https://dl.smwcentral.net/40737/)
 - [FLIPS](https://dl.smwcentral.net/11474/)
 - [AddmusicK 1.0.11](https://dl.smwcentral.net/37906/)
 - [GPS V1.4.4](https://dl.smwcentral.net/31515/)

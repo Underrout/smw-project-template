@@ -19,7 +19,7 @@ executable = "tools/flips/flips.exe"
 
 [tools.LunarMagic]
 # Path to Lunar Magic executable
-executable = "tools/lunar_magic/Lunar Magic.exe"
+executable = "tools/lunar_magic/x64/Lunar Magic.exe"
 
 [tools.generic.ToolDownloader]
 
