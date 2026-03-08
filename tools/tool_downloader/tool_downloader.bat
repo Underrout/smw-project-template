@@ -54,7 +54,7 @@ if %errorlevel% neq 0 (
 )
 
 REM Parameters for ExtractAndProcess
-set "downloadURL=https://dl.smwcentral.net/40737/"
+set "downloadURL=https://dl.smwcentral.net/41329/"
 set "targetFolder=tools\lunar_magic"
 set "itemsToRemove="
 set "filesToCopy="
