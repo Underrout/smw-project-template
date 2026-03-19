@@ -22,10 +22,10 @@ if %errorlevel% neq 0 (
 )
 
 REM Parameters for ExtractAndProcess
-set "downloadURL=https://dl.smwcentral.net/31515/"
+set "downloadURL=https://dl.smwcentral.net/40056/"
 set "targetFolder=tools\gps"
 set "itemsToRemove=Changes.txt src.zip"
-set "filesToCopy=tools\tool_downloader\asar\v1.81\32-Bit\asar.dll"
+set "filesToCopy=tools\tool_downloader\asar\v1.91\64-Bit\asar.dll"
 set "extractAll=true"
 
 REM Call ExtractAndProcess function
@@ -104,6 +104,24 @@ if %errorlevel% neq 0 (
     echo Something went wrong while attempting to set up '%targetFolder%'
     exit /b %errorlevel%
 )
+
+REM Parameters for ExtractAndProcess
+set "downloadURL=https://github.com/arinsuwu/bowsie/releases/download/v1.20/BOWSIE.v1.20-dynamic.zip"
+set "targetFolder=tools\bowsie"
+set "itemsToRemove=CHANGELOG.md README.md"
+set "filesToCopy=tools\tool_downloader\asar\v1.91\32-Bit\asar.dll"
+set "extractAll=true"
+
+REM Call ExtractAndProcess function
+call :ExtractAndProcess
+
+REM Exit with non-zero code if anything went wrong
+if %errorlevel% neq 0 (
+    echo Something went wrong while attempting to set up '%targetFolder%'
+    exit /b %errorlevel%
+)
+
+type nul > "%basePath%\tools\bowsie\list.txt"
 
 del /q "%basePath%\tools\tool_downloader\asar\32-Bit\ASAR_LICENSE" > nul 2>&1
 del /q "%basePath%\tools\tool_downloader\asar\64-Bit\ASAR_LICENSE" > nul 2>&1

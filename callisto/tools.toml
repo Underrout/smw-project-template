@@ -151,3 +151,17 @@ static_dependencies = [
 	{ path = "asm/SNES/patch2.asm" },
 ]
 dependency_report_file = ".dependencies"
+
+[tools.generic.Bowsie]
+directory = "tools/bowsie"
+options = "--slots=24 list.txt"
+executable = "bowsie.exe"
+
+static_dependencies = [ 
+    { path = "bowsie.exe", policy = "rebuild" },
+
+    { path = "list.txt" },
+	{ path = "asar.dll", policy = "rebuild" },
+	{ path = "routines" },
+]
+dependency_report_file = ".dependencies"

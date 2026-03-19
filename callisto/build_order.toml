@@ -32,5 +32,7 @@ build_order = [
     "UberASM",                  # Insert UberASM code
     "AddMusicK",                # Insert custom music
 
+    # "Bowsie",                   # Uncomment this if you need Bowsie
+
   	# "patches/some_patch.asm",   # Example of inserting a specific patch at a specific point
 ]

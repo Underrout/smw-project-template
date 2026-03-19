@@ -10,13 +10,14 @@ In addition, this template could also serve as a "baserom for baserom" of sorts.
 
 This project template comes with the following tools:
 
-- [Callisto v0.6.0](https://github.com/Underrout/callisto/releases/tag/v0.6.0)
-- [Lunar Magic 3.61](https://dl.smwcentral.net/40737/)
-- [FLIPS](https://dl.smwcentral.net/11474/)
-- [AddmusicK 1.0.11](https://dl.smwcentral.net/37906/)
-- [GPS V1.4.4](https://dl.smwcentral.net/31515/)
-- [PIXI v1.42](https://dl.smwcentral.net/37432/)
+- [Callisto v0.6.2](https://github.com/Underrout/callisto/releases/tag/v0.6.2)
+- [Lunar Magic 3.63](https://smwc.me/s/41329)
+- [FLIPS v1.31](https://smwc.me/s/11474)
+- [AddmusicK 1.0.11](https://smwc.me/s/37906)
+- [GPS V1.4.5](https://smwc.me/s/40056)
+- [PIXI v1.42](https://smwc.me/s/37432)
 - [UberASMTool 2.1](https://github.com/Fernap/UberASMTool/releases/tag/2.1)
+- [Bowsie v1.20](https://github.com/arinsuwu/bowsie/releases/tag/v1.20) (disabled by default)
 
 In addition, it comes pre-patched with SA-1 Pack v1.40 (though switching to FastROM is easy if you ever want to, take a peek at `resources.toml` to see how) and includes a handy `.gitignore` file that contains ignore rules for common build artifacts.
 
