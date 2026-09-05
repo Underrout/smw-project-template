@@ -67,7 +67,7 @@ clean_rom = "C:/Users/User/Documents/clean_rom.smc"
 
 And that's all the necessary setup. As previously stated, you only have to do this `clean_rom` part once as long as the ROM doesn't move from the path you specified. Any time from now on that you use Callisto for any project, it will already know where to find the ROM.
 
-Now, go ahead and press `R` in Callisto's menu, which will build the ROM you will be working on. A script will ensure that all tools needed are downloaded automatically. This script might screw up the console font, but this should only happen on the initial downloads, if it's bothersome you can just restart Callisto.
+Now, go ahead and press `B` in Callisto's menu, which will build the ROM you will be working on. A script will ensure that all tools needed are downloaded automatically. This script might screw up the console font, but this should only happen on the initial downloads, if it's bothersome you can just restart Callisto.
 
 If the build succeeded, great! You can keep reading below.
 
@@ -109,7 +109,7 @@ patches = [
 ]
 ```
 
-Adding sprites, blocks, music, etc. all work like normal, except instead of running the tool that would usually insert the sprite, block, music, etc. Callisto will do this for you! Just press `R` in Callisto's menu and it will build the ROM from scratch, applying all tools to it freshly. Alternatively, you can also use `U` to "update" the ROM, which will only apply the tools that have actually had any files changed since the last time you built. `Update` is usually much faster than `Rebuild`, but can sometimes be less accurate. I would thus recommend usually using `Update` and only using `Rebuild` when something is wrong or when you want to make sure that your hack can still be built from scratch without issues.
+Adding sprites, blocks, music, etc. all work like normal, except instead of running the tool that would usually insert the sprite, block, music, etc. Callisto will do this for you! Just press `B` in Callisto's menu and it will build the ROM from scratch, applying all tools to it freshly. Alternatively, you can also use `U` to "update" the ROM, which will only apply the tools that have actually had any files changed since the last time you built. `Update` is usually much faster than `Rebuild`, but can sometimes be less accurate. I would thus recommend usually using `Update` and only using `Rebuild` when something is wrong or when you want to make sure that your hack can still be built from scratch without issues.
 
 To edit your hack in Lunar Magic, use `Edit` in Callisto's menu. This will launch your ROM in Lunar Magic or bring an existing Lunar Magic window to the foreground if there already is one. If you launch your ROM this way, Callisto will automatically export resources from it in the background whenever you save a level, map16 or the overworld. In addition, Callisto will also automatically reload the ROM in Lunar Magic for you when a `Rebuild` or `Update` finishes successfully. Note that this *only* works if you launch Lunar Magic through `Edit`, not if you launch Lunar Magic yourself!
 
